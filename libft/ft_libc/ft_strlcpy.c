@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:35:23 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/22 12:35:24 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/23 13:32:15 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (src[i] && i < (dstsize - 1))
