@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:34:15 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/23 13:13:38 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/23 17:11:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	void *restrict	res;
 	unsigned char	*dst1;
 	unsigned char	*src1;
 	size_t	i;
 
-	res = dst;
 	dst1 = (unsigned char *)dst;
 	src1 = (unsigned char *)src;
 	i = 0;
@@ -29,5 +27,5 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 		i++;
 	}
 	dst = dst1;
-	return (res);
+	return (dst);
 }
