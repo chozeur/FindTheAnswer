@@ -6,8 +6,13 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:34:28 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/22 12:34:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/23 15:26:33 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../header/libft.h"
 
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	
+}
