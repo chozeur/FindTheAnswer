@@ -6,43 +6,17 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 13:33:10 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/24 15:39:47 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
- * toupper
- * tolower
- * strchr
- * strrchr
- * strnstr
- * strncmp
- * strlen
- * strlcat
- * strlcpy
- * strdup
- * memset
- * memcpy
- * memmove
- * memcmp
- * memchr
- * isprint
- * isdigit
- * isascii
- * isalpha
- * isalnum
- * calloc
- * bzero
- * atoi
- * */
-
-
-#include "../header/libft.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
+#include <ctype.h>
+#include <bsd/string.h>
+#include "../header/libft.h"
 
 int	main(void)
 {
@@ -57,7 +31,7 @@ int	main(void)
 	char	low1 = 'A';
 	char	low2 = '0';
 	char	low3 = '!';
-	if (toupper(low0) == ft_toupper(low0) && toupper(low0) == ft_toupper(low0) && toupper(low0) == ft_toupper(low0) && toupper(low0) == ft_toupper(low0))
+	if (toupper(low0) == ft_toupper(low0) && toupper(low1) == ft_toupper(low1) && toupper(low2) == ft_toupper(low2) && toupper(low3) == ft_toupper(low3))
 		printf("ft_toupper : OK\n");
 	else
 		printf("ft_toupper : FAIL\n");
@@ -82,6 +56,7 @@ int	main(void)
 		printf("ft_strrchr : OK\n");
 	else
 		printf("ft_strrchr : FAIL\n");
+/*
 // strnstr
 	char	look0[256] = "Just look at it";
 	char	tofind[256] = "look";
@@ -90,6 +65,7 @@ int	main(void)
 		printf("ft_strnstr : OK\n");
 	else
 		printf("ft_strnstr : FAIL\n");
+*/
 // strncmp
 	char	cmp0[256] = "Verifions ft_strncmp";
 	char	cmp1[256] = "Verifions ft_strncmp";
@@ -107,7 +83,8 @@ int	main(void)
 		printf("ft_strlen : OK\n");
 	else
 		printf("ft_strlen : FAIL\n");
-// strlcat
+/*
+ // strlcat
 	char	srcat0[256] = "Chaine 1";
 	char	srcat1[256] = "Chaine 2";
 	char	ft_srcat0[256] = "Chaine 1";
@@ -135,6 +112,7 @@ int	main(void)
 	}
 	else
 		printf("ft_strlcpy : FAIL\n");
+*/
 // strdup
 	char	ft_sdup0[256] = "duplicated";
 	char	*ft_sdup1;
@@ -231,7 +209,7 @@ int	main(void)
 
 	cal0 = calloc(42, sizeof(char));
 	cal1 = ft_calloc(42, sizeof(char));
-	if (memcmp(cal0, cal1) == 0)
+	if (strcmp(cal0, cal1) == 0)
 		printf("ft_calloc : OK\n");
 	else
 		printf("ft_calloc : FAIL\n");
@@ -241,7 +219,7 @@ int	main(void)
 
 	bzero(zero0, 42);
 	ft_bzero(zero1, 42);
-	if (memcmp(zero0, zero1) == 0)
+	if (strcmp(zero0, zero1) == 0)
 		printf("ft_bzero : OK\n");
 	else
 		printf("ft_bzero : FAIL\n");
