@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 15:39:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/24 15:57:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,6 @@ int	main(void)
 		printf("ft_strncmp : OK\n");
 	else
 		printf("ft_strncmp : FAIL\n");
-// strlen
-	char	slen0[256] = "test len";
-	char	slen1[256] = "";
-
-	if (ft_strlen(slen0) == strlen(slen0) && ft_strlen(slen1) == strlen(slen1))
-		printf("ft_strlen : OK\n");
-	else
-		printf("ft_strlen : FAIL\n");
 /*
  // strlcat
 	char	srcat0[256] = "Chaine 1";
