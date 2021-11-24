@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 12:30:23 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/24 13:33:10 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,4 +158,102 @@ int	main(void)
 		printf("ft_memset : OK\n");
 	else
 		printf("ft_memset : FAIL\n");
+// memcpy
+	char	mcpy0[256] = "        copy";
+	char	mcpy1[256] = "succeed";
+	char	ft_mcpy0[256] = "        copy";
+	char	ft_mcpy1[256] = "succeed";
+
+	ft_memcpy(ft_mcpy0, ft_mcpy1, 7);
+	memcpy(mcpy0, mcpy1, 7);
+	if (strcmp(ft_mcpy0, mcpy0) == 0)
+		printf("ft_memcpy : OK\n");
+	else
+		printf("ft_memcpy : FAIL\n");
+// memmove
+	char	move0[256] = "        move";
+	char	move1[256] = "succeed";
+	char	ft_move0[256] = "        move";
+	char	ft_move1[256] = "succeed";
+
+	memmove(move0, move1, 7);
+	ft_memmove(ft_move0, ft_move1, 7);
+	if (strcmp(move0, ft_move0) == 0)
+		printf("ft_memmove : OK\n");
+	else
+		printf("ft_memmove : FAIL\n");
+// memcmp
+	char	mcmp0[256] = "compare the mem";
+	char	mcmp1[256] = "compare the mem";
+	char	mcmp2[256] = "check the mem";
+
+	if (ft_memcmp(mcmp0, mcmp1, 21) == memcmp(mcmp0, mcmp1, 21) && ft_memcmp(mcmp0, mcmp2, 21) == memcmp(mcmp0, mcmp2, 21))
+		printf("ft_memcmp : OK\n");
+	else
+		printf("ft_memcmp : FAIL\n");
+// memchr
+	char	mchr0[256] = "check [d] in this phrase";
+	char	d = 'd';
+	char	z = 'z';
+
+	if (ft_memchr(mchr0, d, 42) == memchr(mchr0, d, 42) && ft_memchr(mchr0, z, 42) == memchr(mchr0, z, 42))
+		printf("ft_memchr : OK\n");
+	else
+		printf("ft_memchr : FAIL\n");
+// isprint
+	if (ft_isprint(d) == isprint(d))
+		printf("ft_isprint : OK\n");
+	else
+		printf("ft_isprint : FAIL\n");
+// isascii
+	if (ft_isascii(d) == isascii(d))
+		printf("ft_isascii : OK\n");
+	else
+		printf("ft_isascii : FAIL\n");
+// isalpha
+	if (ft_isalpha(d) == isalpha(d) && ft_isalpha('4') == isalpha('2'))
+		printf("ft_isalpha : OK\n");
+	else
+		printf("ft_isalpha : FAIL\n");
+// isalnum
+	if (ft_isalnum(d) && ft_isalnum('4') && !ft_isalnum('&'))
+		printf("ft_isalnum : OK\n");
+	else
+		printf("ft_isalnum : FAIL\n");
+// isdigit
+	if (ft_isdigit('4') && !ft_isdigit(d))
+		printf("ft_isdigit : OK\n");
+	else
+		printf("ft_isdigit : FAIL\n");
+// calloc
+	char	*cal0;
+	char	*cal1;
+
+	cal0 = calloc(42, sizeof(char));
+	cal1 = ft_calloc(42, sizeof(char));
+	if (memcmp(cal0, cal1) == 0)
+		printf("ft_calloc : OK\n");
+	else
+		printf("ft_calloc : FAIL\n");
+// bzero
+	char	zero0[256] = "";
+	char	zero1[256] = "";
+
+	bzero(zero0, 42);
+	ft_bzero(zero1, 42);
+	if (memcmp(zero0, zero1) == 0)
+		printf("ft_bzero : OK\n");
+	else
+		printf("ft_bzero : FAIL\n");
+// atoi
+	char	at0[256] = "   123ab456";
+	char	at1[256] = "123ab456";
+	char	at2[256] = "  -123ab456";
+	char	at3[256] = "abcd123456";
+
+	if (ft_atoi(at0) == atoi(at0) && ft_atoi(at1) == atoi(at1) && ft_atoi(at2) == atoi(at2) && ft_atoi(at3) == atoi(at3))
+		printf("ft_atoi : OK\n");
+	else
+		printf("ft_atoi : FAIL\n");
+	return (0);
 }
