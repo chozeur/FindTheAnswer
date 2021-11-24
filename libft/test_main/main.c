@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 02:24:09 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/24 12:30:23 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,55 @@ int	main(void)
 		printf("ft_strlen : OK\n");
 	else
 		printf("ft_strlen : FAIL\n");
+// strlcat
+	char	srcat0[256] = "Chaine 1";
+	char	srcat1[256] = "Chaine 2";
+	char	ft_srcat0[256] = "Chaine 1";
+	char	ft_srcat1[256] = "Chaine 2";
+
+	if (ft_strlcat(ft_srcat0, ft_srcat1, ft_strlen(ft_srcat0) + 1) == strlcat(srcat0, srcat1, ft_strlen(srcat0) + 1))
+	{
+		printf("ft_strlcat : OK\n");
+		printf("ft_strlcat = %s\n", ft_srcat0);
+		printf("strlcat = %s\n", srcat0);
+	}
+	else
+		printf("ft_strlcat : FAIL\n");
+// strlcpy
+	char	srcpy0[256] = "copiee";
+	char	srcpy1[256] = "COPIEE";
+	char	ft_srcpy0[256] = "copiee";
+	char	ft_srcpy1[256] = "COPIEE";
+
+	if (ft_strlcpy(ft_srcpy0, ft_srcpy1, ft_strlen(ft_srcpy0) + 1) == strlcpy(srcpy0, srcpy1, ft_strlen(srcpy0) + 1))
+	{
+		printf("ft_strlcpy : OK\n");
+		printf("ft_strlcpy = %s\n", ft_srcpy0);
+		printf("strlcpy = %s\n", srcpy0);
+	}
+	else
+		printf("ft_strlcpy : FAIL\n");
+// strdup
+	char	ft_sdup0[256] = "duplicated";
+	char	*ft_sdup1;
+	char	sdup0[256] = "duplicated";
+	char	*sdup1;
+
+	ft_sdup1 = ft_strdup(ft_sdup0);
+	sdup1 = strdup(sdup0);
+	if (strcmp(ft_sdup1, sdup1) == 0)
+		printf("ft_strdup : OK\n");
+	else
+		printf("ft_strdup : FAIL\n");
+// memset
+	char	ft_mset[256] = "    \0";
+	char	mset[256] = "    \0";
+	char	cset = 'T';
+
+	ft_memset(ft_mset, cset, 4);
+	memset(mset, cset, 4);
+	if (strcmp(ft_mset, mset) == 0)
+		printf("ft_memset : OK\n");
+	else
+		printf("ft_memset : FAIL\n");
 }
