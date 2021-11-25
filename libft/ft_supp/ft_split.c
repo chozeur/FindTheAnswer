@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:09:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 19:44:07 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:59:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	count_words(char *str, char set)
+int	count_words(char const *str, char set)
 {
 	int	i;
 	int	count;
@@ -31,13 +31,13 @@ int	count_words(char *str, char set)
 	return (count);
 }
 
-char	*strdup_custom(char *str, char set, int *i)
+char	*strdup_custom(char const *str, char set, int *i)
 {
 	char	*res;
 	int	j;
 
 	j = 0;
-	while (str[i] != set)
+	while (str[j] != set)
 		j++;
 	res = malloc(sizeof(char) * (j +1));
 	if (res == NULL)
@@ -80,4 +80,26 @@ char	**ft_split(char const *s, char c)
 	}
 	res[j] = NULL;
 	return (res);
+}
+
+/////////////////////////////////
+
+#include <stdio.h>
+
+int	main(int ac, char **av)
+{
+	int	i;
+	char	**split;
+
+	if (ac != 3)
+		return (-1);
+	printf("str = %s\tcharset = %c\n", av[1], av[2][0]);
+	split = ft_split(av[1], av[2][0]);
+	i = 0;
+	while (split[i])
+	{
+		printf("split[%d] = %s\n", i, split[i]);
+		i++;
+	}
+	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 14:57:22 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 15:24:24 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:42:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-int	isset(char c, char *set)
+int	isset(char c, char const *set)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	isset(char c, char *set)
 	return (0);
 }
 
-size_t	ft_trimlen(char *str, char *set)
+size_t	ft_trimlen(char const *str, char const *set)
 {
 	size_t	i;
 	size_t	j;
@@ -68,5 +68,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i++;
 		j++;
 	}
+	res[i] = '\0';
 	return (res);
 }
