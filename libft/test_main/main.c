@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_libc.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 15:24:16 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:56:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 #include <stddef.h>
 #include <ctype.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 #include "../header/libft.h"
 
 int	main(void)
@@ -227,7 +227,7 @@ int	main(void)
 		printf("ft_atoi : FAIL\n");
 	return (0);
 // substr
-	char	sub0[256] = "test of ft_substr w/ different lenghts";
+	//char	sub0[256] = "test of ft_substr w/ different lenghts";
 // strjoin
 // trim
 // split
