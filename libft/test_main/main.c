@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 18:33:55 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 16:56:26 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/25 20:16:50 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	main(void)
 		printf("ft_strrchr : OK\n");
 	else
 		printf("ft_strrchr : FAIL\n");
-/*
 // strnstr
 	char	look0[256] = "Just look at it";
 	char	tofind[256] = "look";
@@ -65,7 +64,6 @@ int	main(void)
 		printf("ft_strnstr : OK\n");
 	else
 		printf("ft_strnstr : FAIL\n");
-*/
 // strncmp
 	char	cmp0[256] = "Verifions ft_strncmp";
 	char	cmp1[256] = "Verifions ft_strncmp";
@@ -75,7 +73,6 @@ int	main(void)
 		printf("ft_strncmp : OK\n");
 	else
 		printf("ft_strncmp : FAIL\n");
-/*
  // strlcat
 	char	srcat0[256] = "Chaine 1";
 	char	srcat1[256] = "Chaine 2";
@@ -104,7 +101,6 @@ int	main(void)
 	}
 	else
 		printf("ft_strlcpy : FAIL\n");
-*/
 // strdup
 	char	ft_sdup0[256] = "duplicated";
 	char	*ft_sdup1;
