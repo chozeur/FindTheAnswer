@@ -6,7 +6,7 @@
 #    By: flcarval <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 16:46:14 by flcarval          #+#    #+#              #
-#    Updated: 2021/11/29 18:07:24 by flcarval         ###   ########.fr        #
+#    Updated: 2021/11/29 18:51:32 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
-.c:.o:
+.c.o:
 	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS_M)
