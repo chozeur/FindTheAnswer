@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 16:54:42 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 20:05:44 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/29 18:43:48 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (res);
 }
 
-/////////////////////////////////////////////////
-
+/*
 #include <stdio.h>
 
 int	main()
@@ -43,3 +42,4 @@ int	main()
 	printf("str = %s\tstart = %d\tlen = %ld\tsub = %s\n", str, start, len, ft_substr(str, start, len));
 	return (0);
 }
+*/

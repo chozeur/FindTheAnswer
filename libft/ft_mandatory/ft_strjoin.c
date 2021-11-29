@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 17:16:39 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 20:12:05 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/29 18:44:07 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (res);
 }
 
-///////////////////////////////////////
-
+/*
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -40,3 +39,4 @@ int	main(int ac, char **av)
 	printf("s1 = %s\ts2 = %s\tjoin = %s\n", av[1], av[2], ft_strjoin(av[1], av[2]));
 	return (0);
 }
+*/

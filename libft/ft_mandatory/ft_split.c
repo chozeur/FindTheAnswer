@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:09:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 18:59:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/29 18:44:30 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 
-/////////////////////////////////
-
+/*
 #include <stdio.h>
 
 int	main(int ac, char **av)
@@ -103,3 +102,4 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
+*/
