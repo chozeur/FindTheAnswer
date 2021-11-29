@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 10:44:21 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 17:07:53 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 16:54:51 by flcarval          #+#    #+#             */
+/*   Updated: 2021/11/26 17:10:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_putnbr_fd(int n, int fd)
 {
-	while (lst->next)
+	if (n == -2147483648)
 	{
-		lst = lst->next;
+		ft_putstr_fd("-2147483648", fd);
+		return;
 	}
-	return (lst);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	ft_putchar_fd(n + 48, fd);
 }

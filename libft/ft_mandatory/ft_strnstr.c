@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 10:44:21 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 17:07:53 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:35:50 by flcarval          #+#    #+#             */
+/*   Updated: 2021/11/24 15:33:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	while (lst->next)
+	size_t	i;
+	size_t	j;
+	char	*ptr;
+
+	ptr = NULL;
+	i = 0;
+	if (!little[i])
+		ft_strlcpy(ptr, big, ft_strlen(big));
+	while (big[i])
 	{
-		lst = lst->next;
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (little[j] && j < len)
+			{
+				if (big[i + j] != little[j])
+					break ;
+				j++;
+			}
+			if (j == len)
+				ptr = (char *)&big[i];
+		}
+		i++;
 	}
-	return (lst);
+	return (ptr);
 }

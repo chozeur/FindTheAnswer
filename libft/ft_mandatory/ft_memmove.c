@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 10:44:21 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 17:07:53 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:34:28 by flcarval          #+#    #+#             */
+/*   Updated: 2021/11/23 18:24:44 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	while (lst->next)
+	unsigned char	*tmp;
+	unsigned char	*srctmp;
+	size_t	i;
+
+	tmp = (unsigned char *)dst;
+	srctmp = (unsigned char *)src;
+	i = 0;
+	while (i < len)
 	{
-		lst = lst->next;
+		tmp[i] = srctmp[i];
+		i++;
 	}
-	return (lst);
+	tmp[i] = '\0';
+	dst = tmp;
+	return (dst);
 }

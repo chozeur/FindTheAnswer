@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 10:44:21 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 17:07:53 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:34:40 by flcarval          #+#    #+#             */
+/*   Updated: 2021/11/23 12:50:06 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	while (lst->next)
+	size_t	i;
+	unsigned char	*str;
+
+	str = (unsigned char *)b;
+	i = 0;
+	while (i < len)
 	{
-		lst = lst->next;
+		str[i] = c;
+		i++;
 	}
-	return (lst);
+	b = str;
+	return (b);
 }
