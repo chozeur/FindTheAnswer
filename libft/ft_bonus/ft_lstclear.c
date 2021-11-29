@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 14:51:53 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 14:58:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/11/29 15:16:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		j = i;
 		i = i->next;
-		ft_lstdelone(j, (*del)(void *));
+		ft_lstdelone(j, del);
 	}
 }
