@@ -37,7 +37,11 @@ size_t	ft_trimlen(char const *str, char const *set)
 	j = 0;
 	k = ft_strlen(str);
 	while (str[i] && isset(str[i], set) == 1)
+	{
 		i++;
+		if (i == ft_strlen(str))
+			return (0);
+	}
 	while (str[k - 1] && isset(str[k - 1], set) == 1)
 	{
 		k--;

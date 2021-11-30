@@ -17,7 +17,9 @@ int	nlen(int n)
 	int	res;
 
 	res = 0;
-	if (n >= 0 && n <= 9)
+	if (n == -2147483648)
+		return (11);
+	if ((n >= 0 && n <= 9) || (n <= 0 && n >= -9))
 	{
 		res = 1;
 		return (res);
@@ -37,23 +39,26 @@ char	*ft_itoa(int n)
 {
 	char	*res;
 	int	size;
+	long	l;
 
 	size = nlen(n);
 	res = malloc(sizeof(char) * (size + 1));
 	if (res == NULL)
 		return (NULL);
-	if (n < 0)
+	l = n;
+	res[size] = '\0';
+	if (l < 0)
 	{
 		res[0] = '-';
-		n *= -1;
+		l *= -1;
 	}
-	while (n > 9 || n < -9)
+	while (l > 9)
 	{
-		res[size - 1] = n % 10 + 48;
-		n = n / 10;
+		res[size - 1] = l % 10 + 48;
+		l = l / 10;
 		size--;
 	}
-	if ((n >= 0 && n <= 9) || (n <= 0 && n >= -9))
-		res[size - 1] = n + 48;
+	if ((l >= 0 && l <= 9))
+		res[size - 1] = l + 48;
 	return (res);
 }
