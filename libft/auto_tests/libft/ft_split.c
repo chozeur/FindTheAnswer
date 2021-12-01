@@ -60,6 +60,8 @@ char	**ft_split(char const *s, char c)
 	int	i;
 	int	j;
 
+	if (!s)
+		return (NULL);
 	wds = count_words(s, c);
 	res = malloc(sizeof(char *) * (wds + 1));
 	if (res == NULL)
@@ -81,25 +83,3 @@ char	**ft_split(char const *s, char c)
 	res[j] = NULL;
 	return (res);
 }
-
-/*
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	int	i;
-	char	**split;
-
-	if (ac != 3)
-		return (-1);
-	printf("str = %s\tcharset = %c\n", av[1], av[2][0]);
-	split = ft_split(av[1], av[2][0]);
-	i = 0;
-	while (split[i])
-	{
-		printf("split[%d] = %s\n", i, split[i]);
-		i++;
-	}
-	return (0);
-}
-*/

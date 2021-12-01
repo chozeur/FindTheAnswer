@@ -58,6 +58,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 	size_t	j;
 
+	if (!s1 || !set)
+		return (NULL);
 	trimlen = ft_trimlen(s1, set);
 	res = malloc(sizeof(char) * (trimlen + 1));
 	if (res == NULL)
