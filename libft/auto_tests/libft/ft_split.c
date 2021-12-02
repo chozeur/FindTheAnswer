@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 19:09:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/29 18:44:30 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:57:41 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	count_words(char const *str, char set)
 {
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 
 	count = 0;
 	i = 0;
@@ -34,7 +34,7 @@ int	count_words(char const *str, char set)
 char	*strdup_custom(char const *str, char set, int *i)
 {
 	char	*res;
-	int	j;
+	int		j;
 
 	j = 0;
 	while (str[j] != set)
@@ -53,12 +53,18 @@ char	*strdup_custom(char const *str, char set, int *i)
 	return (res);
 }
 
+void	c_supply(char const *s, int *i, char c)
+{
+	while (s[*i] == c)
+		(*i)++;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	int	wds;
-	int	i;
-	int	j;
+	int		wds;
+	int		i;
+	int		j;
 
 	if (!s)
 		return (NULL);
@@ -70,15 +76,13 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (j < wds)
 	{
-		while (s[i] == c)
-			i++;
+		c_supply(s, &i, c);
 		if (s[i] != c)
 		{
 			res[j] = strdup_custom(&s[i], c, &i);
 			j++;
 		}
-		while (s[i] == c)
-			i++;
+		c_supply(s, &i, c);
 	}
 	res[j] = NULL;
 	return (res);

@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:35:02 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/22 12:35:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:58:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int	len;
-	int	i;
+	int		len;
+	int		i;
 	char	*res;
 
 	len = ft_strlen(s1);

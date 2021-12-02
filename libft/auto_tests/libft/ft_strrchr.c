@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:36:01 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/23 13:34:52 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 15:04:48 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
-	int	t;
+	int		i;
+	int		t;
 	char	*ptr;
 
 	i = 0;

@@ -6,12 +6,11 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:35:11 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/23 13:30:23 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:58:40 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {

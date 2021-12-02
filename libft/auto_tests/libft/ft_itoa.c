@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:59:24 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/25 18:22:13 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 14:35:30 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	nlen(int n)
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int	size;
+	int		size;
 	long	l;
 
 	size = nlen(n);
