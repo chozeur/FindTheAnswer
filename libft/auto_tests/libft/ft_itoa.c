@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:59:24 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/02 14:35:30 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:01:50 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nlen(int n)
+static int	nlen(int n)
 {
 	int	res;
 
