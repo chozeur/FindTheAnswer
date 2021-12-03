@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:35:50 by flcarval          #+#    #+#             */
-/*   Updated: 2021/11/24 15:33:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/03 17:17:43 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (little[0] == '\0' /*|| big == NULL*/)
+	if (little[0] == '\0')
 		return ((char *)big);
 	i = 0;
 	while (big[i])
@@ -36,3 +36,5 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
+// TO PROTECT FROM ORIGINAL SEGFAULT
+// in the first if() -> add "|| big == NULL"
