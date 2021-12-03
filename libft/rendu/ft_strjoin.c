@@ -1,48 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:54:42 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/03 20:09:27 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/24 17:16:39 by flcarval          #+#    #+#             */
+/*   Updated: 2021/11/29 18:44:07 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strnlen(char const *s, size_t max)
-{
-	size_t	res;
-
-	res = 0;
-	while (s[res] && res < max)
-		res++;
-	return (res);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
-	size_t	i;
+	size_t	s1len;
+	size_t	s2len;
 
-	if (!s)
+	if (!s1 || !s2)
 		return (NULL);
-	if (start >= ft_strlen(s))
-	{
-		res = ft_strdup("\0");
-		return (res);
-	}
-	res = malloc(sizeof(char) * (ft_strnlen(s, len) + 1));
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	res = malloc(sizeof(char) * (s1len + s2len + 1));
 	if (res == NULL)
 		return (NULL);
-	i = 0;
-	while (i < len && s[(unsigned int)i + start])
-	{
-		res[i] = s[start + (unsigned int)i];
-		i++;
-	}
-	res[i] = '\0';
+	res[0] = '\0';
+	ft_strlcat(res, s1, s1len + s2len + 1);
+	ft_strlcat(res, s2, s1len + s2len + 1);
 	return (res);
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:34:53 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/03 17:53:50 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:35:23 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/03 17:16:02 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (s[i])
+	if (dstsize > 0)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+		while (src[i] && i < (dstsize - 1))
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
-	return (NULL);
+	return (ft_strlen(src));
 }
+	// TO PROTECT FROM ORIGINAL SEGFAULT :
+	//
+	// if (dst == NULL || src == NULL)
+	// return (0);

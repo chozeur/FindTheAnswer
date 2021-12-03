@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:34:53 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/03 17:53:50 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 18:54:43 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/02 14:36:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	t_list	*count;
+	int		i;
 
+	count = lst;
 	i = 0;
-	while (s[i])
+	while (count != NULL)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		count = count->next;
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
-	return (NULL);
+	return (i);
 }

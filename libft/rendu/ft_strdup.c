@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 16:54:42 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/03 20:09:27 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:35:02 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/02 14:58:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strnlen(char const *s, size_t max)
+char	*ft_strdup(const char *s1)
 {
-	size_t	res;
-
-	res = 0;
-	while (s[res] && res < max)
-		res++;
-	return (res);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
+	int		len;
+	int		i;
 	char	*res;
-	size_t	i;
 
-	if (!s)
-		return (NULL);
-	if (start >= ft_strlen(s))
-	{
-		res = ft_strdup("\0");
-		return (res);
-	}
-	res = malloc(sizeof(char) * (ft_strnlen(s, len) + 1));
+	len = ft_strlen(s1);
+	res = malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
 		return (NULL);
 	i = 0;
-	while (i < len && s[(unsigned int)i + start])
+	while (s1[i])
 	{
-		res[i] = s[start + (unsigned int)i];
+		res[i] = s1[i];
 		i++;
 	}
 	res[i] = '\0';

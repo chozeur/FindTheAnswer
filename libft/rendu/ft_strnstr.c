@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:34:53 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/03 17:53:50 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:35:50 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/03 17:17:43 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
+	if (little[0] == '\0')
+		return ((char *)big);
 	i = 0;
-	while (s[i])
+	while (big[i])
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+		j = 0;
+		if (big[i] == little[j])
+		{
+			while (big[i + j] == little[j] && len > i + j)
+			{
+				if (little[j + 1] == '\0')
+					return ((char *)&big[i]);
+				j++;
+			}
+		}
 		i++;
 	}
-	if (s[i] == (char)c)
-		return ((char *)&s[i]);
 	return (NULL);
 }
+// TO PROTECT FROM ORIGINAL SEGFAULT
+// in the first if() -> add "|| big == NULL"
