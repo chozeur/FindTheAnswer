@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 17:16:39 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/07 18:30:38 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/07 18:33:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res[0] = '\0';
 	ft_strlcat(res, s1, s1len + s2len + 1);
 	ft_strlcat(res, s2, s1len + s2len + 1);
-	free(s1);
 	return (res);
 }
