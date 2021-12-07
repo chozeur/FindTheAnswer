@@ -6,7 +6,7 @@
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 18:43:14 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/07 17:51:28 by florian          ###   ########.fr       */
+/*   Updated: 2021/12/07 18:10:34 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ void	ft_lstadd_front(t_list **alst, t_list *new)
 		new->next = *alst;
 		*alst = new;
 	}
+	*alst = new;
 }
