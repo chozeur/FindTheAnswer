@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flcarval <flcarval@student.42.fr>+#+  +:+       +#+        */
+/*   By: flcarval <flcarval@student.42.fr>			+#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:59:24 by flcarval          #+#    #+#             */
 /*   Updated: 2021/12/02 20:01:50 by flcarval         ###   ########.fr       */
