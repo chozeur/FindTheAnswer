@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flcarval <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: flcarval <flcarval@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 16:46:14 by flcarval          #+#    #+#              #
-#    Updated: 2021/11/29 18:51:32 by flcarval         ###   ########.fr        #
+#    Updated: 2021/12/03 21:42:19 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-MANDATORY = $(addprefix ft_mandatory/ft_, atoi.c bzero.c calloc.c isalnum.c\
+MANDATORY = $(addprefix libft/ft_, atoi.c bzero.c calloc.c isalnum.c\
 			isalpha.c isascii.c isdigit.c isprint.c itoa.c memchr.c memcmp.c\
 			memcpy.c memmove.c memset.c putchar_fd.c putendl_fd.c putnbr_fd.c\
 			putstr_fd.c split.c strchr.c strdup.c striteri.c strjoin.c strlcat.c\
 			strlcpy.c strlen.c strmapi.c strncmp.c strnstr.c strrchr.c strtrim.c\
 			substr.c tolower.c toupper.c)
-BONUSES = $(addprefix ft_bonus/ft_, lstadd_back.c lstadd_front.c lstclear.c\
+BONUSES = $(addprefix libft/ft_, lstadd_back.c lstadd_front.c lstclear.c\
 		  lstdelone.c lstiter.c lstlast.c lstmap.c lstnew.c lstsize.c)
 OBJS_M = ${MANDATORY:.c=.o}
 OBJS_B = ${BONUSES:.c=.o}
