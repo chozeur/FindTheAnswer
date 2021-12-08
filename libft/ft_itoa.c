@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:29:50 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/07 18:29:55 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:03:50 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static int	nlen(int n)
 		res = 1;
 		return (res);
 	}
-	if (n < 0)
-		res = 1;
 	while (n > 9 || n < -9)
 	{
 		n = n / 10;
@@ -33,6 +31,13 @@ static int	nlen(int n)
 	}
 	res++;
 	return (res);
+}
+
+static int	isneg(int n)
+{
+	if (n < 0)
+		return (-1);
+	return (1);
 }
 
 char	*ft_itoa(int n)
@@ -45,13 +50,8 @@ char	*ft_itoa(int n)
 	res = malloc(sizeof(char) * (size + 1));
 	if (res == NULL)
 		return (NULL);
-	l = n;
+	l = n * isneg(n);
 	res[size] = '\0';
-	if (l < 0)
-	{
-		res[0] = '-';
-		l *= -1;
-	}
 	while (l > 9)
 	{
 		res[size - 1] = l % 10 + 48;
@@ -60,5 +60,7 @@ char	*ft_itoa(int n)
 	}
 	if ((l >= 0 && l <= 9))
 		res[size - 1] = l + 48;
+	if (isneg(n) == -1)
+		return (ft_strjoin("-", res));
 	return (res);
 }
