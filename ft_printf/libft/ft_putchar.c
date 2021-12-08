@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 17:33:00 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/08 17:39:46 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/08 18:48:02 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/08 21:01:47 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int	ft_printf(const char *input, ...);
-
-#endif
+void	ft_putchar(int c)
+{
+	write(1, &c, 1);
+}
