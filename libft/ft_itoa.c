@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:29:50 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/08 17:03:50 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/09 20:17:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	nlen(int n)
 	int	res;
 
 	res = 0;
-	if (n == -2147483648)
-		return (11);
-	if ((n >= 0 && n <= 9) || (n <= 0 && n >= -9))
+	if (n >= 0 && n <= 9)
 	{
 		res = 1;
 		return (res);
 	}
+	if (n < 0)
+		res = 1;
 	while (n > 9 || n < -9)
 	{
 		n = n / 10;
@@ -33,34 +33,35 @@ static int	nlen(int n)
 	return (res);
 }
 
-static int	isneg(int n)
+static char	*conv(char *res, unsigned int n, int size)
 {
-	if (n < 0)
-		return (-1);
-	return (1);
+	while (n > 0)
+	{
+		res[size] = n % 10 + 48;
+		n = n / 10;
+		size--;
+	}
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
 	int		size;
-	long	l;
 
 	size = nlen(n);
 	res = malloc(sizeof(char) * (size + 1));
 	if (res == NULL)
 		return (NULL);
-	l = n * isneg(n);
 	res[size] = '\0';
-	while (l > 9)
+	size--;
+	if (n == 0)
+		res[0] = '0';
+	if (n < 0)
 	{
-		res[size - 1] = l % 10 + 48;
-		l = l / 10;
-		size--;
+		res[0] = '-';
+		n *= -1;
 	}
-	if ((l >= 0 && l <= 9))
-		res[size - 1] = l + 48;
-	if (isneg(n) == -1)
-		return (ft_strjoin("-", res));
+	res = conv(res, n, size);
 	return (res);
 }
