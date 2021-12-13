@@ -6,7 +6,7 @@
 #    By: flcarval <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2021/12/13 17:32:13 by flcarval         ###   ########.fr        #
+#    Updated: 2021/12/13 17:39:12 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,14 +28,13 @@ $(NAME): $(OBJS)
 	make -C libft -f Makefile
 	mv $(LIBFT) ./$(NAME)
 	ar rc $(NAME) $(OBJS)
-#	ranlib $(NAME)
 
 clean:
-	make -s -C libft -f Makefile clean
+	make -C libft -f Makefile clean
 	$(RM) $(OBJS)
 
 fclean: clean
-	make -s -C libft -f Makefile fclean
+	make -C libft -f Makefile fclean
 	$(RM) $(NAME)
 
 
