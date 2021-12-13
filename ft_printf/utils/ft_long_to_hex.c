@@ -11,30 +11,60 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
+
+int	hex_len(unsigned long int nb)
+{
+	int	len;
+
+	len = 0;
+	while (nb > 16)
+	{
+		nb = nb / 16;
+		len++;
+	}
+	len++;
+	return (len);
+}
 
 int	ft_print_ul_hex(unsigned long int nb, int caps)
 {
 	char	*hex;
-	int	len;
-	int	pt_len;
+	unsigned long int	NB;
 
-	len = 0;
-	pt_len = &len;
+	NB = nb;
 	if (caps == 0)
 		hex = "0123456789abcdef";
 	else
 		hex = "0123456789ABCDEF";
 	if (nb > 16)
-	{	(*pt_len)++;
+	{
 		ft_print_ul_hex(nb / 16, caps);
 	}
 	ft_putchar(hex[nb % 16]);
-	return (len);
+	return (hex_len(NB));
 }
+
+/*
+#include <limits.h>
 
 int	main()
 {
-	ft_print_ul_hex(42, 0);
+	unsigned long int	res;
+
+	res = ft_print_ul_hex(42, 1);
+	ft_putchar('\n');
+	ft_putnbr(res);
+	
+	ft_putchar('\n');
+	res = ft_print_ul_hex(0, 1);
+	ft_putchar('\n');
+	ft_putnbr(res);
+	
+	ft_putchar('\n');
+	res = ft_print_ul_hex(UINT_MAX, 1);
+	ft_putchar('\n');
+	ft_putnbr(res);
+
 	return (0);
 }
+*/

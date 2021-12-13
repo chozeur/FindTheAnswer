@@ -12,15 +12,24 @@
 
 #include "../includes/ft_printf.h"
 
-static 
-
 int		ft_print_p(void *ptr)
 {
-	int		count;
-	long int	ad;
+	unsigned long int	ad;
 
-	count = 0;
 	ad = (unsigned long int)ptr;
 	ft_putstr("0x");
-	ft_print_ul_hex(ad, 0);
+	return (ft_print_ul_hex(ad, 0));
 }
+
+/*
+#include <stdio.h>
+
+int	main()
+{
+	int	i;
+
+	ft_print_p(&i);
+	printf("\n%p\n", &i);
+	return (0);
+}
+*/
