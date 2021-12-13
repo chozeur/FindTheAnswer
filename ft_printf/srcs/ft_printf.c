@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:30:36 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/13 16:48:29 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:13:25 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'd')
 				c += ft_putnbr((long int)va_arg(ap, long int));
 			if (input[i + 1] == 'i')
-				c += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putnbr((long int)va_arg(ap, int));
 			if (input[i + 1] == 'u')
 				c += ft_putnbr((long int)va_arg(ap, long int));
 			if (input[i + 1] == 'x')
@@ -46,7 +46,10 @@ int	ft_printf(const char *input, ...)
 			i ++;
 		}
 		else
+		{
 			ft_putchar(input[i]);
+			c++;
+		}
 		i++;
 	}
 	va_end(ap);

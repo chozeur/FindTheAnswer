@@ -6,13 +6,13 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:07:28 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/10 19:43:50 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:16:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	hex_len(unsigned long int nb)
+static int	hex_len(unsigned long int nb)
 {
 	int	len;
 
