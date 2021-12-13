@@ -5,44 +5,40 @@
 #                                                     +:+ +:+         +:+      #
 #    By: flcarval <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/13 13:31:15 by flcarval          #+#    #+#              #
-#    Updated: 2021/12/13 14:03:14 by flcarval         ###   ########.fr        #
+#    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
+#    Updated: 2021/12/13 17:32:13 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf.a
-UTILS = $(addprefix utils/ft_, long_to_hex.c printf_p.c printf_x.c)
-FT_PRINTF = ft_printf.c
-EVERY = $(UTILS) $(FT_PRINTF)
-OBJS= ${EVERY:.c=.o}
+SRCS = $(addprefix srcs/ft_, long_to_hex.c printf.c printf_p.c printf_x.c)
+INCLUDES = -Iincludes -Ilibft
+NAME = libftprintf.a
+OBJS = $(SRCS:.c=.o)
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+RM = @rm -f
 LIBFT = libft/libft.a
+FLAGS = -Wall -Werror -Wextra $(INCLUDES)
 
-mlibft:
-	cd libft;make;cd -
-
-all: $(NAME) mlibft
+all: $(NAME)
 
 .c.o:
-	$(CC) $(FLAGS) -l$(LIBFT) -c $< -o $(<:.c=.o)
+	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+	make -C libft -f Makefile
+	mv $(LIBFT) ./$(NAME)
+	ar rc $(NAME) $(OBJS)
+#	ranlib $(NAME)
 
-mclibft:
-	cd libft;make clean;cd -
+clean:
+	make -s -C libft -f Makefile clean
+	$(RM) $(OBJS)
 
-mfclibft:
-	cd libft;make fclean;cd -
+fclean: clean
+	make -s -C libft -f Makefile fclean
+	$(RM) $(NAME)
 
-clean: mclibft
-	rm -f $(OBJS)
-
-fclean: clean mfclibft
-	rm -f $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
-

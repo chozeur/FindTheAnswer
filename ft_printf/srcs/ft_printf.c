@@ -6,11 +6,11 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:30:36 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/13 13:04:37 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 16:48:29 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_printf(const char *input, ...)
 {
