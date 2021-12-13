@@ -16,11 +16,11 @@ int	ft_printf(const char *input, ...)
 {
 	int		i;
 	va_list	ap;
-	int		count;
+	int		c;
 
 	i = 0;
 	va_start(ap, input);
-	count = 0;
+	c = 0;
 	while (input[i])
 	{
 		if (input[i] == '%')
@@ -28,26 +28,26 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'c')
 			{
 				ft_putchar(va_arg(ap, int));
-				count++;
+				c++;
 			}
 			if (input[i + 1] == 's')
-				count += ft_putstr(va_arg(ap, char *));
+				c += ft_putstr(va_arg(ap, char *));
 			if (input[i + 1] == 'p')
-				count += ft_printf_p();
+				c += ft_printf_p();
 			if (input[i + 1] == 'd')
-				count += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putnbr((long int)va_arg(ap, long int));
 			if (input[i + 1] == 'i')
-				count += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putnbr((long int)va_arg(ap, long int));
 			if (input[i + 1] == 'u')
-				count += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putnbr((long int)va_arg(ap, long int));
 			if (input[i + 1] == 'x')
-				count += ft_printf_x();
+				c += ft_printf_x();
 			if (input[i + 1] == 'X')
-				count += ft_printf_X();
+				c += ft_printf_X();
 			if (input[i + 1] == '%')
 			{
 				ft_putchar('%');
-				count++;
+				c++;
 			}
 		}
 		else
@@ -55,4 +55,5 @@ int	ft_printf(const char *input, ...)
 		i++;
 	}
 	va_end(ap);
+	return (c);
 }
