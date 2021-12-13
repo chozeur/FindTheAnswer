@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:05:40 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/09 17:32:44 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 13:30:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,12 @@ int	ft_putnbr(long int nb)
 	count++;
 	return (count);
 }
+
+/*
+int main()
+{
+	long int	i = -42;
+	ft_putnbr(i);
+	return (0);
+}
+*/

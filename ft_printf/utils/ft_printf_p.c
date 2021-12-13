@@ -6,13 +6,13 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:45:02 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/10 19:31:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:41:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_print_p(void *ptr)
+int		ft_printf_p(void *ptr)
 {
 	unsigned long int	ad;
 

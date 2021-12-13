@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 02:31:54 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/13 02:48:14 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/13 12:41:25 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_print_x(long int nb, int caps)
+int	ft_printf_x(long int nb, int caps)
 {
 	int	c;
 
