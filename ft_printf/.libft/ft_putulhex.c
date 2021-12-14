@@ -1,71 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_x.c                                      :+:      :+:    :+:   */
+/*   ft_putulhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
+/*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 02:31:54 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:15:13 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/09 18:07:28 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/14 16:21:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <limits.h>
 
-/*
-int	ft_printf_x(int nb, int caps)
+static int	hex_len(unsigned long int nb)
 {
-	int	c;
+	int	len;
 
-	c = 0;
-	if (nb < 0)
+	len = 0;
+	while (nb > 16)
 	{
-		c += ft_putchar('-');
-		nb *= -1;
+		nb = nb / 16;
+		len++;
 	}
-	c += ft_putihex(nb, caps);
-	return (c);
+	len++;
+	return (len);
 }
-*/
 
-int	ft_printf_x(unsigned int nb, int caps)
+int	ft_putulhex(unsigned long int nb, int caps)
 {
 	char	*hex;
-	unsigned int	NB;
+	int	len;
 
-	NB = nb;
-	if (caps)
-		hex = "0123456789ABCDEF";
-	else
+	len = hex_len(nb);
+	if (caps == 0)
 		hex = "0123456789abcdef";
-	if (nb == 16)
-		return (ft_putstr("10"));
+	else
+		hex = "0123456789ABCDEF";
 	if (nb > 16)
-		ft_printf_x(nb / 16, caps);
+	{
+		ft_putulhex(nb / 16, caps);
+	}
 	ft_putchar(hex[nb % 16]);
-	return (ft_hexlen((unsigned long int)NB));
+	return (len);
 }
 
 /*
+#include <limits.h>
+
 int	main()
 {
-	int	c;
+	unsigned long int	res;
 
-	c = ft_printf_x(42, 0);
+	res = ft_print_ul_hex(42, 1);
 	ft_putchar('\n');
-	ft_putnbr(c);
-	ft_putchar('\n');
+	ft_putnbr(res);
 	
-	c = ft_printf_x(-42, 0);
 	ft_putchar('\n');
-	ft_putnbr(c);
+	res = ft_print_ul_hex(0, 1);
 	ft_putchar('\n');
-
-	c = ft_printf_x(0, 0);
+	ft_putnbr(res);
+	
 	ft_putchar('\n');
-	ft_putnbr(c);
+	res = ft_print_ul_hex(UINT_MAX, 1);
 	ft_putchar('\n');
+	ft_putnbr(res);
 
 	return (0);
 }

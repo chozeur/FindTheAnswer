@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/07 18:31:06 by flcarval          #+#    #+#              #
-#    Updated: 2021/12/09 17:03:46 by flcarval         ###   ########.fr        #
+#    Updated: 2021/12/14 17:36:21 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ MANDATORY = $(addprefix ft_, atoi.c bzero.c calloc.c isalnum.c\
 			memcpy.c memmove.c memset.c putchar_fd.c putendl_fd.c putnbr_fd.c\
 			putstr_fd.c split.c strchr.c strdup.c striteri.c strjoin.c strlcat.c\
 			strlcpy.c strlen.c strmapi.c strncmp.c strnstr.c strrchr.c strtrim.c\
-			substr.c tolower.c toupper.c putchar.c putstr.c putnbr.c)
+			substr.c tolower.c toupper.c putchar.c putstr.c putnbr.c nblen.c\
+			putulhex.c putihex.c putui.c)
 BONUSES = $(addprefix ft_, lstadd_back.c lstadd_front.c lstclear.c\
 		  lstdelone.c lstiter.c lstlast.c lstmap.c lstnew.c lstsize.c)
 OBJS_M = ${MANDATORY:.c=.o}

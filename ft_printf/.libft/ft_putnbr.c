@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_p.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 17:45:02 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:30:38 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/09 17:05:40 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/14 15:09:48 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
+#include <limits.h>
 
-int	ft_printf_p(void *ptr)
+int	ft_putnbr(int nb)
 {
-	unsigned long int	ad;
+	int	len;
 
-	if (!ptr)
+	len = ft_nblen(nb);
+	if (nb == INT_MIN)
 	{
-		ft_putstr("(nil)");
-		return (5);
+		ft_putstr("-2147483648");
+		return (11);
 	}
-	ad = (unsigned long int)ptr;
-	ft_putstr("0x");
-	return (ft_putulhex(ad) + 2);
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	ft_putchar(nb % 10 + 48);
+	return (len);
 }
 
 /*
-#include <stdio.h>
-
-int	main()
+int main()
 {
-	int	i;
-
-	ft_print_p(&i);
-	printf("\n%p\n", &i);
+	long int	i = -42;
+	ft_putnbr(i);
 	return (0);
 }
 */

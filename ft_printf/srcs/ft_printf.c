@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:30:36 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/13 18:13:25 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:56:49 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int	ft_printf(const char *input, ...)
 			if (input[i + 1] == 'p')
 				c += ft_printf_p(va_arg(ap, void *));
 			if (input[i + 1] == 'd')
-				c += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putnbr(va_arg(ap, int));
 			if (input[i + 1] == 'i')
-				c += ft_putnbr((long int)va_arg(ap, int));
+				c += ft_putnbr(va_arg(ap, int));
 			if (input[i + 1] == 'u')
-				c += ft_putnbr((long int)va_arg(ap, long int));
+				c += ft_putui(va_arg(ap, unsigned int));
 			if (input[i + 1] == 'x')
-				c += ft_printf_x((long int)va_arg(ap, long int), 0);
+				c += ft_printf_x(va_arg(ap, int), 0);
 			if (input[i + 1] == 'X')
-				c += ft_printf_x((long int)va_arg(ap, long int), 1);
+				c += ft_printf_x(va_arg(ap, int), 1);
 			if (input[i + 1] == '%')
 				c += ft_putchar('%');
 			i ++;
