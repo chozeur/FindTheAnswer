@@ -12,7 +12,7 @@ int	main()
 	// TEST %p //
 	ft_printf("%d\n", ft_printf("0x... : %p\t", &i));
 	// TEST %d //
-	ft_printf("%d\n", ft_printf("42 : %d\t", 42));
+	ft_printf("%d\n", ft_printf("-1 : %d\t", -1));
 	// TEST %i //
 	ft_printf("%d\n", ft_printf("-42 : %i\t", -42));
 	// TEST %u //
@@ -23,4 +23,6 @@ int	main()
 	ft_printf("%d\n", ft_printf("2A : %X\t", 42));
 	// TEST %% //
 	ft_printf("%d\n", ft_printf("percent : %%\t"));
+
+	return (0);
 }

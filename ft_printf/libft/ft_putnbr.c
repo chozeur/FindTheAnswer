@@ -6,17 +6,21 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:05:40 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/13 18:14:35 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/14 02:56:58 by flo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	nb_len(long int nb)
+int	ft_nb_len(long int nb)
 {
 	int	i;
 
 	i = 0;
+	if (nb < 0)
+		i++;
+	if (nb == 0)
+		return (1);
 	while (nb != 0)
 	{
 		nb /= 10;
@@ -38,7 +42,7 @@ int	ft_putnbr(long int nb)
 	if (nb > 9)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + 48);
-	return (nb_len(NB) + (NB < 0));
+	return (ft_nb_len(NB) + (NB < 0));
 }
 
 /*
