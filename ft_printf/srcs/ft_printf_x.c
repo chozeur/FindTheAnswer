@@ -6,28 +6,12 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 02:31:54 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:15:13 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/15 17:55:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include <limits.h>
-
-/*
-int	ft_printf_x(int nb, int caps)
-{
-	int	c;
-
-	c = 0;
-	if (nb < 0)
-	{
-		c += ft_putchar('-');
-		nb *= -1;
-	}
-	c += ft_putihex(nb, caps);
-	return (c);
-}
-*/
 
 int	ft_printf_x(unsigned int nb, int caps)
 {
