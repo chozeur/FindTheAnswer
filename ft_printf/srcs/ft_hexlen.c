@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 19:03:11 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:14:41 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/15 18:00:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_hexlen(unsigned long int nb)
 	int	len;
 
 	len = 0;
-	while (nb > 16)
+	while (nb > 15)
 	{
 		nb /= 16;
 		len++;

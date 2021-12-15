@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 17:33:00 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:19:52 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/15 18:17:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	ft_printf_x(unsigned int nb, int caps);
 int	ft_nblen(long int nb);
 int	ft_putchar(int c);
 int	ft_putstr(char *str);
-int	ft_putihex(int nb, int caps);
 int	ft_putnbr(int nb);
 int	ft_putui(unsigned int nb);
 int	ft_putulhex(unsigned long int nb);

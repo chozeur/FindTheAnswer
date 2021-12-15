@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 18:07:28 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/14 19:27:57 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/15 18:19:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	hex_len(unsigned long int nb)
 int	ft_putulhex(unsigned long int nb)
 {
 	char	*hex;
-	int	len;
+	int		len;
 
 	len = hex_len(nb);
 	hex = "0123456789abcdef";
@@ -40,28 +40,3 @@ int	ft_putulhex(unsigned long int nb)
 	ft_putchar(hex[nb % 16]);
 	return (len);
 }
-
-/*
-#include <limits.h>
-
-int	main()
-{
-	unsigned long int	res;
-
-	res = ft_print_ul_hex(42, 1);
-	ft_putchar('\n');
-	ft_putnbr(res);
-	
-	ft_putchar('\n');
-	res = ft_print_ul_hex(0, 1);
-	ft_putchar('\n');
-	ft_putnbr(res);
-	
-	ft_putchar('\n');
-	res = ft_print_ul_hex(UINT_MAX, 1);
-	ft_putchar('\n');
-	ft_putnbr(res);
-
-	return (0);
-}
-*/
