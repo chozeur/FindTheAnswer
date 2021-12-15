@@ -1,48 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_long_to_hex.c                                   :+:      :+:    :+:   */
+/*   ft_putui.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 18:07:28 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/09 18:29:54 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/14 17:31:55 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/14 20:09:15 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
-char	*ft_long_to_hex(unsigned long int nb)
+static int	uilen(unsigned int nb)
 {
-	char	*hex;
-	char	*res;
-	int		i;
+	int	i;
 
 	i = 0;
-	hex = malloc(17);
-	if (!hex)
-		return (NULL);
-	hex = "0123456789abcdef";
-	res = malloc(25);
-	if (!res)
-		return (NULL);
-	if (nb > 16)
+	while (nb > 9)
 	{
-		ft_long_to_hex(nb / 16);
+		nb /= 10;
 		i++;
 	}
-	res[i] = hex[nb % 16];
 	i++;
-	return (res);
+	return (i);
 }
 
-#include <stdio.h>
-
-int main(void)
+int	ft_putui(unsigned int nb)
 {
-	printf("%s\n", ft_long_to_hex(42));
-	printf("%s\n", ft_long_to_hex(0));
-	printf("%s\n", ft_long_to_hex(99999999));
-	return (0);
+	int	len;
+
+	len = uilen(nb);
+	if (nb > 9)
+		ft_putui(nb / 10);
+	ft_putchar(nb % 10 + 48);
+	return (len);
 }

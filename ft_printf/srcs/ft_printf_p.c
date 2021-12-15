@@ -6,42 +6,22 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 17:45:02 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/09 19:06:48 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/15 18:03:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static 
-
-int		ft_print_p(void *ptr)
+int	ft_printf_p(void *ptr)
 {
-	int		count;
-	long int	ad;
-	char	*hex;
+	unsigned long int	ad;
 
-	hex = malloc(17);
-	hex = "0123456789abcdef";
-	count = 0;
-	ad = (long int)ptr;
-	if (ad > 16)
+	if (!ptr)
 	{
-		ft_printf_p(ad / 16);
-		count++;
+		ft_putstr("(nil)");
+		return (5);
 	}
-	ft_putchar(hex[ad % 16]);
-}
-
-#include <stdio.h>
-
-int main(void)
-{
-	int	i;
-	int	*ptr;
-
-	i = 0;
-	ptr = &i;
-	printf("printf : %p\n", ptr);
-	ft_printf_p(ptr);
-	return (0);
+	ad = (unsigned long int)ptr;
+	ft_putstr("0x");
+	return (ft_putulhex(ad) + 2);
 }

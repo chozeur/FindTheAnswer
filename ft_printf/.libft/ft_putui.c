@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putui.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/09 17:05:40 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/09 17:32:44 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/14 17:31:55 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/14 17:38:15 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_putnbr(long int nb)
+int	ft_putui(unsigned int nb)
 {
-	int	count;
+	int	len;
 
-	count = 0;
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb *= -1;
-		count++;
-	}
+	len = ft_nblen((long int)nb);
 	if (nb > 9)
-		ft_putnbr(nb / 10);
+		ft_putui(nb / 10);
 	ft_putchar(nb % 10 + 48);
-	count++;
-	return (count);
+	return (len);
 }

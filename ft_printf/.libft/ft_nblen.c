@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_nblen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 17:33:00 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/15 18:17:42 by flcarval         ###   ########.fr       */
+/*   Created: 2021/12/14 13:57:50 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/14 14:00:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	ft_nblen(long int nb)
+{
+	int	i;
 
-# include <stdarg.h>
-# include <unistd.h>
-
-int	ft_printf(const char *input, ...);
-int	ft_printf_p(void *ptr);
-int	ft_printf_x(unsigned int nb, int caps);
-int	ft_nblen(long int nb);
-int	ft_putchar(int c);
-int	ft_putstr(char *str);
-int	ft_putnbr(int nb);
-int	ft_putui(unsigned int nb);
-int	ft_putulhex(unsigned long int nb);
-int	ft_hexlen(unsigned int nb);
-
-#endif
+	i = 0;
+	if (nb < 0)
+		i++;
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
+	{
+		nb /= 10;
+		i++;
+	}
+	return (i);
+}
