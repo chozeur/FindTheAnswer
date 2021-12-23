@@ -6,43 +6,105 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:00:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/21 21:12:19 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/23 20:56:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	is_nl(char *str)
+char	*ft_read(int fd, char *stat)
 {
+	char	*buff;
+	int	len;
+
+	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buff)
+		return (NULL);
+	len = 1;
+	while (is_nl(stat) == 0 && len != 0)
+	{
+		len = read(fd, buff, BUFFER_SIZE);
+		if (len == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[len] = '\0';
+		stat = ft_strjoin(stat, buff);
+	}
+	free(buff);
+	return (stat);
+}
+
+char	*parse_line(char *str)
+{
+	char	*res;
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (str[i] == '\0')
+		return (NULL);
+	while (str[i] && str[i] != '\n')
+		i++;
+	res = malloc(sizeof(char) * (i + 2));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != '\n')
 	{
-		if (str[i] == '\n')
-			return (1);
+		res[i] = str[i];
 		i++;
 	}
-	return (0);
+	if (str[i] == '\n')
+	{
+		res[i] = str[i];
+		i++;
+	}
+	res[i] = '\0';
+	return (res);
+}
+
+char	*clear_stat(char *stat)
+{
+	char	*res;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (stat[i] && stat[i] != '\n')
+		i++;
+	if (stat[i] == '\0')
+	{
+		free(stat);
+		return (NULL);
+	}
+	res = malloc(sizeof(char) * ft_strlen(stat) - i + 1);
+	if (!res)
+		return (NULL);
+	i++;
+	while (stat[i])
+	{
+		res[j] = stat[i];
+		i++;
+		j++;
+	}
+	res[j] = '\0';
+	free(stat);
+	return (res);
 }
 
 char	*get_next_line(int fd)
 {
-	static int	index;
+	static char	*stat;
 	char	*res;
-	char	*buff;
 
-	res = ft_strdup("");;
-	if (!res)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buff = malloc(BUFFER_SIZE + 1);
-	if (!buff)
+	stat = ft_read(fd, stat);
+	if (!stat)
 		return (NULL);
-	index = 0;
-	if (fd < 1)
-		return (NULL);
-	read(fd, buff, BUFFER_SIZE);
-	buff[BUFFER_SIZE] = '\0';
-	res = ft_strjoin(res, buff);
-	if (!is_nl(res))
+	res = parse_line(stat);
+	stat = clear_stat(stat);
+	return (res);
 }
