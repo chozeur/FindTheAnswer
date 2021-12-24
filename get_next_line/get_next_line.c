@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:00:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/23 20:56:58 by flcarval         ###   ########.fr       */
+/*   Updated: 2021/12/24 01:04:08 by flo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,27 @@ char	*parse_line(char *str)
 	i = 0;
 	if (str[i] == '\0')
 		return (NULL);
-	while (str[i] && str[i] != '\n')
+	while (str[i])
+	{
+		if (str[i] == '\n')
+		{
+			i++;
+			break;
+		}
 		i++;
-	res = malloc(sizeof(char) * (i + 2));
+	}
+	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (str[i] && str[i] != '\n')
+	while (str[i])
 	{
-		res[i] = str[i];
-		i++;
-	}
-	if (str[i] == '\n')
-	{
+		if (str[i] == '\n')
+		{
+			res[i] = str[i];
+			i++;
+			break;
+		}
 		res[i] = str[i];
 		i++;
 	}
