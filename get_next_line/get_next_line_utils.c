@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 17:30:30 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/23 20:44:23 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/03 20:54:56 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	is_nl(char *str)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (!s2)
 		return (NULL);

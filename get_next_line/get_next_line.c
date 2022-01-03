@@ -6,7 +6,7 @@
 /*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:00:41 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/24 01:04:08 by flo              ###   ########.fr       */
+/*   Updated: 2022/01/03 21:08:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_read(int fd, char *stat)
 {
 	char	*buff;
-	int	len;
+	int		len;
 
 	buff = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buff)
@@ -39,20 +39,14 @@ char	*ft_read(int fd, char *stat)
 char	*parse_line(char *str)
 {
 	char	*res;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (str[i] == '\0')
 		return (NULL);
-	while (str[i])
-	{
-		if (str[i] == '\n')
-		{
-			i++;
-			break;
-		}
-		i++;
-	}
+	while (str[i++])
+		if (str[i++] == '\n')
+			break ;
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
@@ -63,7 +57,7 @@ char	*parse_line(char *str)
 		{
 			res[i] = str[i];
 			i++;
-			break;
+			break ;
 		}
 		res[i] = str[i];
 		i++;
@@ -75,8 +69,8 @@ char	*parse_line(char *str)
 char	*clear_stat(char *stat)
 {
 	char	*res;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -92,11 +86,7 @@ char	*clear_stat(char *stat)
 		return (NULL);
 	i++;
 	while (stat[i])
-	{
-		res[j] = stat[i];
-		i++;
-		j++;
-	}
+		res[j++] = stat[i++];
 	res[j] = '\0';
 	free(stat);
 	return (res);
@@ -105,7 +95,7 @@ char	*clear_stat(char *stat)
 char	*get_next_line(int fd)
 {
 	static char	*stat;
-	char	*res;
+	char		*res;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
