@@ -25,9 +25,8 @@ char	*clear_stat(char *stat);
 
 //	get_next_line_utils.c
 
-int	ft_strlen(char *str);
-int	is_nl(char *str);
+int		ft_strlen(char *str);
+int		is_nl(char *str);
 char	*ft_strjoin(char *s1, char *s2);
-
 
 #endif

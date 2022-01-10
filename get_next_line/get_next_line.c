@@ -50,8 +50,8 @@ char	*parse_line(char *str)
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
 		if (str[i] == '\n')
 		{
@@ -60,7 +60,6 @@ char	*parse_line(char *str)
 			break ;
 		}
 		res[i] = str[i];
-		i++;
 	}
 	res[i] = '\0';
 	return (res);
