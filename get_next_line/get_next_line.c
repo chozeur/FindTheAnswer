@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flcarval <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 15:00:41 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/03 21:08:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/11 06:13:07 by flo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ char	*parse_line(char *str)
 	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
-	while (str[i])
+	i = -1;
+	while (str[++i])
 	{
 		if (str[i] == '\n')
 		{
@@ -60,7 +60,6 @@ char	*parse_line(char *str)
 			break ;
 		}
 		res[i] = str[i];
-		i++;
 	}
 	res[i] = '\0';
 	return (res);
