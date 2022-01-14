@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 18:54:43 by flcarval          #+#    #+#             */
-/*   Updated: 2021/12/07 18:30:21 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/14 04:58:55 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_lstsize(t_number *lst)
 {
 	t_number	*count;
-	int		i;
+	int			i;
 
 	count = lst;
 	i = 0;
