@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/14 02:55:13 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/14 04:27:12 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 typedef struct s_number{
 	int			num;
-	t_number	*prev;
-	t_number	*next;
+	struct s_number	*prev;
+	struct s_number	*next;
 }t_number;
 
 //	ft_lst
@@ -31,10 +31,18 @@ alst	: address of the first element's pointing pointer
 
 t_number	*ft_lstnew(t_number *prev, int num);
 	void	ft_lstadd_back(t_number **alst, t_number *new);
+	t_number	*ft_lstlast(t_number *lst);
+	void	ft_lstdelone(t_number *lst);
+
+//	puts
+
+	void	ft_putchar(char c);
+	void	ft_putstr(char *str);
+	void	ft_putnbr(int n);
 
 //	push_swap_utils
 
-	void	ft_putstr(char *str);
+	int		ft_atoi(const char *str);
 t_number	*set_input_numbers(char **inputs);
 
 //	push_swap

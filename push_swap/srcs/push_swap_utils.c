@@ -6,23 +6,11 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:57 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/14 03:03:12 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/14 03:49:38 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
-}
 
 int	ft_atoi(const char *str)
 {
