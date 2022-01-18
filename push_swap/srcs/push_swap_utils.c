@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:57 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/14 04:58:10 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/18 04:48:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ t_number	*set_input_numbers(char **inputs)
 	t_number	*new;
 	int			i;
 
-	lst = ft_lstnew(NULL, ft_atoi(inputs[1]));
+	lst = ft_lstnew(ft_atoi(inputs[1]));
 	if (!lst)
 		return (NULL);
 	last = lst;
 	i = 2;
 	while (inputs[i])
 	{
-		new = ft_lstnew(last, ft_atoi(inputs[i]));
+		new = ft_lstnew(ft_atoi(inputs[i]));
 		if (!new)
 			return (NULL);
 		ft_lstadd_back(&lst, new);

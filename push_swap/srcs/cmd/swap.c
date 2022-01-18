@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 18:30:06 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/18 04:31:24 by flcarval         ###   ########.fr       */
+/*   Created: 2022/01/18 03:37:16 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/18 05:01:39 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_lstadd_back(t_number **alst, t_number *new)
+void	swap(t_number **alst)
 {
-	t_number	*last;
+	t_number	*tmp;
 
-	if (alst)
-	{
-		if (*alst == NULL)
-			*alst = new;
-		else
-		{
-			last = ft_lstlast(*alst);
-			last->next = new;
-		}
-	}
+	if (!alst)
+		return ;
+	tmp = *alst;
+	*alst = tmp->next;
+	tmp->next = (*alst)->next;
+	(*alst)->next = tmp;
 }

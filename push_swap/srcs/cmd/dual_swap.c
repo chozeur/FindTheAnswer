@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   dual_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/07 18:30:06 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/18 04:31:24 by flcarval         ###   ########.fr       */
+/*   Created: 2022/01/18 04:57:19 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/18 05:00:53 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_lstadd_back(t_number **alst, t_number *new)
+void	dual_swap(t_number **alst_a, t_number **alst_b)
 {
-	t_number	*last;
-
-	if (alst)
+	if (alst_a && alst_b)
 	{
-		if (*alst == NULL)
-			*alst = new;
-		else
-		{
-			last = ft_lstlast(*alst);
-			last->next = new;
-		}
+		swap(alst_a);
+		swap(alst_b);
 	}
 }
