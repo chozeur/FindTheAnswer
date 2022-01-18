@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/18 05:02:17 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/19 00:31:30 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ alst	: address of the first element's pointing pointer
 */
 
 t_number	*ft_lstnew(int num);
+	void	ft_lstadd_front(t_number **alst, t_number *new);
 	void	ft_lstadd_back(t_number **alst, t_number *new);
 t_number	*ft_lstlast(t_number *lst);
 	void	ft_lstdelone(t_number *lst);
+	int		ft_lstsize(t_number *lst);
 
 //	cmd
 
