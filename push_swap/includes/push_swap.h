@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 01:36:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 01:40:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_number{
 	int			num;
 	struct s_number	*next;
-}t_number;
+}	t_number;
 
 //	ft_lst
 

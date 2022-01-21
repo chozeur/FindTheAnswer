@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 01:39:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 01:49:52 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(int ac, char **av)
 	}
 
 	/*dual_swap test (ss = sa +  sb)*/
+	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -57,6 +58,7 @@ int	main(int ac, char **av)
 	ft_putstr("\n\n");
 
 	/*push test (pa = pb)*/
+	ft_putstr("\n\n\npush test (pa = pb)\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -83,6 +85,7 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 
 	/*rotate test*/
+	ft_putstr("\n\n\nrotate test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -99,6 +102,7 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 
 	/*dual_rotate test*/
+	ft_putstr("\n\n\ndual_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -124,6 +128,7 @@ int	main(int ac, char **av)
 	ft_putstr("\n\n");
 
 	/*reverse_rotate test*/
+	ft_putstr("\n\n\nreverse_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -141,6 +146,7 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 
 	/*dual_reverse_rotate test*/
+	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
