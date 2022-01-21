@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:57 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/18 23:23:44 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:38:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,22 @@ t_number	*set_input_numbers(char **inputs)
 		i++;
 	}
 	return (lst);
+}
+
+int	is_sorted(t_number **alst)
+{
+	int	size;
+	t_number	*j;
+	int	tmp;
+
+	size = ft_lstsize(*alst);
+	j = *alst;
+	while (j->next)
+	{
+		tmp = j->num;
+		j = j->next;
+		if (tmp > j->num)
+			return (0);
+	}
+	return (1);
 }

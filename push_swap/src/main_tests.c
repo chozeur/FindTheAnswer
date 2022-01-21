@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 01:59:10 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:01:49 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,20 @@ int	main(int ac, char **av)
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
 	ft_putstr("\n\n");
+
+	/*is_sorted test*/
+	ft_putstr("\n\n\nis_sorted test\n\n");
+	lst_a = set_input_numbers(av);
+	if (!lst_a)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	if (is_sorted(alst_a))
+		ft_putstr("\nA stack is sorted.\n");
+	else
+		ft_putstr("A stack isn't sorted.\n");
 
 	return (0);
 }
