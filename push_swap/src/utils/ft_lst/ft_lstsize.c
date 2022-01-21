@@ -1,51 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   puts.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 03:37:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/14 03:41:09 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 18:54:43 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/21 19:20:38 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-void	ft_putchar(char c)
+int	ft_lstsize(t_number *lst)
 {
-	write(1, &c, 1);
-}
+	t_number	*count;
+	int			i;
 
-void	ft_putstr(char *str)
-{
-	int	i;
-
+	count = lst;
 	i = 0;
-	while (str[i])
+	while (count != NULL)
 	{
-		ft_putchar(str[i]);
+		count = count->next;
 		i++;
 	}
-}
-
-void	ft_putnbr(int n)
-{
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n *= -1;
-	}
-	if (n < 10)
-		ft_putchar(n + 48);
-	else
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
+	return (i);
 }

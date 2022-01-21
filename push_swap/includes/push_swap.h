@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 17:58:03 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 19:15:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_number{
-	int			num;
+	int				num;
 	struct s_number	*next;
 }	t_number;
 
@@ -55,6 +56,7 @@ t_number	*push(t_number **alst_a, t_number **alst_b );
 	int		ft_atoi(const char *str);
 t_number	*set_input_numbers(char **inputs);
 	int		is_sorted(t_number **alst);
+	int		is_valid_input(char *input);
 
 //	push_swap
 

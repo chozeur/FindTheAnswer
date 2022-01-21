@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 00:05:57 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 18:38:03 by flcarval         ###   ########.fr       */
+/*   Created: 2022/01/21 19:28:22 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/21 19:28:25 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	ft_atoi(const char *str)
 {
 	int	i;
 	int	sign;
-	int	res;
+	long long	res;
 
 	i = 0;
 	sign = 1;
@@ -35,47 +35,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + (str[i] - 48);
 		i++;
 	}
+	if (res > INT_MAX || res < INT_MIN)
+		return (-1);
 	return (res * sign);
-}
-
-t_number	*set_input_numbers(char **inputs)
-{
-	t_number	*lst;
-	t_number	*last;
-	t_number	*new;
-	int			i;
-
-	lst = ft_lstnew(ft_atoi(inputs[1]));
-	if (!lst)
-		return (NULL);
-	last = lst;
-	i = 2;
-	while (inputs[i])
-	{
-		new = ft_lstnew(ft_atoi(inputs[i]));
-		if (!new)
-			return (NULL);
-		ft_lstadd_back(&lst, new);
-		last = new;
-		i++;
-	}
-	return (lst);
-}
-
-int	is_sorted(t_number **alst)
-{
-	int	size;
-	t_number	*j;
-	int	tmp;
-
-	size = ft_lstsize(*alst);
-	j = *alst;
-	while (j->next)
-	{
-		tmp = j->num;
-		j = j->next;
-		if (tmp > j->num)
-			return (0);
-	}
-	return (1);
 }

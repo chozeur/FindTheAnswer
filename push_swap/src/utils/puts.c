@@ -1,25 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   puts.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 18:33:44 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/18 04:30:10 by flcarval         ###   ########.fr       */
+/*   Created: 2022/01/14 03:37:58 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/21 19:09:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-t_number	*ft_lstnew(int num)
+void	ft_putchar(char c)
 {
-	t_number	*res;
+	write(1, &c, 1);
+}
 
-	res = malloc(sizeof(t_number));
-	if (res == NULL)
-		return (NULL);
-	res->num = num;
-	res->next = NULL;
-	return (res);
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
+
+void	ft_putnbr(int n)
+{
+	if (n == -2147483648)
+	{
+		ft_putstr("-2147483648");
+		return ;
+	}
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n *= -1;
+	}
+	if (n < 10)
+		ft_putchar(n + 48);
+	else
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
 }

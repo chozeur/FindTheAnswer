@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 13:13:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/14 04:28:44 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 18:33:44 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/21 19:20:37 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-void	del(void *ptr)
+t_number	*ft_lstnew(int num)
 {
-	free(ptr);
-	ptr = NULL;
-}
+	t_number	*res;
 
-void	ft_lstdelone(t_number *lst)
-{
-	del(&(lst->num));
-	free(lst);
+	res = malloc(sizeof(t_number));
+	if (res == NULL)
+		return (NULL);
+	res->num = num;
+	res->next = NULL;
+	return (res);
 }

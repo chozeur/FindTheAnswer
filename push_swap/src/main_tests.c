@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 18:01:49 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 18:57:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	print_list(t_number **lst);
+	void	print_list(t_number **lst);
 t_number	*set_input_numbers_bis(char **inputs);
 
 /*---------------------------------------------------*/
@@ -119,6 +119,9 @@ int	main(int ac, char **av)
 	print_list(alst_b);
 	ft_putchar('\n');
 	dual_rotate(alst_a, alst_b);
+	ft_putchar('\n');
+	print_list(alst_b);
+	ft_putchar('\n');
 	ft_putchar('\n');
 	ft_putstr("lst_a :\t");
 	print_list(alst_a);
