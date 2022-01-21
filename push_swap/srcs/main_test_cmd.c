@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_test_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/19 01:56:40 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/21 01:39:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,92 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
+	ft_putchar('\n');
+	ft_putchar('\n');
+
+	/*rotate test*/
+	lst_a = set_input_numbers(av);
+	if (!lst_a)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	rotate(alst_a);
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+
+	/*dual_rotate test*/
+	lst_a = set_input_numbers(av);
+	lst_b = set_input_numbers_bis(av);
+	if (!lst_a || !lst_b)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	alst_b = &lst_b;
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
+	ft_putchar('\n');
+	dual_rotate(alst_a, alst_b);
+	ft_putchar('\n');
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
+	ft_putstr("\n\n");
+
+	/*reverse_rotate test*/
+	lst_a = set_input_numbers(av);
+	if (!lst_a)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	reverse_rotate(alst_a);
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putchar('\n');
+
+	/*dual_reverse_rotate test*/
+	lst_a = set_input_numbers(av);
+	lst_b = set_input_numbers_bis(av);
+	if (!lst_a || !lst_b)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	alst_b = &lst_b;
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
+	ft_putchar('\n');
+	dual_reverse_rotate(alst_a, alst_b);
+	ft_putchar('\n');
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
+	ft_putstr("\n\n");
+
 	return (0);
 }
 
