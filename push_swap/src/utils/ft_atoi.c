@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 19:28:25 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/24 02:23:10 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_atoi(const char *str)
 		res = res * 10 + (str[i] - 48);
 		i++;
 	}
-	if (res > INT_MAX || res < INT_MIN)
+	if (res * sign > INT_MAX || res * sign < INT_MIN)
 		return (-1);
 	return (res * sign);
 }
