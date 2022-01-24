@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 18:57:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/24 01:19:00 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,6 +187,13 @@ int	main(int ac, char **av)
 		ft_putstr("\nA stack is sorted.\n");
 	else
 		ft_putstr("A stack isn't sorted.\n");
+
+	/*is_valid_input tes*/
+	ft_putstr("\n\n\nis_valid_input test\n\n");
+	if (is_valid_input(av[1]))
+		ft_putstr("inputs are valid\n");
+	else
+		ft_putstr("inputs are not valid\n");
 
 	return (0);
 }
