@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/24 02:07:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:30:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,20 @@ int	main(int ac, char **av)
 	t_number	*lst_b;
 	t_number	**alst_a;
 	t_number	**alst_b;
-
+		char	**args;
 	if (ac == 1)
 	{
 		ft_putstr("You must enter at least 1 integer.\n");
 		return (-1);
 	}
-
+	if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = av;
 	/*dual_swap test (ss = sa +  sb)*/
 	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
-	lst_a = set_input_numbers(av);
-	lst_b = set_input_numbers_bis(av);
+	lst_a = set_input_numbers(args);
+	lst_b = set_input_numbers_bis(args);
 	if (!lst_a || !lst_b)
 	{
 		ft_putstr("An error occured. Please debug.\n");
