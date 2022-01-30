@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/26 16:30:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/30 03:47:31 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ int	main(int ac, char **av)
 		ft_putstr("You must enter at least 1 integer.\n");
 		return (-1);
 	}
-	if (ac == 2)
-		args = ft_split(av[1], ' ');
-	else
-		args = av;
+//	if (ac == 2)
+//		args = ft_split(av[1], ' ');
+//	else
+	args = av;
 	/*dual_swap test (ss = sa +  sb)*/
-	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
+/*	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
 	lst_a = set_input_numbers(args);
 	lst_b = set_input_numbers_bis(args);
 	if (!lst_a || !lst_b)
@@ -59,9 +59,9 @@ int	main(int ac, char **av)
 	print_list(alst_b);
 
 	ft_putstr("\n\n");
-
+*/
 	/*push test (pa = pb)*/
-	ft_putstr("\n\n\npush test (pa = pb)\n\n");
+/*	ft_putstr("\n\n\npush test (pa = pb)\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
 	ft_putchar('\n');
-	*alst_a = push(alst_a, alst_b);
+/	*alst_a = push(alst_a, alst_b);
 	ft_putchar('\n');
 	ft_putstr("lst_a :\t");
 	print_list(alst_a);
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 	print_list(alst_b);
 	ft_putchar('\n');
 	ft_putchar('\n');
-
+*/
 	/*rotate test*/
 	ft_putstr("\n\n\nrotate test\n\n");
 	lst_a = set_input_numbers(av);
@@ -105,7 +105,7 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 
 	/*dual_rotate test*/
-	ft_putstr("\n\n\ndual_rotate test\n\n");
+/*	ft_putstr("\n\n\ndual_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -132,9 +132,9 @@ int	main(int ac, char **av)
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
 	ft_putstr("\n\n");
-
+*/
 	/*reverse_rotate test*/
-	ft_putstr("\n\n\nreverse_rotate test\n\n");
+/*	ft_putstr("\n\n\nreverse_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -150,9 +150,9 @@ int	main(int ac, char **av)
 	print_list(alst_a);
 	ft_putchar('\n');
 	ft_putchar('\n');
-
+*/
 	/*dual_reverse_rotate test*/
-	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
+/*	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -176,9 +176,9 @@ int	main(int ac, char **av)
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
 	ft_putstr("\n\n");
-
+*/
 	/*is_sorted test*/
-	ft_putstr("\n\n\nis_sorted test\n\n");
+/*	ft_putstr("\n\n\nis_sorted test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -190,14 +190,14 @@ int	main(int ac, char **av)
 		ft_putstr("\nA stack is sorted.\n");
 	else
 		ft_putstr("A stack isn't sorted.\n");
-
+*/
 	/*is_valid_input tes*/
-	ft_putstr("\n\n\nis_valid_input test\n\n");
+/*	ft_putstr("\n\n\nis_valid_input test\n\n");
 	if (is_valid_input(av[1]))
 		ft_putstr("inputs are valid\n");
 	else
 		ft_putstr("inputs are not valid\n");
-
+*/
 	return (0);
 }
 
