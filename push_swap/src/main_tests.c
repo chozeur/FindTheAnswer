@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/30 03:47:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/31 01:56:48 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(int ac, char **av)
 	ft_putchar('\n');
 */
 	/*rotate test*/
-	ft_putstr("\n\n\nrotate test\n\n");
+/*	ft_putstr("\n\n\nrotate test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -103,7 +103,7 @@ int	main(int ac, char **av)
 	ft_putstr("lst_a :\t");
 	print_list(alst_a);
 	ft_putchar('\n');
-
+*/
 	/*dual_rotate test*/
 /*	ft_putstr("\n\n\ndual_rotate test\n\n");
 	lst_a = set_input_numbers(av);
