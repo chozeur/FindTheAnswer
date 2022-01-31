@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 13:13:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 19:20:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/31 02:38:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ void	del(void *ptr)
 void	ft_lstdelone(t_number *lst)
 {
 	del(&(lst->num));
+	del(&(lst->next));
 	free(lst);
+	lst = NULL;
 }

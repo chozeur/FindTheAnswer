@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/25 18:00:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/31 02:40:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_number	*ft_lstlast(t_number *lst);
 
 	void	swap(t_number **alst);
 	void	dual_swap(t_number **alst_a, t_number **alst_b);
-t_number	*push(t_number **alst_a, t_number **alst_b );
+t_number	*push(t_number **alst_a, t_number **alst_b);
 	void	rotate(t_number **alst);
 	void	dual_rotate(t_number **alst_a, t_number **alst_b);
 	void	reverse_rotate(t_number **alst);
@@ -60,6 +60,9 @@ t_number	*set_input_numbers(char **inputs);
 	int		ft_strlen(const char *str);
 	char	**ft_split(char const *s, char c);
 
+//	algo
+
+	void	sortstack_small(t_number **alst_a);
 
 //	push_swap
 

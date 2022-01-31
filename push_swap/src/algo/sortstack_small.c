@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_stack.c                                 :+:      :+:    :+:   */
+/*   sortstack_small.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:39:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/30 03:43:27 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/31 02:48:06 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sortstack_small(t_number **alst_a)
 {
 	t_number	**alst_b;
 
+	alst_b = NULL;
+	*alst_b = NULL;
 	while (1)
 	{
 		while (ft_lstsize(*alst_a))
