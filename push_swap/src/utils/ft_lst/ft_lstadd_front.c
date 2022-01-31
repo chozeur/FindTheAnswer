@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 18:51:00 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 18:43:14 by flcarval          #+#    #+#             */
+/*   Updated: 2022/01/31 17:55:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../../../includes/push_swap.h"
 
-
-void	push(t_number **alst_a, t_number **alst_b)
+void	ft_lstadd_front(t_number **alst, t_number *new)
 {
-	t_number	*tmp;
-	t_number	*save;
-
-	if (!(*alst_a))
-		return ;
-	tmp = ft_lstnew((*alst_a)->num);
-	ft_lstadd_front(alst_b, tmp);
-	if (!(*alst_a)->next)
+	if (alst && new)
 	{
-		free(*alst_a);
-		*alst_a = NULL;
+		new->next = *alst;
+		*alst = new;
 	}
-	else
-	{
-		save = (*alst_a)->next;
-		free(*alst_a);
-		alst_a = &save;
-	}
+	*alst = new;
 }

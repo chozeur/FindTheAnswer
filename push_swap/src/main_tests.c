@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 02:48:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:40:13 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 	ft_putstr("\n\n");
 */
 	/*push test (pa = pb)*/
-/*	ft_putstr("\n\n\npush test (pa = pb)\n\n");
+	ft_putstr("\n\n\npush test (pa = pb)\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -77,7 +77,7 @@ int	main(int ac, char **av)
 	ft_putstr("lst_b :\t");
 	print_list(alst_b);
 	ft_putchar('\n');
-/	*alst_a = push(alst_a, alst_b);
+	push(alst_a, alst_b);
 	ft_putchar('\n');
 	ft_putstr("lst_a :\t");
 	print_list(alst_a);
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 	print_list(alst_b);
 	ft_putchar('\n');
 	ft_putchar('\n');
-*/
+
 	/*rotate test*/
 /*	ft_putstr("\n\n\nrotate test\n\n");
 	lst_a = set_input_numbers(av);
@@ -200,7 +200,7 @@ int	main(int ac, char **av)
 */
 
 	/*sortstack_small test*/
-	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
+/*	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -215,20 +215,47 @@ int	main(int ac, char **av)
 	ft_putstr("after :\t");
 	print_list(alst_a);
 	ft_putchar('\n');
+*/
+	/*ft_lstadd_front test*/
+/*	ft_putstr("\n\n\nft_lstadd_front test\n\n");
+	lst_a = set_input_numbers(args);
+	lst_b = set_input_numbers_bis(args);
+	if (!lst_a || !lst_b)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	alst_b = &lst_b;
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
+	ft_putchar('\n');
+	ft_lstadd_front(alst_b, ft_lstnew((*alst_a)->num));
+	ft_putchar('\n');
+	ft_putstr("lst_a :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	ft_putstr("lst_b :\t");
+	print_list(alst_b);
 
+	ft_putstr("\n\n");
+*/
 	return (0);
 }
 
 /*-------------------------------------------------------------*/
 
 
-void	print_list(t_number **lst)
+void	print_list(t_number **alst)
 {
 	t_number	*number;
 
-	if (!(*lst))
+	if (!(*alst))
 		return ;
-	number = *lst;
+	number = *alst;
 	while (number)
 	{
 		ft_putnbr(number->num);
