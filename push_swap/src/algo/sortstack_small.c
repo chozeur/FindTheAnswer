@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   sortstack_small.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 13:13:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 02:38:54 by flcarval         ###   ########.fr       */
+/*   Created: 2022/01/26 15:39:21 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/01 16:49:16 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	del(void *ptr)
+void	sortstack_small(t_number **alst_a)
 {
-	free(ptr);
-	ptr = NULL;
-}
+	t_number	**alst_b;
 
-void	ft_lstdelone(t_number *lst)
-{
-	del(&(lst->num));
-	del(&(lst->next));
-	free(lst);
-	lst = NULL;
+	swapstack_init(alst_b);
+	while (1)
+	{
+		while (ft_lstsize(*alst_a))
+		{
+			push(alst_a, alst_b);
+			while ((*alst_a)->num < (*alst_b)->num)
+				rotate(alst_b);
+		}
+		if (ft_lstsize(*alst_a))
+			rotate(alst_a);
+	}
 }

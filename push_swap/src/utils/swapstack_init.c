@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   swapstack_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/29 13:13:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 02:38:54 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/01 16:41:29 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/01 16:49:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-void	del(void *ptr)
+void	swapstack_init(t_number **alst_b)
 {
-	free(ptr);
-	ptr = NULL;
-}
-
-void	ft_lstdelone(t_number *lst)
-{
-	del(&(lst->num));
-	del(&(lst->next));
-	free(lst);
-	lst = NULL;
+	*alst_b = malloc(sizeof(t_number));
+	if (!(*alst_b))
+		return ;
+	alst_b = NULL;
 }
