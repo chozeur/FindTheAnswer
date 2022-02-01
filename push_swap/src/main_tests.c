@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 18:40:13 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/01 16:28:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int ac, char **av)
 	ft_putstr("\n\n");
 */
 	/*push test (pa = pb)*/
-	ft_putstr("\n\n\npush test (pa = pb)\n\n");
+/*	ft_putstr("\n\n\npush test (pa = pb)\n\n");
 	lst_a = set_input_numbers(av);
 	lst_b = set_input_numbers_bis(av);
 	if (!lst_a || !lst_b)
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 	print_list(alst_b);
 	ft_putchar('\n');
 	ft_putchar('\n');
-
+*/
 	/*rotate test*/
 /*	ft_putstr("\n\n\nrotate test\n\n");
 	lst_a = set_input_numbers(av);
@@ -199,23 +199,6 @@ int	main(int ac, char **av)
 		ft_putstr("inputs are not valid\n");
 */
 
-	/*sortstack_small test*/
-/*	ft_putstr("\n\n\ndual_reverse_rotate test\n\n");
-	lst_a = set_input_numbers(av);
-	if (!lst_a)
-	{
-		ft_putstr("An error occured. Please debug.\n");
-		return (-1);
-	}
-	alst_a = &lst_a;
-	ft_putstr("before :\t");
-	print_list(alst_a);
-	ft_putchar('\n');
-	sortstack_small(alst_a);
-	ft_putstr("after :\t");
-	print_list(alst_a);
-	ft_putchar('\n');
-*/
 	/*ft_lstadd_front test*/
 /*	ft_putstr("\n\n\nft_lstadd_front test\n\n");
 	lst_a = set_input_numbers(args);
@@ -243,6 +226,23 @@ int	main(int ac, char **av)
 
 	ft_putstr("\n\n");
 */
+	/*sortstack_small test*/
+	ft_putstr("\n\n\nsortstack_small test\n\n");
+	lst_a = set_input_numbers(av);
+	if (!lst_a)
+	{
+		ft_putstr("An error occured. Please debug.\n");
+		return (-1);
+	}
+	alst_a = &lst_a;
+	ft_putstr("before :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+	sortstack_small(alst_a);
+	ft_putstr("after :\t");
+	print_list(alst_a);
+	ft_putchar('\n');
+
 	return (0);
 }
 

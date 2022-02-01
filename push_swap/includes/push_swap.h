@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 17:58:45 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/01 16:48:40 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ t_number	*set_input_numbers(char **inputs);
 	int		is_valid_input(char *input);
 	int		ft_strlen(const char *str);
 	char	**ft_split(char const *s, char c);
+	void	swapstack_init(t_number **alst_b);
+
 
 //	algo
 

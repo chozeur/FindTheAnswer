@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sortstack_small.c                                  :+:      :+:    :+:   */
+/*   swapstack_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 15:39:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/01 16:49:16 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/01 16:41:29 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/01 16:49:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	sortstack_small(t_number **alst_a)
+void	swapstack_init(t_number **alst_b)
 {
-	t_number	**alst_b;
-
-	swapstack_init(alst_b);
-	while (1)
-	{
-		while (ft_lstsize(*alst_a))
-		{
-			push(alst_a, alst_b);
-			while ((*alst_a)->num < (*alst_b)->num)
-				rotate(alst_b);
-		}
-		if (ft_lstsize(*alst_a))
-			rotate(alst_a);
-	}
+	*alst_b = malloc(sizeof(t_number));
+	if (!(*alst_b))
+		return ;
+	alst_b = NULL;
 }

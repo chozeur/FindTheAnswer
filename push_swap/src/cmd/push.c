@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/31 18:51:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/01 16:34:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	push(t_number **alst_a, t_number **alst_b)
 	if (!(*alst_a))
 		return ;
 	tmp = ft_lstnew((*alst_a)->num);
+	save = (*alst_a)->next;
 	ft_lstadd_front(alst_b, tmp);
 	if (!(*alst_a)->next)
 	{
@@ -29,8 +30,7 @@ void	push(t_number **alst_a, t_number **alst_b)
 	}
 	else
 	{
-		save = (*alst_a)->next;
 		free(*alst_a);
-		alst_a = &save;
+		*alst_a = save;
 	}
 }
