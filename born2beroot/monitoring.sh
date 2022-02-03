@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 23:21:28 by flcarval          #+#    #+#              #
-#    Updated: 2022/01/07 00:28:06 by flcarval         ###   ########.fr        #
+#    Updated: 2022/02/01 20:43:10 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,30 +41,34 @@ monitoring () {
 	|_|_|_|___|_|_|_| | |___|_| |_|_|_|_  |_||___|_|_|
 			|__|              |___|           
 	"
-	ARCH=$(uname -p)
-	echo -e "> Architecture   : ${ARCH} (host arch is : x86_64)";
+	ARCH=$(uname -a)
+	echo -e "> Architecture   : ${ARCH}";
 
-	echo -e -n "> Kernel version : ";uname -v;
+#	echo -e -n "> Kernel version : ";uname -v;
 
 	CPU=$(lscpu | grep "Core(s) per socket" | tr -dc '0-9')
 	echo -e "> Physical cores : ${CPU}";
 
 	echo -e -n "> Logical cores  : ";cat /proc/cpuinfo | grep processor | wc -l;
 
-	MEM=$(cat /proc/meminfo | grep "MemTotal" | tr -dc '0-9')
-	AVA=$(cat /proc/meminfo | grep "MemAvailable" | tr -dc '0-9')
-	USED=$(($MEM - $AVA))
-	PERCENT=$((($USED * 100) / $MEM))
-	echo -e "> Total memmory  : ${MEM} Kilo-Bytes [${PERCENT}% used]";
+#	MEM=$(cat /proc/meminfo | grep "MemTotal" | tr -dc '0-9')
+#	AVA=$(cat /proc/meminfo | grep "MemAvailable" | tr -dc '0-9')
+#	USED=$(($MEM - $AVA))
+#	PERCENT=$((($USED * 100) / $MEM))
+	MEM=$(free -h | awk 'NR==2{print $2}')
+	USED=$(free -h | awk 'NR==2{print $3}')
+	PERCENT=$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2}')
+	echo -e "> Memmory usage  : ${USED} / ${MEM} [${PERCENT}% used]";
 
-	VOL=$(df -l --output=source,size --total | grep total | tr -dc '0-9')
-	PERC=$(df -l --outpu=source,pcent --total | grep total | tr -dc '0-9')
-	echo -e "> Total volume   : ${VOL} Kilo-Bytes [${PERC}% used]"
+	VOL=$(df -h --total --output=size,source | grep total | awk '{print $1}')
+	USEDVOL=$(df -h --total --output=used,source | grep total | awk '{print $1}')
+	PERC=$(df -l --output=source,pcent --total | grep total | tr -dc '0-9')
+	echo -e "> Volume usage   : ${USEDVOL} / ${VOL} [${PERC}% used]"
 
-	CPUP=$(mpstat | grep -A 5 "%idle" | tail -n 1 | awk -F " " '{print 100 -  $ 12}')
-	echo -e "> CPU\t\t : [${CPUP}% used]"
+	CPUP=$(top -bn1 | grep load | awk '{printf "%.2f%%\n", $(NF-2)}')
+	echo -e "> CPU\t\t : [${CPUP} used]"
 
-	echo -e -n "> Latest reboot  : ";who -b | cut -c 25-;
+	echo -e -n "> Latest reboot  : ";who | awk 'NR==1{print $3,$4}'
 
 	if [ $(lsblk -o type | grep "lvm" | wc -l) -ge 1 ]; then
 		STATUS=ENABLE
@@ -73,7 +77,7 @@ monitoring () {
 	fi
 	echo -e "> LVM status     : ${STATUS}"
 
-	ACTIVE=$(ps -eaho user | sort -u | wc -l)
+	ACTIVE=$(w | wc -l | awk '{print $1-2}')
 	echo -e "> Active users   : ${ACTIVE} (root is counted)"
 
 	IPV4=$(ip a | grep ether -1 | grep inet | cut -b 10-18)
@@ -86,6 +90,6 @@ monitoring () {
 	echo -e "> sudo commands  : ${SC}"
 }
 
-rm -f /var/log/monitoring/monitoring.sh
+rm -f /var/log/monitoring/monitoring.log
 monitoring > /var/log/monitoring/monitoring.log
-wall /var/log/monitoring/monitoring.log 
+wall /var/log/monitoring/monitoring.log
