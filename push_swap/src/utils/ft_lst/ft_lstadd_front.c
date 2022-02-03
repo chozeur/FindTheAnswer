@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 18:43:14 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/01 16:34:34 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/03 16:15:37 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@ void	ft_lstadd_front(t_number **alst, t_number *new)
 		new->next = *alst;
 		*alst = new;
 	}
-	*alst = new;
+	else
+	{
+		new->next = NULL;
+		alst = &new;
+	}
 }

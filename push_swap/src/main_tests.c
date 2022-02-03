@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/01 16:28:46 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/03 19:00:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ int	main(int ac, char **av)
 	/*push test (pa = pb)*/
 /*	ft_putstr("\n\n\npush test (pa = pb)\n\n");
 	lst_a = set_input_numbers(av);
-	lst_b = set_input_numbers_bis(av);
-	if (!lst_a || !lst_b)
+//	lst_b = set_input_numbers_bis(av);
+	lst_b = NULL;
+	if (!lst_a)
 	{
 		ft_putstr("An error occured. Please debug.\n");
 		return (-1);
@@ -239,7 +240,7 @@ int	main(int ac, char **av)
 	print_list(alst_a);
 	ft_putchar('\n');
 	sortstack_small(alst_a);
-	ft_putstr("after :\t");
+	ft_putstr("after  :\t");
 	print_list(alst_a);
 	ft_putchar('\n');
 

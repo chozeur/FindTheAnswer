@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 16:41:29 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/01 16:49:19 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:32:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	swapstack_init(t_number **alst_b)
 	*alst_b = malloc(sizeof(t_number));
 	if (!(*alst_b))
 		return ;
-	alst_b = NULL;
+	(*alst_b)->next = NULL;
 }
