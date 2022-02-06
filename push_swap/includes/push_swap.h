@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/03 18:01:40 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/06 03:53:56 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ t_number	*set_input_numbers(char **inputs);
 	int		ft_strlen(const char *str);
 	char	**ft_split(char const *s, char c);
 	void	swapstack_init(t_number **alst_b);
-
+	int		highest(t_number **alst);
+	int		lowest(t_number **alst);
 
 //	algo
 
 	void	sortstack_small(t_number **alst_a);
+	void	stack_3(t_number **alsta_a);
 
 //	push_swap
 
