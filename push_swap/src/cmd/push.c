@@ -6,14 +6,14 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/03 18:25:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/06 04:07:02 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 
-void	push(t_number **alst_a, t_number **alst_b)
+void	push(t_number **alst_a, t_number **alst_b, char *cmd)
 {
 	t_number	*tmp;
 	t_number	*save;
@@ -36,5 +36,5 @@ void	push(t_number **alst_a, t_number **alst_b)
 		free(*alst_a);
 		*alst_a = save;
 	}
-	printf("\n\t(*alst_b)->num = %d\n\n", (*alst_b)->num);
+	ft_putstr(cmd);
 }

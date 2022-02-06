@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 03:53:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/06 04:39:14 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,16 @@ t_number	*ft_lstlast(t_number *lst);
 
 //	cmd
 
-	void	swap(t_number **alst);
+/*
+some of them need the output string as second argument
+*/
+
+	void	swap(t_number **alst, char *cmd);
 	void	dual_swap(t_number **alst_a, t_number **alst_b);
-	void	push(t_number **alst_a, t_number **alst_b);
-	void	rotate(t_number **alst);
+	void	push(t_number **alst_a, t_number **alst_b, char *cmd);
+	void	rotate(t_number **alst, char *cmd);
 	void	dual_rotate(t_number **alst_a, t_number **alst_b);
-	void	reverse_rotate(t_number **alst);
+	void	reverse_rotate(t_number **alst, char *cmd);
 	void	dual_reverse_rotate(t_number **alst_a, t_number **alst_b);
 
 //	puts
@@ -68,6 +72,8 @@ t_number	*set_input_numbers(char **inputs);
 
 	void	sortstack_small(t_number **alst_a);
 	void	stack_3(t_number **alsta_a);
+	void	stack_4(t_number **alst_a, t_number **alst_b);
+	void	stack_5(t_number **alst_a, t_number **alst_b);
 
 //	push_swap
 
