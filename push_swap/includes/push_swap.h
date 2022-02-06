@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 04:39:14 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/06 06:23:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,17 @@ some of them need the output string as second argument
 
 //	push_swap_utils
 
-	int		ft_atoi(const char *str);
+	long	ft_atol(const char *str);
 t_number	*set_input_numbers(char **inputs);
 	int		is_sorted(t_number **alst);
-	int		is_valid_input(char *input);
+	int		is_valid_input(char **inputs);
 	int		ft_strlen(const char *str);
 	char	**ft_split(char const *s, char c);
 	void	swapstack_init(t_number **alst_b);
 	int		highest(t_number **alst);
 	int		lowest(t_number **alst);
+t_number	*get_args(int ac, char **av);
+	int		are_digits(char *str);
 
 //	algo
 

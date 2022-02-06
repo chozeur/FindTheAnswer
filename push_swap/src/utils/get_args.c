@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   get_args.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 19:28:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 06:23:04 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/06 04:53:43 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/06 06:25:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-long	ft_atol(const char *str)
+t_number	*get_args(int ac, char **av)
 {
-	int	i;
-	long	sign;
-	long	res;
+		char	**args;
+	t_number	*lst;
 
-	i = 0;
-	sign = 1;
-	res = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '-')
+
+	if (ac == 1)
 	{
-		sign = -1;
-		i++;
+		ft_putstr("You must enter at least one integer.");
+		return (NULL);
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = &av[1];
+	if (!is_valid_input(args))
+		return (NULL);
+	lst = set_input_numbers(args);
+	if (!lst)
 	{
-		res = res * 10 + (str[i] - 48);
-		i++;
+		ft_putstr("You must enter at least one integer.");
+		return (NULL);
 	}
-	if (res * sign > INT_MAX || res * sign < INT_MIN)
-		return (LONG_MAX);
-	return (res * sign);
+	return (lst);
 }

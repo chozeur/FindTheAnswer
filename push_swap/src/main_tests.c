@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 04:07:43 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/06 06:25:56 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,24 @@ int	main(int ac, char **av)
 	t_number	**alst_a;
 	t_number	**alst_b;
 		char	**args;
+
 	if (ac == 1)
 	{
-		ft_putstr("You must enter at least 1 integer.\n");
+		ft_putstr("You must enter at least one integer.");
 		return (-1);
 	}
-//	if (ac == 2)
-//		args = ft_split(av[1], ' ');
-//	else
-	args = av;
+	if (ac == 2)
+		args = ft_split(av[1], ' ');
+	else
+		args = &av[1];
+	lst_a = set_input_numbers(args);
+	if (!lst_a)
+	{
+		ft_putstr("You must enter at least one integer.");
+		return (-1);
+	}
+	ft_putstr("lst_a :\t");
+	print_list(&lst_a);
 	/*dual_swap test (ss = sa +  sb)*/
 /*	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
 	lst_a = set_input_numbers(args);
@@ -243,7 +252,7 @@ int	main(int ac, char **av)
 	ft_putnbr(lowest(alst_a));
 */
 	/*sortstack_small test*/
-	ft_putstr("\n\n\nsortstack_small test\n\n");
+/*	ft_putstr("\n\n\nsortstack_small test\n\n");
 	lst_a = set_input_numbers(av);
 	if (!lst_a)
 	{
@@ -258,7 +267,7 @@ int	main(int ac, char **av)
 	ft_putstr("after  :\t");
 	print_list(alst_a);
 	ft_putchar('\n');
-
+*/
 	return (0);
 }
 
@@ -269,7 +278,7 @@ void	print_list(t_number **alst)
 {
 	t_number	*number;
 
-	if (!(*alst))
+	if (!(*alst) || !alst)
 		return ;
 	number = *alst;
 	while (number)
@@ -287,14 +296,14 @@ t_number	*set_input_numbers_bis(char **inputs)
 	t_number	*new;
 	int			i;
 
-	lst = ft_lstnew((ft_atoi(inputs[1])) * 10);
+	lst = ft_lstnew((ft_atol(inputs[1])) * 10);
 	if (!lst)
 		return (NULL);
 	last = lst;
 	i = 2;
 	while (inputs[i])
 	{
-		new = ft_lstnew((ft_atoi(inputs[i]) * 10));
+		new = ft_lstnew((ft_atol(inputs[i]) * 10));
 		if (!new)
 			return (NULL);
 		ft_lstadd_back(&lst, new);
