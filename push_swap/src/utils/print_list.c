@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   print_list.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 00:05:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/07 02:36:59 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/07 02:35:47 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/07 02:36:06 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	main(int ac, char **av)
+
+void	print_list(t_number **alst)
 {
-	t_number	*lst_a;
-	t_number	**alst_a;
+	t_number	*number;
 
-	lst_a = get_args(ac, av);
-	if (!lst_a)
+	if (!(*alst) || !alst)
+		return ;
+	number = *alst;
+	while (number)
 	{
-		ft_putstr("\nERROR EXIT\n");
-		return (-1);
+		ft_putnbr(number->num);
+		ft_putchar('\t');
+		number = number->next;
 	}
-	alst_a = &lst_a;
-	if (ft_lstsize(*alst_a) <= 5)
-		sortstack_small(alst_a);
-	else
-		sortstack_big(alst_a);
-	ft_putstr("\nSorted stack : ");
-	print_list(alst_a);
 }
