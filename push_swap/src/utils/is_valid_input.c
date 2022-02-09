@@ -6,31 +6,49 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 06:26:01 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/10 00:39:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	error();
+static int	error();
 
 int	is_valid_input(char **inputs)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (inputs[i])
 	{
 		if (ft_atol(inputs[i]) == LONG_MAX)
 			return (error());
 		if (ft_atol(inputs[i]) == 0 && are_digits(inputs[i]) == 0)
 			return (error());
+		if (isonly_num(inputs[i]) == 0)
+			return (error());
 		i++;
 	}
 	return (1);
 }
 
-int	error()
+int	isonly_num(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static int	error()
 {
 	ft_putstr("Please enter integers (int) only.\n");
 	return (0);

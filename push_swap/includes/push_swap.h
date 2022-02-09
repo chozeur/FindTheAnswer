@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/09 17:28:29 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/10 00:28:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ t_number	*set_input_numbers(char **inputs);
 	int		lowest(t_number **alst);
 t_number	*get_args(int ac, char **av);
 	int		are_digits(char *str);
+	int		ft_isdigit(char c);
+	int		isonly_num(char *str);
 
 //	algo
 

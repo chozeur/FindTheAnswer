@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   are_digits.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 00:35:53 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 00:36:02 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:33:36 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/10 00:27:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	are_digits(char *str)
+int	ft_isdigit(char c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]))
-			return (1);
-		i++;
-	}
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }
