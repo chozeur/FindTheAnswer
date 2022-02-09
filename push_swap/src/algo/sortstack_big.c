@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 01:57:24 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/09 17:05:10 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/09 17:44:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,19 @@ void	part(int size, t_number **alst_a, t_number **alst_b)
 {
 		int		piv_num;
 		int		i;
+		int		p;
 
 	piv_num = (*alst_a)->num;
 	push(alst_a, alst_b, "pb\n");
 	i = 0;
+	p = 0;
 	while (i < size - 1)
 	{
 		if ((*alst_a)->num > piv_num)
+		{
 			push(alst_a, alst_b, "pb\n");
+			p++;
+		}
 		else
 		{
 			if (next_gt_index(alst_a) < (ft_lstsize(*alst_a) / 2))
@@ -53,6 +58,22 @@ void	part(int size, t_number **alst_a, t_number **alst_b)
 		i++;
 	}
 	emptystack(alst_a, alst_b);
+}
+
+int	h_highers(t_number **alst_a)
+{
+		int		res;
+	t_number	*lst;
+
+	res = 0;
+	lst = *alst_a;
+	while (lst)
+	{
+		if (lst->num > (*alst_a)->num)
+			res++;
+		lst = lst->next;
+	}
+	return (res);
 }
 
 int	next_gt_index(t_number **alst_a)
