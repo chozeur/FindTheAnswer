@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   h_highers.c                                        :+:      :+:    :+:   */
+/*   part.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 02:22:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 02:22:56 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/10 02:24:28 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/10 02:24:39 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	h_highers(t_number **alst_a)
+void	part(int size, t_number **alst_a, t_number **alst_b)
 {
-		int		res;
-	t_number	*lst;
+		int		piv_num;
+		int		i;
+		int		p;
 
-	res = 0;
-	lst = *alst_a;
-	while (lst)
+	piv_num = (*alst_a)->num;
+	push(alst_a, alst_b, "pb\n");
+	i = 0;
+	p = 0;
+	while (i < size - 1)
 	{
-		if (lst->num > (*alst_a)->num)
-			res++;
-		lst = lst->next;
+		if ((*alst_a)->num > piv_num)
+		{
+			push(alst_a, alst_b, "pb\n");
+			p++;
+		}
+		else
+		{
+			if (next_gt_index(alst_a) < (ft_lstsize(*alst_a) / 2))
+				rotate(alst_a, "ra\n");
+			else
+				reverse_rotate(alst_a, "rra\n");
+		}
+		i++;
 	}
-	return (res);
+	emptystack(alst_a, alst_b);
 }

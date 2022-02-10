@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 06:25:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/10 02:38:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_number	*set_input_numbers_bis(char **inputs);
 
 int	main(int ac, char **av)
 {
+	ft_putnbr(ft_atol("-2147483648"));
+/*
 	t_number	*lst_a;
 	t_number	*lst_b;
 	t_number	**alst_a;
@@ -42,6 +44,7 @@ int	main(int ac, char **av)
 	}
 	ft_putstr("lst_a :\t");
 	print_list(&lst_a);
+*/
 	/*dual_swap test (ss = sa +  sb)*/
 /*	ft_putstr("\n\n\ndual_swap test (ss = sa +  sb)\n\n");
 	lst_a = set_input_numbers(args);
@@ -272,22 +275,6 @@ int	main(int ac, char **av)
 }
 
 /*-------------------------------------------------------------*/
-
-
-void	print_list(t_number **alst)
-{
-	t_number	*number;
-
-	if (!(*alst) || !alst)
-		return ;
-	number = *alst;
-	while (number)
-	{
-		ft_putnbr(number->num);
-		ft_putchar('\t');
-		number = number->next;
-	}
-}
 
 t_number	*set_input_numbers_bis(char **inputs)
 {

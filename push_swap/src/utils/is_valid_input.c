@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 00:39:27 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/10 02:43:31 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int	isonly_num(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-			return (0);
+		{
+			if (!(i == 0 && str[i] == '-'))
+				return (0);
+		}
 		i++;
 	}
 	return (1);
