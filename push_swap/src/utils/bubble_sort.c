@@ -1,42 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   part.c                                             :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 02:24:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/15 18:12:04 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/16 17:21:31 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/16 17:29:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	part(int size, t_number **alst_a, t_number **alst_b)
-{
-		int		piv_num;
-		int		i;
-		int		p;
+static void swap(int *xp, int *yp);
 
-	piv_num = (*alst_a)->num;
-	push(alst_a, alst_b, "pb\n");
+void	bubble_sort(int *arr, int size)
+{
+	int	i;
+	int	j;
+
 	i = 0;
-	p = 0;
-	while (i < size - 1 && p < h_highers(piv_num, alst_a))
 	{
-		if ((*alst_a)->num > piv_num)
+		while (i < size - 1)
 		{
-			push(alst_a, alst_b, "pb\n");
-			p++;
+			j = 0;
+			while (j < size - i - 1)
+			{
+				if (arr[j] > arr[j + 1])
+					swap(&arr[j], &arr[j + 1]);
+				j++;
+			}
+			i++;
 		}
-		else
-		{
-			if (next_gt_index(piv_num, alst_a))
-				rotate(alst_a, "ra\n");
-			else
-				reverse_rotate(alst_a, "rra\n");
-		}
-		i++;
 	}
-	emptystack(alst_a, alst_b);
+}
+
+static void swap(int *xp, int *yp)
+{
+    int temp = *xp;
+    *xp = *yp;
+    *yp = temp;
 }

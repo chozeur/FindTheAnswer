@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   part.c                                             :+:      :+:    :+:   */
+/*   init_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 02:24:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/15 18:12:04 by flcarval         ###   ########.fr       */
+/*   Created: 2022/02/16 17:10:03 by flcarval          #+#    #+#             */
+/*   Updated: 2022/02/16 17:18:05 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	part(int size, t_number **alst_a, t_number **alst_b)
+int	*init_array(t_number **alst)
 {
-		int		piv_num;
+		int		*res;
+	t_number	*lst;
 		int		i;
-		int		p;
 
-	piv_num = (*alst_a)->num;
-	push(alst_a, alst_b, "pb\n");
+	res = malloc(sizeof(int) * ft_lstsize(*alst));
+	if (!res)
+		return (NULL);
+	lst = *alst;
 	i = 0;
-	p = 0;
-	while (i < size - 1 && p < h_highers(piv_num, alst_a))
+	while (lst)
 	{
-		if ((*alst_a)->num > piv_num)
-		{
-			push(alst_a, alst_b, "pb\n");
-			p++;
-		}
-		else
-		{
-			if (next_gt_index(piv_num, alst_a))
-				rotate(alst_a, "ra\n");
-			else
-				reverse_rotate(alst_a, "rra\n");
-		}
+		res[i] = lst->num;
 		i++;
+		lst = lst->next;
 	}
-	emptystack(alst_a, alst_b);
+	return (res);
 }

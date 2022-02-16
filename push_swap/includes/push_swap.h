@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/15 13:03:50 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/16 17:13:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ t_number	*get_args(int ac, char **av);
 	int		are_digits(char *str);
 	int		ft_isdigit(char c);
 	int		isonly_num(char *str);
+	int		*init_array(t_number **alst);
+
 
 //	algo
 
@@ -80,7 +82,7 @@ t_number	*get_args(int ac, char **av);
 	void	sortstack_big(t_number **alst_a);
 	void	part(int size, t_number **alst_a, t_number **alst_b);
 	int		h_highers(int n, t_number **alst_a);
-	int		next_gt_index(t_number **alst_a);
+	int		next_gt_index(int piv_num, t_number **alst_a);
 	void	emptystack(t_number **alst_a, t_number **alst_b);
 
 //	push_swap
