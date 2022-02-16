@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/16 17:13:51 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:50:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ t_number	*get_args(int ac, char **av);
 	int		ft_isdigit(char c);
 	int		isonly_num(char *str);
 	int		*init_array(t_number **alst);
+	void	bubble_sort(int *arr, int size);
+	int		median(int *arr, int size);
 
 
 //	algo
