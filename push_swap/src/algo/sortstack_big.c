@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 01:57:24 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/16 23:20:21 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:49:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	big_block(int size, t_number **alst_a, t_number **alst_b)
 	int	i;
 
 	arr = init_array(alst_a);
+	bubble_sort(arr, size);
 	mid = median(arr, ft_lstsize(*alst_a));
 	free(arr);
 	i = 0;

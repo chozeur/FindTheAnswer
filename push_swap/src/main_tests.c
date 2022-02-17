@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 02:38:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:37:37 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_number	*set_input_numbers_bis(char **inputs);
 
 int	main(int ac, char **av)
 {
-	ft_putnbr(ft_atol("-2147483648"));
 /*
 	t_number	*lst_a;
 	t_number	*lst_b;
@@ -270,6 +269,11 @@ int	main(int ac, char **av)
 	ft_putstr("after  :\t");
 	print_list(alst_a);
 	ft_putchar('\n');
+*/
+	/*sortstack_small test*/
+/*	int	arr[3]={12, 42, 97};
+	ft_putstr("La mediane attendue est 42 . . . -> ");
+	ft_putnbr(median(arr, 3));
 */
 	return (0);
 }

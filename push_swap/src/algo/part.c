@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 02:24:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/15 18:12:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 13:43:12 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	part(int size, t_number **alst_a, t_number **alst_b)
+/*void	part(int size, t_number **alst_a, t_number **alst_b)
 {
 		int		piv_num;
 		int		i;
@@ -39,4 +39,4 @@ void	part(int size, t_number **alst_a, t_number **alst_b)
 		i++;
 	}
 	emptystack(alst_a, alst_b);
-}
+}*/
