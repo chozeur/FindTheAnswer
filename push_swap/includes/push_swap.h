@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 13:42:39 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:02:12 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ t_number	*get_args(int ac, char **av);
 //	void	emptystack(t_number **alst_a, t_number **alst_b);
 	void	move_a_to_b(t_number **alst_a, t_number **alst_b);
 	void	move_a_to_b(t_number **alst_a, t_number **alst_b);
-	void	big_block(int size, t_number **alst_a, t_number **alst_b);
-	void	small_block(int mid, t_number **alst_a, t_number **alst_b);
 
 //	push_swap
 
