@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 14:02:12 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 15:30:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,8 @@ t_number	*get_args(int ac, char **av);
 	void	stack_4(t_number **alst_a, t_number **alst_b);
 	void	stack_5(t_number **alst_a, t_number **alst_b);
 	void	sortstack_big(t_number **alst_a);
-//	void	part(int size, t_number **alst_a, t_number **alst_b);
-//	int		h_highers(int n, t_number **alst_a);
-//	int		next_gt_index(int piv_num, t_number **alst_a);
-//	void	emptystack(t_number **alst_a, t_number **alst_b);
 	void	move_a_to_b(t_number **alst_a, t_number **alst_b);
-	void	move_a_to_b(t_number **alst_a, t_number **alst_b);
+	void	move_b_to_a(t_number **alst_a, t_number **alst_b, int init_size);
 
 //	push_swap
 

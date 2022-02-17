@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:54:55 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 13:57:53 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/17 14:20:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	big_block(int size, t_number **alst_a, t_number **alst_b);
+static int	big_block(int size, t_number **alst_a, t_number **alst_b);
 static void	small_block(int mid, t_number **alst_a, t_number **alst_b);
 
 void	move_a_to_b(t_number **alst_a, t_number **alst_b)
@@ -23,7 +23,7 @@ void	move_a_to_b(t_number **alst_a, t_number **alst_b)
 		swap(alst_a, "sa\n");
 }
 
-static void	big_block(int size, t_number **alst_a, t_number **alst_b)
+static int	big_block(int size, t_number **alst_a, t_number **alst_b)
 {
 	int	mid;
 	int	*arr;
@@ -39,6 +39,7 @@ static void	big_block(int size, t_number **alst_a, t_number **alst_b)
 		small_block(mid, alst_a, alst_b);
 		i++;
 	}
+	return (i);
 }
 
 static void	small_block(int mid, t_number **alst_a, t_number **alst_b)
