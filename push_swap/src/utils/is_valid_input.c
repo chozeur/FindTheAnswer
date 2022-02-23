@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 02:43:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:13:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ static int	error();
 int	is_valid_input(char **inputs)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	while (inputs[i])
 	{
 		if (ft_atol(inputs[i]) == LONG_MAX)

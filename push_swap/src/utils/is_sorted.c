@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:29:24 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/24 01:58:24 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:13:06 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	is_sorted(t_number **alst)
 {
-	int	size;
 	t_number	*j;
 	int	tmp;
 
-	size = ft_lstsize(*alst);
 	j = *alst;
 	while (j->next)
 	{
