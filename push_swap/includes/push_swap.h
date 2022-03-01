@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 17:30:01 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 20:16:10 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ t_number	*get_args(int ac, char **av);
 	void	bubble_sort(int *arr, int size);
 	int		median(int *arr, int size);
 	int		quartile(int *arr, int size);
-	int		octile(int *arr, int size);
-
+	void	best_move_a_b(t_number **alst, int piv);
+	int		best_move_b_a(t_number **alst);
 
 //	algo
 
@@ -85,7 +85,7 @@ t_number	*get_args(int ac, char **av);
 	void	stack_5(t_number **alst_a, t_number **alst_b);
 	void	sortstack_big(t_number **alst_a);
 	void	move_a_to_b(t_number **alst_a, t_number **alst_b);
-	void	move_b_to_a(t_number **alst_a, t_number **alst_b, int init_size);
+	void	move_b_to_a(t_number **alst_a, t_number **alst_b);
 
 //	push_swap
 

@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:54:55 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 17:32:22 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:42:38 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int	big_block(int size, t_number **alst_a, t_number **alst_b)
 	return (i);
 }
 
-static void	small_block(int piv, t_number **alst_a, t_number **alst_b)
+/*static void	small_block(int piv, t_number **alst_a, t_number **alst_b)
 {
 	if ((*alst_a)->num < piv)
 		push(alst_a, alst_b, "pb\n");
@@ -57,4 +57,10 @@ static void	small_block(int piv, t_number **alst_a, t_number **alst_b)
 			rotate(alst_a, "ra\n");
 		push(alst_a, alst_b, "pb\n");
 	}
+}*/
+
+static void	small_block(int piv, t_number **alst_a, t_number **alst_b)
+{
+	best_move_a_b(alst_a, piv);
+	push(alst_a, alst_b, "pb\n");
 }

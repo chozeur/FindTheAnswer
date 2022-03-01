@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 00:40:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 17:29:46 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 19:40:13 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,5 @@ int	quartile(int *arr, int size)
 		i++;
 	}
 	res = median(tmp, ((size + 1) / 2));
-	return (res);
-}
-
-int	octile(int *arr, int size)
-{
-	int	res;
-	int	*tmp;
-	int	i;
-
-	tmp = malloc(sizeof(int) * ((size + 1) / 2));
-	if (!tmp)
-		return (INT_MIN);
-	i = 0;
-	while (i < (size + 1) / 2)
-	{
-		tmp[i] = arr[i];
-		i++;
-	}
-	res = quartile(tmp, ((size + 1) / 2));
 	return (res);
 }

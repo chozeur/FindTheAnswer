@@ -6,46 +6,37 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:12:01 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 17:32:27 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 20:03:32 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	move_b_to_a(t_number **alst_a, t_number **alst_b, int init_size)
+void	move_b_to_a(t_number **alst_a, t_number **alst_b)
 {
 	int	i;
 
 	while (ft_lstsize(*alst_b))
 	{
-		if ((*alst_b)->next && (*alst_b)->next->num == highest(alst_b))
+		i = best_move_b_a(alst_b);
+		push(alst_b, alst_a, "pa\n");
+		if (i != 0)
 		{
-			swap(alst_b, "sb\n");
-			push(alst_b, alst_a, "pa\n");
-		}
-		else if (ft_lstsize(*alst_b) <= (init_size + 1) / 4)
-		{
-			while ((*alst_b)->num != highest(alst_b))
+			if (i < 0)
+				while (i != 0)
+				{
+					rotate(alst_b, "rb\n");
+					i++;
+				}
+			else
 			{
-				rotate(alst_b, "rb\n");
-				i++;
-			}
-			push(alst_b, alst_a, "pa\n");
-		}
-		else
-		{
-			i = 0;
-			while ((*alst_b)->num != highest(alst_b))
-			{
-				rotate(alst_b, "rb\n");
-				i++;
-			}
-			push(alst_b, alst_a, "pa\n");
-			while (i)
-			{
-				reverse_rotate(alst_b, "rrb\n");
-				i--;
+				while (i > 0)
+				{
+					reverse_rotate(alst_b, "rrb\n");
+					i--;
+				}
 			}
 		}
 	}
 }
+

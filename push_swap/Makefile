@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/01 16:17:05 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/01 19:39:26 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LST = $(addprefix src/utils/ft_lst/, ft_lstadd_back.c ft_lstdelone.c ft_lstnew.c
 ft_lstadd_front.c ft_lstlast.c ft_lstsize.c)
 UTILS = $(addprefix src/utils/, are_digits.c ft_strlen.c median.c \
 bubble_sort.c get_args.c move_a_to_b.c ft_atol.c highest_lowest.c \
-move_b_to_a.c ft_isdigit.c\
+move_b_to_a.c ft_isdigit.c best_move_a_b.c best_move_b_a.c\
 init_array.c print_list.c is_sorted.c puts.c ft_split.c is_valid_input.c \
 set_input_numbers.c)
 SRC = $(addprefix src/, push_swap.c) $(PS) $(ALGO) $(CMD) $(LST) $(UTILS)
