@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:12:01 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 21:05:35 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 21:37:09 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,8 @@ void	move_b_to_a(t_number **alst_a, t_number **alst_b)
 			{
 				while (i > 0)
 				{
-					reverse_rotate(alst_b, "rrb\n");
-					if ((*alst_b)->num == highest(alst_b))
-						push(alst_b, alst_a, "pa\n");
+					best_move_b_a(alst_b);
+					push(alst_b, alst_a, "pa\n");
 					i--;
 				}
 			}
