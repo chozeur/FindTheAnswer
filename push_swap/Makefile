@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/02/23 16:12:32 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/01 16:17:05 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,10 @@ done:
 	@echo "✅"
 .c.o:
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+100: all clean
+	@bash push_swap_tester/tester.sh ../push_swap 100 10
+500: all clean
+	@bash push_swap_tester/tester.sh ../push_swap 500 10
 clean:
 	@echo "\033[0;31mDeleting objects files\033[0m"
 	@$(RM) $(OBJ)

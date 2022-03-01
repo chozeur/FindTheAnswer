@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 15:30:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:30:01 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ t_number	*get_args(int ac, char **av);
 	int		*init_array(t_number **alst);
 	void	bubble_sort(int *arr, int size);
 	int		median(int *arr, int size);
+	int		quartile(int *arr, int size);
+	int		octile(int *arr, int size);
 
 
 //	algo

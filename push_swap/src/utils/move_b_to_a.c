@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:12:01 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 15:47:26 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:32:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_b_to_a(t_number **alst_a, t_number **alst_b, int init_size)
 			swap(alst_b, "sb\n");
 			push(alst_b, alst_a, "pa\n");
 		}
-		else if (ft_lstsize(*alst_b) <= init_size / 2)
+		else if (ft_lstsize(*alst_b) <= (init_size + 1) / 4)
 		{
 			while ((*alst_b)->num != highest(alst_b))
 			{

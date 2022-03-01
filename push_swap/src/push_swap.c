@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/17 15:20:29 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/01 17:27:02 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ int	main(int ac, char **av)
 		sortstack_small(alst_a);
 	else
 		sortstack_big(alst_a);
-	//ft_putstr("\nSorted stack : ");
-	//print_list(alst_a);
+	////////////////////////////////
+	/*if (is_sorted(alst_a))
+	{
+		ft_putstr("\nSorted stack : ");
+		print_list(alst_a);
+	}
+	else
+	{
+		ft_putstr("Error : not sorted at the end of the program.\n");
+		print_list(alst_a);
+	}*/
+	////////////////////////////////
 }
