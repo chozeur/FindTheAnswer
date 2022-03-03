@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:54:55 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 21:52:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:12:03 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static int	big_block(int size, t_number **alst_a, t_number **alst_b)
 	i = 0;
 	while (i < ((size + 1) / 4))
 	{
+		check_swaps(alst_a, alst_b);
 		small_block(piv, alst_a, alst_b);
 		i++;
 	}
