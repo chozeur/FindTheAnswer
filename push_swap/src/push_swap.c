@@ -6,11 +6,15 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 00:05:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 17:27:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:12:31 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/*
+	NEED TO ADD A CHECK FOR DUPLICATED NUMBERS
+*/
 
 int	main(int ac, char **av)
 {

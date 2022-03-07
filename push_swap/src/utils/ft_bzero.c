@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:52:30 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:32:35 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/07 18:56:34 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-
-void	push(t_number **alst_a, t_number **alst_b, char *cmd, char **cmd_tab)
+void	ft_bzero(void *s, size_t n)
 {
-	t_number	*tmp;
-	t_number	*save;
+	unsigned char	*str;
+	size_t			i;
 
-	if (!(*alst_a))
+	str = (unsigned char *)s;
+	if (n == 0)
 		return ;
-	tmp = ft_lstnew((*alst_a)->num);
-	save = (*alst_a)->next;
-	if (!alst_b)
-		alst_b = &tmp;
-	else
-		ft_lstadd_front(alst_b, tmp);
-	if (!(*alst_a)->next)
+	i = 0;
+	while (i < n)
 	{
-		free(*alst_a);
-		*alst_a = NULL;
+		str[i] = '\0';
+		i++;
 	}
-	else
-	{
-		free(*alst_a);
-		*alst_a = save;
-	}
-	putintab(cmd, cmd_tab);
+	s = str;
 }

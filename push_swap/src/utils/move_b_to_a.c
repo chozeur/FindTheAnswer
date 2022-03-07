@@ -6,34 +6,34 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:12:01 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/01 21:37:09 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 18:04:05 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	move_b_to_a(t_number **alst_a, t_number **alst_b)
+void	move_b_to_a(t_number **alst_a, t_number **alst_b, char **cmd_tab)
 {
 	int	i;
 
 	while (ft_lstsize(*alst_b))
 	{
-		i = best_move_b_a(alst_b);
-		push(alst_b, alst_a, "pa\n");
+		i = best_move_b_a(alst_b, cmd_tab);
+		push(alst_b, alst_a, "pa\n", cmd_tab);
 		if (i != 0)
 		{
 			if (i < 0)
 				while (i != 0)
 				{
-					rotate(alst_b, "rb\n");
+					rotate(alst_b, "rb\n", cmd_tab);
 					i++;
 				}
 			else
 			{
 				while (i > 0)
 				{
-					best_move_b_a(alst_b);
-					push(alst_b, alst_a, "pa\n");
+					best_move_b_a(alst_b, cmd_tab);
+					push(alst_b, alst_a, "pa\n", cmd_tab);
 					i--;
 				}
 			}

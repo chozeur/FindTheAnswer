@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   print_cmd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:52:30 by flcarval         ###   ########.fr       */
+/*   Created: 2022/03/07 18:10:34 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/07 18:11:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-
-void	push(t_number **alst_a, t_number **alst_b, char *cmd, char **cmd_tab)
+void	print_cmd(char **cmd_tab)
 {
-	t_number	*tmp;
-	t_number	*save;
+	int	i;
 
-	if (!(*alst_a))
-		return ;
-	tmp = ft_lstnew((*alst_a)->num);
-	save = (*alst_a)->next;
-	if (!alst_b)
-		alst_b = &tmp;
-	else
-		ft_lstadd_front(alst_b, tmp);
-	if (!(*alst_a)->next)
+	i = 0;
+	while (cmd_tab[i])
 	{
-		free(*alst_a);
-		*alst_a = NULL;
+		ft_putstr(cmd_tab[i]);
+		i++;
 	}
-	else
-	{
-		free(*alst_a);
-		*alst_a = save;
-	}
-	putintab(cmd, cmd_tab);
 }

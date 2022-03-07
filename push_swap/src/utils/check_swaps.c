@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 17:01:41 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/03 17:08:35 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:48:35 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	check_swaps(t_number **alst_a, t_number **alst_b)
+void	check_swaps(t_number **alst_a, t_number **alst_b, char **cmd_tab)
 {
 	int	a;
 	int	b;
@@ -28,10 +28,10 @@ void	check_swaps(t_number **alst_a, t_number **alst_b)
 	if (a || b)
 	{
 		if (a && b)
-			dual_swap(alst_a, alst_b);
+			dual_swap(alst_a, alst_b, cmd_tab);
 		else if (a)
-			swap(alst_a, "sa\n");
+			swap(alst_a, "sa\n", cmd_tab);
 		else
-			swap(alst_b, "sb\n");
+			swap(alst_b, "sb\n", cmd_tab);
 	}
 }

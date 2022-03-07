@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 03:37:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/01/21 19:09:03 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 17:56:31 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,14 @@ void	ft_putnbr(int n)
 		ft_putnbr(n / 10);
 		ft_putnbr(n % 10);
 	}
+}
+
+void	putintab(char *cmd, char **cmd_tab)
+{
+	int	i;
+
+	i = 0;
+	while (cmd_tab[i])
+		i++;
+	cmd_tab[i] = cmd;
 }
