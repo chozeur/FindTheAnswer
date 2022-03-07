@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/07 18:58:31 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/07 19:28:23 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ UTILS = $(addprefix src/utils/, are_digits.c ft_strlen.c median.c \
 bubble_sort.c get_args.c move_a_to_b.c ft_atol.c highest_lowest.c \
 move_b_to_a.c ft_isdigit.c best_move_a_b.c best_move_b_a.c\
 init_array.c print_list.c is_sorted.c puts.c ft_split.c is_valid_input.c \
-set_input_numbers.c check_swaps.c ft_calloc.c ft_bzero.c print_cmd.c)
+set_input_numbers.c check_swaps.c ft_calloc.c ft_bzero.c print_cmd.c ft_strncmp.c)
 SRC = $(addprefix src/, push_swap.c) $(PS) $(ALGO) $(CMD) $(LST) $(UTILS)
 NAME = push_swap
 OBJ = $(SRC:.c=.o)
