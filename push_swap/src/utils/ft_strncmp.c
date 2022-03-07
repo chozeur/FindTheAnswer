@@ -6,15 +6,15 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:35:41 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 19:28:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 23:25:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
-	size_t	i;
+	int		i;
 	int		t;
 
 	i = 0;

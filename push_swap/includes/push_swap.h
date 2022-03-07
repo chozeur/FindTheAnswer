@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 19:27:55 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 23:16:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ t_number	*get_args(int ac, char **av);
 	void	*ft_calloc(size_t count, size_t size);
 	void	ft_bzero(void *s, size_t n);
 	void	print_cmd(char **cmd_tab);
-	int		ft_strncmp(const char *s1, const char *s2, size_t n);
+	int		ft_strncmp(char *s1, char *s2, int n);
+	char	**opti_tab(char **cmd_tab);
 
 //	algo
 

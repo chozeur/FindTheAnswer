@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 01:57:24 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:12:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/07 23:04:45 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	sortstack_big(t_number **alst_a)
 	alst_b = &lst_b;
 	move_a_to_b(alst_a, alst_b, cmd_tab);
 	move_b_to_a(alst_a, alst_b, cmd_tab);
+	cmd_tab = opti_tab(cmd_tab);
 	print_cmd(cmd_tab);
 	free(cmd_tab);
 }
