@@ -6,71 +6,60 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:15:11 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 23:18:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/08 18:01:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	rb_raw(char **cmd_tab);
 static int	rrb_raw(char **cmd_tab);
+static int	rb_raw(char **cmd_tab);
+static int	reco_block(char **cmd_tab);
+static int	opti_fill(int rrb, int rb, char **opti);
 
 char	**opti_tab(char **cmd_tab)
 {
+	char	**opti;
 	int	i;
 	int	j;
-	char	**res;
 	int	rrb;
 	int	rb;
-	int	n;
-	int	x;
 
-	rrb = 0;
-	rb = 0;
+	opti = ft_calloc(50000, sizeof(char *));
+	if (!opti)
+		return (NULL);
 	i = 0;
 	j = 0;
-	n = 0;
-	res = ft_calloc(50000, sizeof(char *));
-	if (!res)
-		return (NULL);
 	while (cmd_tab[i])
 	{
-		while (ft_strncmp("rrb\n", cmd_tab[i], 4) == 0 ||
-				ft_strncmp("rb\n", cmd_tab[i], 3) == 0)
+		rb = 0;
+		rrb =  0;
+		if (reco_block(&cmd_tab[i]))
 		{
-			x = 0;
-			if (ft_strncmp("rrb\n", cmd_tab[i], 4) == 0)
-				rrb = rrb_raw(&cmd_tab[i]);
-			i += rrb;
-			if (ft_strncmp("rb\n", cmd_tab[i], 3) == 0)
-				rb = rb_raw(&cmd_tab[i]);
+			rb = rb_raw(&cmd_tab[i]);
 			i += rb;
-			if (rrb > rb)
-			{
-				n = rrb - rb;
-				while (x < n)
-				{
-					res[j] = "rrb\n";
-					j++;
-					x++;
-				}
-			}
-			else if (rrb < rb)
-			{
-				n = rb - rrb;
-				while (x < n)
-				{
-					res[j] = "rb\n";
-					j++;
-					x++;
-				}
-			}
+			rrb = rrb_raw(&cmd_tab[i]);
+			i += rrb;
+			j += opti_fill(rrb, rb, &opti[j]);
 		}
-		res[j] = cmd_tab[i];
-		i++;
-		j++;
+		else
+		{
+			opti[j] = cmd_tab[i];
+			i++;
+			j++;
+		}
 	}
-	return (res);
+	return (opti);
+}
+
+static int	rrb_raw(char **cmd_tab)
+{
+	int	i;
+
+	i = 0;
+	while (ft_strncmp("rrb\n", cmd_tab[i], 4) == 0)
+		i++;
+	return (i);
 }
 
 static int	rb_raw(char **cmd_tab)
@@ -83,12 +72,43 @@ static int	rb_raw(char **cmd_tab)
 	return (i);
 }
 
-static int	rrb_raw(char **cmd_tab)
+static int	reco_block(char **cmd_tab)
 {
 	int	i;
 
 	i = 0;
-	while (ft_strncmp("rrb\n", cmd_tab[i], 4) == 0)
+	while (cmd_tab[i] && (ft_strncmp("rb\n", cmd_tab[i], 3) == 0))
 		i++;
+	if (!cmd_tab[i])
+		return (0);
+	if ((ft_strncmp("rrb\n", cmd_tab[i], 4) == 0))
+		return (1);
+	else
+		return (0);
+}
+
+static int	opti_fill(int rrb, int rb, char **opti)
+{
+	int	i;
+
+	i = 0;
+	if (rrb == rb)
+		return (0);
+	else if (rrb > rb)
+	{
+		while (i < (rrb - rb))
+		{
+			opti[i] = "rrb\n";
+			i++;
+		}
+	}
+	else
+	{
+		while (i < (rb - rrb))
+		{
+			opti[i] = "rb\n";
+			i++;
+		}
+	}
 	return (i);
 }

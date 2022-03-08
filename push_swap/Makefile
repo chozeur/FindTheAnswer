@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/07 23:04:24 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/08 15:29:28 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ done:
 	@bash push_swap_tester/tester.sh ../push_swap 100 10
 500: all clean
 	@bash push_swap_tester/tester.sh ../push_swap 500 10
+run: all clean
 clean:
 	@echo "\033[0;31mDeleting objects files\033[0m"
 	@$(RM) $(OBJ)
@@ -57,4 +58,4 @@ fclean: clean
 	@echo "✅\n"
 re: fclean all
 
-.PHONY: all clean fclean re info1 info2 info3 info4 done
+.PHONY: all clean fclean re info1 info2 info3 info4 done 100 500 run
