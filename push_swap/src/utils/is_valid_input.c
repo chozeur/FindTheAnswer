@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 17:52:16 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 18:05:02 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	error(void);
 static int	isonly_num(char *str);
+static int	is_dup(char **args);
 
 int	is_valid_input(char **inputs, int ac)
 {
@@ -31,6 +32,8 @@ int	is_valid_input(char **inputs, int ac)
 			return (error());
 		i++;
 	}
+	if (is_dup(inputs))
+		return (error());
 	return (1);
 }
 
@@ -54,5 +57,25 @@ static int	isonly_num(char *str)
 static int	error(void)
 {
 	ft_putstr("Please enter (single) integers only.\n");
+	return (0);
+}
+
+static int	is_dup(char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (args[i])
+	{
+		j = 0;
+		while (args[j])
+		{
+			if (ft_atol(args[i]) == ft_atol(args[j]) && j != i)
+				return (1);
+			j++;
+		}
+		i++;
+	}
 	return (0);
 }
