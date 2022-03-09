@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 00:09:09 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 00:13:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:48:05 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,10 @@ int	opti_fill(int rrb, int rb, char **opti)
 	if (rrb == rb)
 		return (0);
 	else if (rrb > rb)
-	{
 		while (i < (rrb - rb))
-		{
-			opti[i] = "rrb\n";
-			i++;
-		}
-	}
+			opti[i++] = "rrb\n";
 	else
-	{
 		while (i < (rb - rrb))
-		{
-			opti[i] = "rb\n";
-			i++;
-		}
-	}
+			opti[i++] = "rb\n";
 	return (i);
 }

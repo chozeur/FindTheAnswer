@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:10:34 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:11:46 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:49:53 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,5 @@ void	print_cmd(char **cmd_tab)
 
 	i = 0;
 	while (cmd_tab[i])
-	{
-		ft_putstr(cmd_tab[i]);
-		i++;
-	}
+		ft_putstr(cmd_tab[i++]);
 }

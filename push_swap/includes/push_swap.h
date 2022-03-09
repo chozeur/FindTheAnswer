@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 00:08:33 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 02:21:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ t_number	*get_args(int ac, char **av);
 	int		ft_strncmp(char *s1, char *s2, int n);
 	char	**opti_tab(char **cmd_tab);
 	int		opti_fill(int rrb, int rb, char **opti);
+	void	free_alst(t_number **alst);
 
 //	algo
 

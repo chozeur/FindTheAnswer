@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   median.c                                           :+:      :+:    :+:   */
+/*   free_alst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/10 00:40:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 02:01:34 by flcarval         ###   ########.fr       */
+/*   Created: 2022/03/09 02:09:10 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/09 02:21:52 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-int	median(int *arr, int size)
+void	free_alst(t_number **alst)
 {
-	int	res;
+	t_number	*lst;
+	t_number	*tmp;
 
-	if (size % 2 == 1)
-		res = arr[((size + 1) / 2) - 1];
-	else
-		res = (arr[((size + 1) / 2) - 1] + arr[(size / 2) - 1]) / 2;
-	return (res);
-}
-
-int	quartile(int *arr, int size)
-{
-	int	res;
-	int	*tmp;
-	int	i;
-
-	tmp = malloc(sizeof(int) * ((size + 1) / 2));
-	if (!tmp)
-		return (INT_MIN);
-	i = 0;
-	while (i < (size + 1) / 2)
+	lst = *alst;
+	while (lst)
 	{
-		tmp[i] = arr[i];
-		i++;
+		tmp = lst->next;
+		free(lst);
+		lst = tmp;
 	}
-	res = median(tmp, ((size + 1) / 2));
-	free(tmp);
-	return (res);
 }
