@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 04:53:43 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 01:09:55 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 03:42:05 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_number	*get_args(int ac, char **av)
 		args = ft_split(av[1], ' ');
 	else
 		args = &av[1];
-	if (!is_valid_input(args))
+	if (!is_valid_input(args, ac))
 		return (NULL);
 	lst = set_input_numbers(args);
 	if (!lst)
