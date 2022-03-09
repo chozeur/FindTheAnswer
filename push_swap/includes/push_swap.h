@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/13 23:59:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 03:41:06 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 18:08:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ some of them need the output string as second argument
 	long	ft_atol(const char *str);
 t_number	*set_input_numbers(char **inputs);
 	int		is_sorted(t_number **alst);
-	int		is_valid_input(char **inputs, int ac);
+	int		is_valid_input(char **inputs);
 	int		ft_strlen(const char *str);
 	char	**ft_split(char const *s, char c);
 	int		highest(t_number **alst);

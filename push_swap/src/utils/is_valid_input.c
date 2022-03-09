@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 18:05:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 18:08:30 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ static int	error(void);
 static int	isonly_num(char *str);
 static int	is_dup(char **args);
 
-int	is_valid_input(char **inputs, int ac)
+int	is_valid_input(char **inputs)
 {
 	int	i;
 
-	(void)ac;
 	i = 0;
 	while (inputs[i])
 	{
