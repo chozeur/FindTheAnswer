@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:39:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:17:19 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/08 23:33:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sortstack_small(t_number **alst_a)
 {
 	t_number	*lst_b;
 	t_number	**alst_b;
-	char	**cmd_tab;
+	char		**cmd_tab;
 
 	cmd_tab = ft_calloc(50000, sizeof(char *));
 	if (!cmd_tab)

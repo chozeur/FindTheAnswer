@@ -6,12 +6,11 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 23:42:37 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:52:30 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/08 23:50:12 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
 
 void	push(t_number **alst_a, t_number **alst_b, char *cmd, char **cmd_tab)
 {

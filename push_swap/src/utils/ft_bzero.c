@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:32:35 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:56:34 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:37:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ void	ft_bzero(void *s, size_t n)
 		return ;
 	i = 0;
 	while (i < n)
-	{
-		str[i] = '\0';
-		i++;
-	}
+		str[i++] = '\0';
 	s = str;
 }

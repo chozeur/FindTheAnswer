@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 15:12:01 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:04:05 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 00:56:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,8 @@ void	move_b_to_a(t_number **alst_a, t_number **alst_b, char **cmd_tab)
 		if (i != 0)
 		{
 			if (i < 0)
-				while (i != 0)
-				{
+				while (i++ != 0)
 					rotate(alst_b, "rb\n", cmd_tab);
-					i++;
-				}
 			else
 			{
 				while (i > 0)
@@ -40,4 +37,3 @@ void	move_b_to_a(t_number **alst_a, t_number **alst_b, char **cmd_tab)
 		}
 	}
 }
-

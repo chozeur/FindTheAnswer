@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:15:11 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/08 18:01:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 00:47:45 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,32 @@
 static int	rrb_raw(char **cmd_tab);
 static int	rb_raw(char **cmd_tab);
 static int	reco_block(char **cmd_tab);
-static int	opti_fill(int rrb, int rb, char **opti);
+static void	opti_tab_util(char **cmd_tab, char **opti);
 
 char	**opti_tab(char **cmd_tab)
 {
 	char	**opti;
-	int	i;
-	int	j;
-	int	rrb;
-	int	rb;
 
 	opti = ft_calloc(50000, sizeof(char *));
 	if (!opti)
 		return (NULL);
+	opti_tab_util(cmd_tab, opti);
+	return (opti);
+}
+
+static void	opti_tab_util(char **cmd_tab, char **opti)
+{
+	int	i;
+	int	j;
+	int	rb;
+	int	rrb;
+
 	i = 0;
 	j = 0;
 	while (cmd_tab[i])
 	{
 		rb = 0;
-		rrb =  0;
+		rrb = 0;
 		if (reco_block(&cmd_tab[i]))
 		{
 			rb = rb_raw(&cmd_tab[i]);
@@ -43,13 +50,8 @@ char	**opti_tab(char **cmd_tab)
 			j += opti_fill(rrb, rb, &opti[j]);
 		}
 		else
-		{
-			opti[j] = cmd_tab[i];
-			i++;
-			j++;
-		}
+			opti[j++] = cmd_tab[i++];
 	}
-	return (opti);
 }
 
 static int	rrb_raw(char **cmd_tab)
@@ -85,30 +87,4 @@ static int	reco_block(char **cmd_tab)
 		return (1);
 	else
 		return (0);
-}
-
-static int	opti_fill(int rrb, int rb, char **opti)
-{
-	int	i;
-
-	i = 0;
-	if (rrb == rb)
-		return (0);
-	else if (rrb > rb)
-	{
-		while (i < (rrb - rb))
-		{
-			opti[i] = "rrb\n";
-			i++;
-		}
-	}
-	else
-	{
-		while (i < (rb - rrb))
-		{
-			opti[i] = "rb\n";
-			i++;
-		}
-	}
-	return (i);
 }

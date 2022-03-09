@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 04:53:43 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 06:25:59 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:09:55 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 t_number	*get_args(int ac, char **av)
 {
-		char	**args;
+	char		**args;
 	t_number	*lst;
-
 
 	if (ac == 1)
 	{

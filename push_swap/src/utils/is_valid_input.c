@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/23 16:13:22 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 00:57:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static int	error();
+static int	error(void);
 
 int	is_valid_input(char **inputs)
 {
@@ -49,7 +49,7 @@ int	isonly_num(char *str)
 	return (1);
 }
 
-static int	error()
+static int	error(void)
 {
 	ft_putstr("Please enter integers (int) only.\n");
 	return (0);

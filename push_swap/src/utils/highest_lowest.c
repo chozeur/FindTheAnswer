@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 03:32:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/06 03:45:04 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:24:29 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	highest(t_number **alst)
 {
-	int	n;
 	t_number	*lst;
+	int			n;
 
 	n = INT_MIN;
 	lst = *alst;
@@ -30,8 +30,8 @@ int	highest(t_number **alst)
 
 int	lowest(t_number **alst)
 {
-	int	n;
 	t_number	*lst;
+	int			n;
 
 	n = INT_MAX;
 	lst = *alst;

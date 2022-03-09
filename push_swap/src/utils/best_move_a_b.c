@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:24:02 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/07 18:09:41 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:34:43 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,16 @@ void	best_move_a_b(t_number **alst, int piv, char **cmd_tab)
 
 static int	test_r(t_number **alst, int piv)
 {
-	int	i;
-	int	x;
 	char	**test_tab;
+	int		i;
+	int		x;
 
-	test_tab = ft_calloc(1024, sizeof(char*));
+	test_tab = ft_calloc(1024, sizeof(char *));
 	if (!test_tab)
 		return (INT_MIN);
 	i = 0;
-	while ((*alst) && (*alst)->num > piv)
-	{
+	while ((*alst) && (*alst)->num > piv && ++i)
 		rotate(alst, "", test_tab);
-		i++;
-	}
 	x = i;
 	while (x--)
 		reverse_rotate(alst, "", test_tab);
@@ -55,19 +52,16 @@ static int	test_r(t_number **alst, int piv)
 
 static int	test_rr(t_number **alst, int piv)
 {
-	int	j;
-	int	y;
 	char	**test_tab;
+	int		j;
+	int		y;
 
-	test_tab = ft_calloc(1024, sizeof(char*));
+	test_tab = ft_calloc(1024, sizeof(char *));
 	if (!test_tab)
 		return (INT_MIN);
 	j = 0;
-	while ((*alst) && (*alst)->num > piv)
-	{
+	while ((*alst) && (*alst)->num > piv && ++j)
 		reverse_rotate(alst, "", test_tab);
-		j++;
-	}
 	y = j;
 	while (y--)
 		rotate(alst, "", test_tab);

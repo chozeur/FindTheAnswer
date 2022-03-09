@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 19:28:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/02/10 02:31:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/09 01:37:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 long	ft_atol(const char *str)
 {
-	int	i;
+	int		i;
 	long	sign;
 	long	res;
 
@@ -31,10 +31,7 @@ long	ft_atol(const char *str)
 	else if (str[i] == '+')
 		i++;
 	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - 48);
-		i++;
-	}
+		res = res * 10 + (str[i++] - 48);
 	if (res * sign > INT_MAX || res * sign < INT_MIN)
 		return (LONG_MAX);
 	return (res * sign);
