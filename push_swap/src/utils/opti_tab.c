@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:15:11 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 00:47:45 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/12 19:21:24 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	**opti_tab(char **cmd_tab)
 	if (!opti)
 		return (NULL);
 	opti_tab_util(cmd_tab, opti);
+	free(cmd_tab);
 	return (opti);
 }
 

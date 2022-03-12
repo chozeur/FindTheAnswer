@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 18:24:02 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/09 01:34:43 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/12 19:17:45 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ static int	test_r(t_number **alst, int piv)
 	x = i;
 	while (x--)
 		reverse_rotate(alst, "", test_tab);
+	free(test_tab);
 	return (i);
 }
 
@@ -65,5 +66,6 @@ static int	test_rr(t_number **alst, int piv)
 	y = j;
 	while (y--)
 		rotate(alst, "", test_tab);
+	free(test_tab);
 	return (j);
 }
