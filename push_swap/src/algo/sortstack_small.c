@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:39:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/12 19:14:39 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/13 06:33:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sortstack_small(t_number **alst_a)
 		return ;
 	if (is_sorted(alst_a))
 	{
-		ft_putstr("Stack is already sorted.\n");
+		free(cmd_tab);
 		return ;
 	}
 	lst_b = NULL;
