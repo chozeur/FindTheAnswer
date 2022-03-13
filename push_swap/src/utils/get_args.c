@@ -6,20 +6,20 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 04:53:43 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/13 07:00:01 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/13 07:07:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
 static int	is_wss(char *str);
-static void	*free_args(char **args);
+static void	*free_args(char **args, int s);
 
 t_number	*get_args(int ac, char **av)
 {
 	char		**args;
 	t_number	*lst;
-	int	s;
+	int			s;
 
 	if (ac == 1)
 		return (NULL);
@@ -36,12 +36,11 @@ t_number	*get_args(int ac, char **av)
 		args = &av[1];
 	}
 	if (!is_valid_input(args))
-		return (free_args(args));
+		return (free_args(args, s));
 	lst = set_input_numbers(args);
 	if (!lst)
-		return (free_args(args));
-	if (s)
-		free_args(args);
+		return (free_args(args, s));
+	free_args(args, s);
 	return (lst);
 }
 
@@ -56,10 +55,12 @@ static int	is_wss(char *str)
 	return (1);
 }
 
-static void	*free_args(char **args)
+static void	*free_args(char **args, int s)
 {
 	int	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	if (!args)
 		return (NULL);
