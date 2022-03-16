@@ -5,3 +5,4 @@ a.out
 *.log
 push_swap_run_args.log
 */vogsphere
+*.o
