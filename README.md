@@ -1,4 +1,4 @@
-[![jaeskim's 42 stats](https://badge42.herokuapp.com/api/stats/flcarval?privacyName=true&darkmode=true)](https://github.com/JaeSeoKim/badge42)
+[![flcarval's 42 stats](https://badge42.herokuapp.com/api/stats/flcarval?privacyName=true&darkmode=true)](https://github.com/JaeSeoKim/badge42)
 
 # Projects
 * ### [Libft] : [![flcarval's 42Project Score](https://badge42.herokuapp.com/api/project/flcarval/Libft)](https://github.com/JaeSeoKim/badge42)
