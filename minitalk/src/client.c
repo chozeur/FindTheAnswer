@@ -6,9 +6,11 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/16 18:47:41 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/17 17:40:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*CLIENT*/
 
 #include "../include/minitalk.h"
 
