@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:35:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/19 19:14:42 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:32:48 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/18 17:49:40 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minitalk.h"
 
-int	ft_strlcpy(char *dst, char *src, int dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	int	i;
+	unsigned char	*res;
 
-	i = 0;
-	if (dstsize > 0)
-	{
-		while (src[i] && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
+	res = (unsigned char *)malloc(size * count);
+	if (res == NULL)
+		return (NULL);
+	ft_bzero(res, count * size);
+	return (res);
 }
-	// TO PROTECT FROM ORIGINAL SEGFAULT :
-	//
-	// if (dst == NULL || src == NULL)
-	// return (0);

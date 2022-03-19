@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   stradd_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 12:35:23 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/19 19:14:42 by flcarval         ###   ########.fr       */
+/*   Created: 2022/03/18 18:28:51 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/18 18:38:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minitalk.h"
 
-int	ft_strlcpy(char *dst, char *src, int dstsize)
+char	*stradd_char(char *str, char c)
 {
-	int	i;
+	char	*res;
+	int		i;
 
+	if (!(res = malloc(sizeof(char) * (ft_strlen(str) + 1))))
+		return ;
 	i = 0;
-	if (dstsize > 0)
-	{
-		while (src[i] && i < (dstsize - 1))
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
+	ft_strlcpy(res, str, ft_strlen(str));
+	res[ft_strlen(str)] = c;
+	res[ft_strlen(str) + 1] = '\0';
+	free(str);
+	return (res);
 }
-	// TO PROTECT FROM ORIGINAL SEGFAULT :
-	//
-	// if (dst == NULL || src == NULL)
-	// return (0);
