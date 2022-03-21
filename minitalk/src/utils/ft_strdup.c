@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stradd_char.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 18:28:51 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/21 19:03:57 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:35:02 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/21 16:33:52 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minitalk.h"
 
-char	*stradd_char(char *str, char c)
+char	*ft_strdup(const char *s1)
 {
+	int		len;
+	int		i;
 	char	*res;
 
-	if (!(res = malloc(sizeof(char) * (ft_strlen(str) + 1))))
+	len = ft_strlen(s1);
+	res = malloc(sizeof(char) * (len + 1));
+	if (res == NULL)
 		return (NULL);
-	ft_strlcpy(res, str, ft_strlen(str));
-	res[ft_strlen(str)] = c;
-	res[ft_strlen(str) + 1] = '\0';
-	free(str);
+	i = 0;
+	while (s1[i])
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	res[i] = '\0';
 	return (res);
 }

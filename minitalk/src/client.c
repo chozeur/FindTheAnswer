@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/19 19:12:24 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:57:32 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../include/minitalk.h"
 
 static void	send_bit(char *msg, pid_t pid);
-static void	handler_sigusr(int signum, pid_t pid, char* msg);
+static void	handler_sigusr(int signum);
 
 int	main(int ac, char **av)
 {
@@ -40,19 +40,25 @@ int	main(int ac, char **av)
 
 static void	send_bit(char *msg, pid_t pid)
 {
+	static pid_t	s_pid;
+	static char	*s_msg;
 	static int	bit = 0;
 
-	if (msg[bit / 8] & (0x80 >> bit))
-		kill(pid, SIGUSR2);
+	if (msg)
+		s_msg = ft_strdup(msg);
+	if (pid)
+		s_pid = pid;
+	if (s_msg[bit / 8] & (0x80 >> bit))
+		kill(s_pid, SIGUSR2);
 	else
-		kill(pid, SIGUSR1);
+		kill(s_pid, SIGUSR1);
 	bit++;
 }
 
-static void	handler_sigusr(int signum, pid_t pid, char *msg)
+static void	handler_sigusr(int signum)
 {
 	if (signum == SIGUSR2)
-		send_bit(msg, pid);
+		send_bit(0, 0);
 	else if (signum == SIGUSR1)
 		exit(EXIT_SUCCESS);
 }

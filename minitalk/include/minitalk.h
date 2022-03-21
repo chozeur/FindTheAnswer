@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:43:38 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/18 19:15:50 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/21 18:25:49 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-//# include <sys/types.h>
+# include <sys/types.h>
 # include <signal.h>
 
 //	ft-printf
@@ -41,5 +41,6 @@
 	void	ft_bzero(void *s, size_t n);
 	void	*ft_calloc(size_t count, size_t size);
 	char	*stradd_char(char *str, char c);
+	char	*ft_strdup(const char *s1);
 
 #endif

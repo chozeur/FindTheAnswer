@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/17 16:52:19 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/21 19:03:14 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,10 @@ RED = \033[0;31m
 GREEN = \033[0;32m
 NC = \033[0m
 ##### SOURCES #####
-FT_PRINTF = $(addprefix src/utils/ft_printf/ft_, hexlen.c nblen.c printf_p.c \
+FT_PRINTF = $(addprefix src/utils/ft_printf/ft_, hexlen.c nblen.c printf_p.c\
 printf_x.c printf.c putchar.c putnbr.c putstr.c putui.c putulhex.c)
-UTILS = $(addprefix src/utils/, ft_atoi.c ft_strlcpy.c ft_strlen.c print_pid.c)
+UTILS = $(addprefix src/utils/, ft_atoi.c ft_strlcpy.c ft_strlen.c print_pid.c\
+ft_strdup.c stradd_char.c)
 SRC = $(FT_PRINTF) $(UTILS)
 S_CLIENT = $(addprefix src/, client.c)
 S_SERVER = $(addprefix src/, server.c)

@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/home/florian/Swift/swift-5.3.3-RELEASE-ubuntu20.04/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "linux-clang-x64",
+            "compilerArgs": [
+                "-D_POSIX_C_SOURCE=199309L"
+            ]
+        }
+    ],
+    "version": 4
+}
