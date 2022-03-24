@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/21 18:57:32 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/24 22:04:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 #include "../include/minitalk.h"
 
-static void	send_bit(char *msg, pid_t pid);
+static int	send_bit(char *msg, pid_t pid);
 static void	handler_sigusr(int signum);
+static int	send_null(pid_t pid);
 
 int	main(int ac, char **av)
 {
@@ -38,27 +39,49 @@ int	main(int ac, char **av)
 	return (0);
 }
 
-static void	send_bit(char *msg, pid_t pid)
+static int	send_bit(char *msg, pid_t pid)
 {
 	static pid_t	s_pid;
 	static char	*s_msg;
-	static int	bit = 0;
+	static int	bit = -1;
 
 	if (msg)
-		s_msg = ft_strdup(msg);
+		if(!(s_msg = ft_strdup(msg)))
+			return (-1);
 	if (pid)
 		s_pid = pid;
-	if (s_msg[bit / 8] & (0x80 >> bit))
-		kill(s_pid, SIGUSR2);
-	else
-		kill(s_pid, SIGUSR1);
-	bit++;
+	if (s_msg[++bit / 8])
+	{
+		if (s_msg[bit / 8] & (0x80 >> (bit % 8)))
+			kill(s_pid, SIGUSR2);
+		else
+			kill(s_pid, SIGUSR1);
+		return (0);
+	}
+	if (!(send_null(s_pid)))
+		return (0);
+	return (1);
 }
 
 static void	handler_sigusr(int signum)
 {
+	int	end;
+
+	end = 0;
 	if (signum == SIGUSR2)
-		send_bit(0, 0);
-	else if (signum == SIGUSR1)
+		end = send_bit(0, 0);
+	if (end)
 		exit(EXIT_SUCCESS);
+}
+
+static int	send_null(pid_t pid)
+{
+	int	i = -1;
+
+	if (++i < 8)
+	{
+		kill(pid, SIGUSR1);
+		return (0);
+	}
+	return (1);
 }

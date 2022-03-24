@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:48:30 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/21 19:01:28 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/24 22:13:01 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 #include "../include/minitalk.h"
 
-//static void	handler_sigusr(int signum, pid_t pid);
 static void	handler_sigaction(int signum, siginfo_t *info, void *ptr);
+static char	*print_msg(char *msg);
 
 int	main(void)
 {
@@ -36,7 +36,7 @@ int	main(void)
 
 static void	handler_sigaction(int signum, siginfo_t *info, void *ptr)
 {
-	static char	*msg = "";
+	static char	*msg = NULL;
 	static char	c = 0xFF;
 	static int	bit = 0;
 	static pid_t	pid = 0;
@@ -44,78 +44,25 @@ static void	handler_sigaction(int signum, siginfo_t *info, void *ptr)
 	(void)ptr;
 	if (!pid)
 		pid = info->si_pid;
-	if (bit < 8)
-	{
-		if (signum == SIGUSR1)
-		{
-			c ^= 0x80 >> bit;
-			kill(pid, SIGUSR2);
-			bit++;
-		}
-		else if (signum == SIGUSR2)
-		{
-			c |= 0x80 >> bit;
-			kill(pid, SIGUSR2);
-			bit++;
-		}
-	}
-	else
-	{
-		msg = stradd_char(msg, c);
-		if (c == '\0')
-		{
-			ft_printf("%s\n", msg);
-			kill(pid, SIGUSR1);
-		}
-		else
-			kill(pid, SIGUSR2);
-		bit++;
-	}
-}
-
-/* simple_handler
-static void	handler_sigusr(int signum, pid_t pid)
-{
-	static char	*msg = "";
-	static char	c = 0xFF;
-	static int	bit = 0;
-
 	if (signum == SIGUSR1)
+		c ^= 0x80 >> bit;
+	else if (signum == SIGUSR2)
+		c |= 0x80 >> bit;
+	if (++bit == 8)
 	{
-		if (bit < 8)
-		{
-			c ^= 0x80 >> bit;
-			kill(pid, SIGUSR2);
-			bit++;
-		}
-		else
-		{
+		if (c)
 			msg = stradd_char(msg, c);
-			kill(pid, SIGUSR2);
-			if (c == '\0')
-			{
-				ft_printf("%s", msg);
-				kill(pid, SIGUSR1);
-			}
-		}
+		else
+			msg = print_msg(msg);
+		bit = 0;
+		c = 0xFF;
 	}
-	else if (signum = SIGUSR2)
-	{
-		if (bit < 8)
-		{
-			c |= 0x80 >> bit;
-			if (++bit == 8)
-			{
-				msg = stradd_char(msg, c);
-				if (c == '\0')
-				{
-					ft_printf("%s", msg);
-					kill(pid, SIGUSR1);
-				}
-				else
-					kill(pid, SIGUSR2);
-			}
-		}
-	}
+	kill(pid, SIGUSR2);
 }
-*/
+
+static char	*print_msg(char *msg)
+{
+	ft_putstr(msg);
+	free(msg);
+	return (NULL);
+}

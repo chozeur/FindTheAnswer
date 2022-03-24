@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 08:58:26 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/17 17:36:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/24 17:23:25 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
+	/*
 	char	src;
 	char	dest;
 	int		bit;
@@ -35,5 +36,12 @@ int main()
 		bit++;
 	}
 	ft_printf("dest : %c\n", dest);
+	*/
+
+	char *test = NULL;
+	test = stradd_char(test, 'E');
+	test = stradd_char(test, 'Z');
+	ft_printf("%s\n", test);
+	free(test);
 	return (0);
 }

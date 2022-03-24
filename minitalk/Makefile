@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/21 19:03:14 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/24 17:06:19 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,16 +56,18 @@ server: info_making_serv info_gen_serv $(OBJ) $(OBJ_S) done info_comp_serv
 	@echo "\n\t\t$(PURPLE)🔅 server is ready 🔅\n\n$(NC)"
 
 test: info_making_test $(OBJ_T) $(OBJ)
-	@$(CC) $(FLAGS) -o $(NAME_T) $(OBJ_T) $(OBJ)
+	@$(CC) $(FLAGS) -g3 -o $(NAME_T) $(OBJ_T) $(OBJ)
 	@echo "\n\t\t$(PURPLE)🔅 Test is ready 🔅\n\n$(NC)"
 	@echo "\n$(RED)Deleting objects files$(NC)"
 	@$(RM) $(OBJ) $(OBJ_C) $(OBJ_S) $(OBJ_T)
 	@echo "\n✅\n"
+	@valgrind ./test
 
 .c.o:
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 run: all clean
+	@./server
 
 clean:
 	@echo "\n$(RED)Deleting objects files$(NC)"
