@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/24 17:06:19 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/25 18:24:56 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJ_T = $(S_TESTS:.c=.o)
 ##### COMMANDS #####
 CC = gcc
 RM = rm -f
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g3
 ################################################################################
 
 ####################################### RULES ##################################
@@ -107,4 +107,4 @@ info_making_serv:
 	@echo "\n\t\t🔶 $(YELLOW)Making server$(NC) 🔶\n"
 ################################################################################
 
-.PHONY: all clean fclean re info_making_minitalk info_gen_client info_gen_serv info_comp_client info_comp_serv info_making_test info_making_client info_making_serv done 100 500 run test
+.PHONY: all clean fclean re debug info_making_minitalk info_gen_client info_gen_serv info_comp_client info_comp_serv info_making_test info_making_client info_making_serv done 100 500 run test

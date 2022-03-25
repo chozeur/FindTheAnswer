@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/25 16:56:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:34:29 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ int	main(int ac, char **av)
 	signal(SIGUSR1, handler_sigusr);
 	signal(SIGUSR2, handler_sigusr);
 	send_bit(msg, pid);
+	free(msg);
 	while (1)
-	{
 		pause();
-	}
 	return (0);
 }
 
@@ -50,16 +49,16 @@ static int	send_bit(char *msg, pid_t pid)
 			return (-1);
 	if (pid)
 		s_pid = pid;
-	if (s_msg[++bit / 8])
+	if (s_msg[(bit / 8)] && s_msg[++bit / 8])
 	{
 		if (s_msg[bit / 8] & (0x80 >> (bit % 8)))
-			kill(s_pid, SIGUSR2);
+			return (kill(s_pid, SIGUSR2));
 		else
-			kill(s_pid, SIGUSR1);
-		return (0);
+			return (kill(s_pid, SIGUSR1));
 	}
 	if (!(send_null(s_pid)))
 		return (0);
+	free(s_msg);
 	return (1);
 }
 
@@ -79,9 +78,6 @@ static int	send_null(pid_t pid)
 	static int	i = -1;
 
 	if (++i < 8)
-	{
-		kill(pid, SIGUSR1);
-		return (0);
-	}
+		return (kill(pid, SIGUSR1));
 	return (1);
 }
