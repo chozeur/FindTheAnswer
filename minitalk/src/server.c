@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:48:30 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/24 22:13:01 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 17:03:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,14 @@ static void	handler_sigaction(int signum, siginfo_t *info, void *ptr)
 		if (c)
 			msg = stradd_char(msg, c);
 		else
+		{
 			msg = print_msg(msg);
+			kill(pid, SIGUSR2);
+			pid = 0;
+			bit = 0;
+			c = 0xFF;
+			return ;
+		}
 		bit = 0;
 		c = 0xFF;
 	}
@@ -62,7 +69,7 @@ static void	handler_sigaction(int signum, siginfo_t *info, void *ptr)
 
 static char	*print_msg(char *msg)
 {
-	ft_putstr(msg);
+	ft_printf("%s\n", msg);
 	free(msg);
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/24 22:04:21 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 16:56:02 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	handler_sigusr(int signum)
 
 static int	send_null(pid_t pid)
 {
-	int	i = -1;
+	static int	i = -1;
 
 	if (++i < 8)
 	{
