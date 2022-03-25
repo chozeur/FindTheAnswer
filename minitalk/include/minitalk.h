@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:43:38 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/25 18:19:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:42:09 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 //	utils
 
-	void	print_pid();
+	void	print_pid(void);
 	int		ft_strlen(const char *str);
 	int		ft_strlcpy(char *dst, char *src, int dstsize);
 	int		ft_atoi(const char *str);

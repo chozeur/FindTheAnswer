@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/25 18:34:29 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:40:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(int ac, char **av)
 static int	send_bit(char *msg, pid_t pid)
 {
 	static pid_t	s_pid;
-	static char	*s_msg;
-	static int	bit = -1;
+	static char		*s_msg;
+	static int		bit = -1;
 
 	if (msg)
-		if(!(s_msg = ft_strdup(msg)))
+		if (!(s_msg = ft_strdup(msg)))
 			return (-1);
 	if (pid)
 		s_pid = pid;

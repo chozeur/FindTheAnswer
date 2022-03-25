@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:48:30 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/25 18:03:08 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/25 18:39:49 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	main(void)
 
 static void	handler_sigaction(int signum, siginfo_t *sender_info, void *ptr)
 {
-	static char	*msg = NULL;
-	static char	c = 0xFF;
-	static int	bit = 0;
+	static char		*msg = NULL;
+	static char		c = 0xFF;
+	static int		bit = 0;
 	static pid_t	pid = 0;
 
 	(void)ptr;
