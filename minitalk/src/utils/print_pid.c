@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 00:10:04 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/25 18:42:02 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/27 10:11:56 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	print_pid(void)
 	int	pid;
 
 	pid = (int)getpid();
-	ft_printf("PID : %d\n", pid);
+	ft_printf("\n\t\t| PID : %d |\n\n", pid);
 }

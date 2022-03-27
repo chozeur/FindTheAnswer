@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/27 09:27:40 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/27 09:53:13 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ test: info_making_test $(OBJ_T) $(OBJ)
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
 run: all clean
+	@echo "\n$(BLUE)Launching server$(NC)\n"
 	@./server
 
 clean:
