@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 23:48:30 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/27 07:23:06 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/22 12:33:36 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/27 07:39:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*SERVER*/
+#include "../../include/minitalk.h"
 
-#include "../include/minitalk.h"
-
-int	main(void)
+int	ft_isdigit(int c)
 {
-	struct sigaction	s_signal;
-
-	s_signal.sa_flags = SA_SIGINFO;
-	s_signal.sa_handler = NULL;
-	s_signal.sa_sigaction = handler_server;
-	sigaction(SIGUSR1, &s_signal, NULL);
-	sigaction(SIGUSR2, &s_signal, NULL);
-	print_pid();
-	while (1)
-		pause();
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }

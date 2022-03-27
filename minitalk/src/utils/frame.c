@@ -1,54 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stradd_char.c                                      :+:      :+:    :+:   */
+/*   frame.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 18:28:51 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/27 08:33:54 by flcarval         ###   ########.fr       */
+/*   Created: 2022/03/27 09:20:16 by flcarval          #+#    #+#             */
+/*   Updated: 2022/03/27 09:31:15 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minitalk.h"
 
-static char	*first(char c);
-
-char	*stradd_char(char *str, char c)
+void	frame(char *str)
 {
-	char	*res;
-	int		i;
+	int	i;
+	int	n;
 
-	if (!c)
-		return (NULL);
-	if (!str)
-		return (first(c));
-	res = malloc(sizeof(char) * (ft_strlen(str) + 2));
-	if (!res)
-	{
-		free(str);
-		return (NULL);
-	}
 	i = 0;
 	while (str[i])
-	{
-		res[i] = str[i];
 		i++;
-	}
-	res[i++] = c;
-	res[i] = '\0';
-	free(str);
-	return (res);
-}
-
-static char	*first(char c)
-{
-	char	*res;
-
-	res = malloc(sizeof(char) * 2);
-	if (!res)
-		return (NULL);
-	res[0] = c;
-	res[1] = '\0';
-	return (res);
+	n = 0;
+	ft_printf("\n ");
+	while (n++ < i)
+		ft_putchar('-');
+	n = 0;
+	ft_printf("\n| %s |\n ", str);
+	while (n++ < i)
+		ft_putchar('-');
+	ft_printf("\n\n");
 }
