@@ -19,5 +19,6 @@ int main(void)
 
 	mlx_ptr = mlx_init();
 	window = mlx_new_window(mlx_ptr, 500, 500, "Hello world");
+	while (1)
 	return (0);
 }

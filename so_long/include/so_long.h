@@ -18,5 +18,4 @@
 #include <mlx.h>
 
 
-
 #endif
