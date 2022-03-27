@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:42:52 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/27 09:09:52 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/27 10:32:34 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int ac, char **av)
 	char	*msg;
 
 	if (!check_args(ac, av))
-		return (ft_printf("🚨 \x1b[31merror exit 🚨\n\e[0m"));
+		return (ft_printf("\t\t🚨 \x1b[31merror exit 🚨\n\e[0m"));
 	msg = malloc(sizeof(char) * (ft_strlen(av[2]) + 1));
 	pid = (pid_t)ft_atoi(av[1]);
 	if (!pid || !msg)
