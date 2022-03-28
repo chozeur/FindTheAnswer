@@ -1,6 +1,8 @@
 {
 	"files.associations": {
 		"minitalk.h": "c",
-		"signal.h": "c"
+		"signal.h": "c",
+		"stdarg.h": "c",
+		"types.h": "c"
 	}
 }

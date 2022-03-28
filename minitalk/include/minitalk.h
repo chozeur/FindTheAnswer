@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 23:43:38 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/27 09:27:27 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/28 04:31:08 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <sys/types.h>
 # include <signal.h>
+// MacOS
+# include <sys/types.h>
 
 //	ft-printf
 

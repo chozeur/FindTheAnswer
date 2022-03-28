@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 07:35:12 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/27 09:29:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/03/28 04:33:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ static int	strnum(char *str)
 
 static int	error1(void)
 {
-	frame("💡 Use like : ./client <server_pid> <Your message>");
+	frame("💡 Use like : ./client <server pid> <Your message>");
 	return (0);
 }
 
 static int	error2(void)
 {
-	frame("💡 <server_pid> must contain digits ONLY");
+	frame("💡 <server pid> must contain digits ONLY");
 	return (0);
 }
 

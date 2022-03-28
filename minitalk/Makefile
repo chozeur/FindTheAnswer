@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/27 09:53:13 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/28 05:01:52 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,19 +50,11 @@ all: info_making_minitalk client server info_comp_client
 
 client: info_making_client info_gen_client $(OBJ) $(OBJ_C) done info_comp_client
 	@$(CC) $(FLAGS) -o $(NAME_C) $(OBJ_C) $(OBJ)
-	@echo "\n\t\t$(PURPLE)🔅 client is ready 🔅\n\n$(NC)"
+	@echo "\n\t\t$(YELLOW)🔅 client is ready 🔅\n\n$(NC)"
 
 server: info_making_serv info_gen_serv $(OBJ) $(OBJ_S) done info_comp_serv
 	@$(CC) $(FLAGS) -o $(NAME_S) $(OBJ_S) $(OBJ)
-	@echo "\n\t\t$(PURPLE)🔅 server is ready 🔅\n\n$(NC)"
-
-test: info_making_test $(OBJ_T) $(OBJ)
-	@$(CC) $(FLAGS) -g3 -o $(NAME_T) $(OBJ_T) $(OBJ)
-	@echo "\n\t\t$(PURPLE)🔅 Test is ready 🔅\n\n$(NC)"
-	@echo "\n$(RED)Deleting objects files$(NC)"
-	@$(RM) $(OBJ) $(OBJ_C) $(OBJ_S) $(OBJ_T)
-	@echo "\n✅\n"
-	@valgrind ./test
+	@echo "\n\t\t$(YELLOW)🔅 server is ready 🔅\n\n$(NC)"
 
 .c.o:
 	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
@@ -74,12 +66,12 @@ run: all clean
 clean:
 	@echo "\n$(RED)Deleting objects files$(NC)"
 	@$(RM) $(OBJ) $(OBJ_C) $(OBJ_S) $(OBJ_T)
-	@echo "\n✅\n"
+	@echo "\n$(GREEN)-> Objects files deleted\n"
 
 fclean: clean
 	@echo "\n$(RED)Deleting runables$(NC)"
 	@$(RM) $(NAME_C) $(NAME_S) $(NAME_T)
-	@echo "\n✅\n"
+	@echo "\n$(GREEN)-> Objects files deleted\n"
 
 re: fclean all
 
@@ -100,13 +92,13 @@ info_comp_serv:
 	@echo "\n🔰 Compiling runable . . ."
 
 info_making_test:
-	@echo "\n\t\t🔶 $(YELLOW)Making test$(NC) 🔶\n"
+	@echo "\n$(YELLOW)-> Making test$(NC)\n"
 
 info_making_client:
-	@echo "\n\t\t🔶 $(YELLOW)Making client$(NC) 🔶\n"
+	@echo "\n$(YELLOW)-> Making client$(NC)\n"
 
 info_making_serv:
-	@echo "\n\t\t🔶 $(YELLOW)Making server$(NC) 🔶\n"
+	@echo "\n$(YELLOW)-> Making server$(NC)\n"
 ################################################################################
 
-.PHONY: all clean fclean re debug info_making_minitalk info_gen_client info_gen_serv info_comp_client info_comp_serv info_making_test info_making_client info_making_serv done 100 500 run test
+.PHONY: all clean fclean re debug info_making_minitalk info_gen_client info_gen_serv info_comp_client info_comp_serv info_making_test info_making_client info_making_serv done 100 500 run
