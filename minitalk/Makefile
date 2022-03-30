@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/28 05:01:52 by flcarval         ###   ########.fr        #
+#    Updated: 2022/03/30 15:44:23 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ clean:
 fclean: clean
 	@echo "\n$(RED)Deleting runables$(NC)"
 	@$(RM) $(NAME_C) $(NAME_S) $(NAME_T)
-	@echo "\n$(GREEN)-> Objects files deleted\n"
+	@echo "\n$(GREEN)-> Runables deleted\n"
 
 re: fclean all
 

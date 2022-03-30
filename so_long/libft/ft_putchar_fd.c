@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/30 15:38:37 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/26 16:41:09 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/07 18:30:29 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "../minilibx-linux/mlx.h"
-#include "../libft/libft.h"
-
-
-#endif
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}

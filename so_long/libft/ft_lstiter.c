@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/03/30 15:38:37 by flcarval         ###   ########.fr       */
+/*   Created: 2021/11/29 15:00:26 by flcarval          #+#    #+#             */
+/*   Updated: 2021/12/07 18:30:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "libft.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "../minilibx-linux/mlx.h"
-#include "../libft/libft.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*i;
 
-
-#endif
+	i = lst;
+	while (i)
+	{
+		(*f)(i->content);
+		i = i->next;
+	}
+}
