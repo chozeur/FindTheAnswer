@@ -1,3 +1,6 @@
 [submodule "so_long/minilibx-linux"]
 	path = so_long/minilibx-linux
 	url = https://github.com/42Paris/minilibx-linux
+[submodule "so_long/Lib42"]
+	path = so_long/Lib42
+	url = https://github.com/chozeur/Lib42.git

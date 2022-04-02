@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/03/30 16:17:13 by flcarval         ###   ########.fr        #
+#    Updated: 2022/04/02 02:44:41 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ = $(SRC:.c=.o)
 ##### COMMANDS #####
 CC = gcc
 RM = rm -f
-FLAGS = -Wall -Werror -Wextra -L./libft -lft -L./minilibx-linux -lmlx -lXext -lX11
+FLAGS = -Wall -Werror -Wextra -L./Lib42 -l42 -L./minilibx-linux -lmlx -lXext -lX11
 ################################################################################
 
 ####################################### RULES ##################################
@@ -36,7 +36,7 @@ FLAGS = -Wall -Werror -Wextra -L./libft -lft -L./minilibx-linux -lmlx -lXext -lX
 all: $(NAME)
 
 $(NAME): info_making $(OBJ)
-	@make re -C ./libft
+	@make re -C ./Lib42
 	@make re -C ./minilibx-linux
 	@$(CC) $(OBJ) $(FLAGS) -o $(NAME)
 	@echo "\n\t\t$(GREEN)✅ $(NAME) is ready ✅\n$(NC)"
@@ -49,7 +49,7 @@ run: all clean
 clean:
 	@echo "\n$(RED)Deleting objects files\n$(NC)"
 	@$(RM) $(OBJ)
-	@make clean -C ./libft
+	@make clean -C ./Lib42
 	@make clean -C ./minilibx-linux
 	@echo "\n$(GREEN)-> Objects files deleted\n"
 
