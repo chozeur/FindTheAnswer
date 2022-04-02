@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/02 02:44:41 by flcarval         ###   ########.fr        #
+#    Updated: 2022/04/02 04:50:35 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,14 @@ RED = \033[0;31m
 GREEN = \033[0;32m
 NC = \033[0m
 ##### SOURCES #####
-#UTILS = $(addprefix src/utils/, )
 SRC = $(addprefix src/, so_long.c)
+KEY_HDL = $(addprefix src/key_handler/, key_handler.c handle_no_event.c)
+RENDER = $(addprefix src/render/, render.c render_rect.c render_background.c\
+render_xpm.c)
 ##### NAMES #####
 NAME = so_long
 ##### OBJECTS #####
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o)
 ##### COMMANDS #####
 CC = gcc
 RM = rm -f
