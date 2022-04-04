@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_xpm.c                                       :+:      :+:    :+:   */
+/*   maplen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 04:35:39 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/03 23:33:49 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/04 00:29:48 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/04 03:48:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	render_xpm(t_data *data)
-{
-	int h = 48;
-	int w = 48;
+// !	There's no open() secure, because it has been first called in init_map()
 
-	data->img->mlx_img = mlx_xpm_file_to_image(data->mlx_ptr, "./sprites/1.xpm", &h, &w);
-	if (!data->img->mlx_img)
-		return (ft_printf("ERROR XPM FILE\n"));
-	data->img->addr = mlx_get_data_addr(data->img, &(data->img->bpp), &(data->img->line_len), &(data->img->endian));
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img->mlx_img, 100, 100);
-	return (0);
+int	maplen(char *mpath)
+{
+	char	*line;
+	int		res;
+	int		fd;
+
+	fd = open(mpath, O_RDONLY);
+	line = "";
+	res = 0;
+	while (line)
+	{
+		if (res)
+			free(line);
+		line = get_next_line(fd);
+		if (line)
+			res++;
+	}
+	close(fd);
+	if (!res)
+	{
+		ft_printf("%smaplen(%d) returned 0%s", YLW, fd, NC);
+		return (0);
+	}
+	return (res);
 }
