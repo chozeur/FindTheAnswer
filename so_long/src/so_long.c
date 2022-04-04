@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 00:30:07 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 01:18:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av)
 	if (!data.mlx_ptr)
 		return (error(MLX_ERROR));
 	data.map = init_map(av[1], &data);
+	init_img(&data);
 	data.win_ptr = mlx_new_window(data.mlx_ptr, data.map_width * 96,\
 		data.map_height * 96, "so_long");
 	if (!data.win_ptr)
