@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:59:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/04 04:15:12 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:08:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	mapcheck(char **map, int len)
 		return (error(500));
 	if (check_elem(START, map, len) > 1)
 		return (error(check_elem(START, map, len)));
-	return (1);
+	return (check_form(map, len));
 }
 
 static int	check_elem(char elem, char **map, int len)
@@ -70,6 +70,8 @@ static int	check_form(char **map, char len)
 	{
 		if (!l)
 			l = ft_strlen(map[i]);
+		if (!l)
+			return (0);
 		else
 		{
 			if (ft_strlen(map[i]) != l)
@@ -77,7 +79,7 @@ static int	check_form(char **map, char len)
 		}
 		i++;
 	}
-	return (1);
+	return (l - 1);
 }
 
 static int	check_close(char **map, int len)

@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   keyrelease_handler.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 03:31:07 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/02 04:50:55 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/04 23:52:36 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/04 23:52:46 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	render(t_data *data)
+int	keyrelease_handler(int keysym, t_data *data)
 {
-	if (data->win_ptr)
+	if (keysym == XK_Escape)
 	{
-		render_xpm(data);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
 	}
 	return (0);
 }

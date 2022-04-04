@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handler_no_event.c                                 :+:      :+:    :+:   */
+/*   put_ground.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 03:11:17 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/02 03:11:56 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/04 23:19:09 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/04 23:19:24 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	handle_no_event(void *data)
+int	put_ground(t_data *data, t_vector *vect)
 {
-	(void)data;
-	return (0);
+	return (mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,\
+		data->ground.mlx_img, vect->x, vect->y));
 }

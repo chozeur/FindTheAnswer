@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:06:19 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/04 04:01:10 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:35:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ static int	isclean(char **map, int len);
 
 //	In init_map(), the loop goes up to <= len so that res[len] = NULL
 
-char	**init_map(char *mpath)
+char	**init_map(char *mpath, t_data *data)
 {
 	int		fd;
 	char	**map;
-	int		len;
 	int		i;
 
 	if (!isber(mpath))
@@ -31,19 +30,20 @@ char	**init_map(char *mpath)
 	fd = open(mpath, O_RDONLY);
 	if (fd == -1)
 		return (error(1, mpath));
-	len = maplen(mpath);
-	if (!len)
+	data->map_height = maplen(mpath);
+	if (!data->map_height)
 		return (error(0, mpath));
-	map = malloc(sizeof(char *) * (len + 1));
+	map = malloc(sizeof(char *) * (data->map_height + 1));
 	if (!map)
 		return (error(2, mpath));
 	i = 0;
-	while (i <= len)
+	while (i <= data->map_height)
 	{
 		map[i] = get_next_line(fd);
 		i++;
 	}
-	if (!isclean(map, len) || !mapcheck(map, len))
+	data->map_width = mapcheck(map, data->map_height);
+	if (!isclean(map, data->map_height))
 		return (error(0, mpath));
 	return (map);
 }

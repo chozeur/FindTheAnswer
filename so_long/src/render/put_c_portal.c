@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_xpm.c                                       :+:      :+:    :+:   */
+/*   put_c_portal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 04:35:39 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/03 23:33:49 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/04 22:47:12 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/04 23:17:50 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-int	render_xpm(t_data *data)
+int	put_c_portal(t_data *data, t_vector *vect)
 {
-	int h = 48;
-	int w = 48;
-
-	data->img->mlx_img = mlx_xpm_file_to_image(data->mlx_ptr, "./sprites/1.xpm", &h, &w);
-	if (!data->img->mlx_img)
-		return (ft_printf("ERROR XPM FILE\n"));
-	data->img->addr = mlx_get_data_addr(data->img, &(data->img->bpp), &(data->img->line_len), &(data->img->endian));
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img->mlx_img, 100, 100);
-	return (0);
+	return (mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,\
+		data->c_portal.mlx_img, vect->x, vect->y));
 }

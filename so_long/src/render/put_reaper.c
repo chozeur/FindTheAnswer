@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_background.c                                :+:      :+:    :+:   */
+/*   put_reaper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 04:08:05 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/02 04:08:20 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/04 23:20:06 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/04 23:20:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	render_background(t_data *data, int color)
+int	put_reaper(t_data *data, t_vector *vect)
 {
-	int	i;
-	int	j;
-
-	if (data->win_ptr == NULL)
-		return ;
-	i = 0;
-	while (i < WINDOW_HEIGHT)
-	{
-		j = 0;
-		while (j < WINDOW_WIDTH)
-			mlx_pixel_put(data->mlx_ptr, data->win_ptr, j++, i, color);
-		++i;
-	}
+	return (mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,\
+		data->reaper.mlx_img, vect->x, vect->y));
 }

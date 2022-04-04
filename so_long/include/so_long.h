@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/04 03:05:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 00:02:55 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,8 @@
 # include "../minilibx-linux/mlx.h"
 # include "../Lib42/include/lib42.h"
 
-/* Tests mlx */
+/* Errors */
 # define MLX_ERROR 1
-# define WINDOW_HEIGHT 540
-# define WINDOW_WIDTH 960
-# define RED_PIXEL 0xFF0000
-# define GREEN_PIXEL 0x00FF00
-# define WHITE_PIXEL 0xFFFFFF
 
 /* ft_printf colors */
 # define RED "\e[0;31m"
@@ -44,6 +39,11 @@
 # define EXIT 'E'
 # define START 'P'
 
+typedef struct s_vector{
+	int	x;
+	int	y;
+}	t_vector;
+
 typedef struct s_img{
 	void	*mlx_img;
 	char	*addr;
@@ -55,32 +55,37 @@ typedef struct s_img{
 typedef struct s_data{
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	*img;
-
+	char	**map;
+	int		map_height;
+	int		map_width;
+	int		img_size;
+	t_img	c_portal;
+	t_img	o_portal;
+	t_img	hero;
+	t_img	col;
+	t_img	reaper;
+	t_img	tree;
+	t_img	ground;
 }	t_data;
-
-typedef struct s_rect{
-	/*	x & y are upper left coordinates of rect */
-	int	x;
-	int	y;
-	int	width;
-	int	height;
-	int	color;
-}	t_rect;
 
 /* key_handler */
 int		keypress_handler(int keysym, t_data *data);
-int		handle_no_event(void *data);
 int		keyrelease_handler(int keysym, t_data *data);
 
 /* render */
-int		render(t_data *data);
-int		render_rect(t_data *data, t_rect rect);
-void	render_background(t_data *data, int color);
-int		render_xpm(t_data *data);
+
+int		render_map(t_data *data);
+int		init_img(t_data *data);
+int		put_c_portal(t_data *data, t_vector *vect);
+int		put_o_portal(t_data *data, t_vector *vect);
+int		put_col(t_data *data, t_vector *vect);
+int		put_ground(t_data *data, t_vector *vect);
+int		put_reaper(t_data *data, t_vector *vect);
+int		put_hero(t_data *data, t_vector *vect);
+int		put_tree(t_data *data, t_vector *vect);
 
 /* utils */
-char	**init_map(char *mpath);
+char	**init_map(char *mpath, t_data *data);
 int		maplen(char *mpath);
 int		mapcheck(char **map, int len);
 
