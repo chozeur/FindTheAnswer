@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 03:52:14 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 04:39:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define FLOOR '0'
 # define WALL '1'
 # define COL 'C'
+# define REAPER 'X'
 # define EXIT 'E'
 # define START 'P'
 
@@ -102,6 +103,7 @@ char	**init_map(char *mpath, t_data *data);
 int		maplen(char *mpath);
 int		mapcheck(char **map, int len);
 void	locate_player(t_data *data);
+/*void	enemies(t_data *data);*/
 
 /* moves */
 void	move_up(t_data *data);

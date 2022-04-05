@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 03:41:44 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 04:38:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	error(int code);
 static void	count_col(t_data *data);
+static void	count_reapers(t_data *data);
 
 int	main(int ac, char **av)
 {
@@ -34,6 +35,7 @@ int	main(int ac, char **av)
 	}
 	data.player.moves = 0;
 	count_col(&data);
+	count_reapers(&data);
 	locate_player(&data);
 	mlx_loop_hook(data.mlx_ptr, &render_map, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &keypress_handler, &data);
@@ -49,6 +51,7 @@ static void	count_col(t_data *data)
 	int	i;
 	int	j;
 
+	data->col.count = 0;
 	i = 0;
 	while (i < data->map_height)
 	{
@@ -57,6 +60,26 @@ static void	count_col(t_data *data)
 		{
 			if (data->map[i][j] == COL)
 				data->col.count++;
+			j++;
+		}
+		i++;
+	}
+}
+
+static void	count_reapers(t_data *data)
+{
+	int	i;
+	int	j;
+
+	data->reaper.count = 0;
+	i = 0;
+	while (i < data->map_height)
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == REAPER)
+				data->reaper.count++;
 			j++;
 		}
 		i++;

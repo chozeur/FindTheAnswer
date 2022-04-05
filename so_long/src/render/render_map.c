@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:48:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 03:36:26 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 04:40:09 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	render_map(t_data *data)
 		return (error(100));
 	if (!data->map)
 		return (error(200));
+	//enemies(data);
 	vect.x = 0;
 	vect.y = 0;
 	i = 0;

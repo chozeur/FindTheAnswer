@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:06:19 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 00:35:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 04:26:29 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ static int	isclean(char **map, int len)
 		while (map[i][j])
 		{
 			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E'\
-				&& map[i][j] != '1' && map[i][j] != '0' && map[i][j] != '\n')
+				&& map[i][j] != '1' && map[i][j] != '0' && map[i][j] != '\n'\
+				&& map[i][j] != 'X')
 				return (0);
 			j++;
 		}
