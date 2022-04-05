@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 00:02:55 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 03:52:14 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,13 @@
 # define BLUE "\e[0;34m"
 # define CYAN "\e[0;36m"
 # define YLW "\e[0;33m"
+# define BLACK "\e[0;30m"
 # define NC "\e[0m"
+
+/* ft_printf background colors */
+# define B_BLUE "\e[44m"
+# define B_YLW "\e[43m"
+# define B_WHITE "\e[47m"
 
 /* Elements */
 # define FLOOR '0'
@@ -44,12 +50,18 @@ typedef struct s_vector{
 	int	y;
 }	t_vector;
 
+typedef struct s_player{
+	t_vector	vect;
+	int			moves;
+}	t_player;
+
 typedef struct s_img{
 	void	*mlx_img;
 	char	*addr;
 	int		bpp; // ? bits per pixel
 	int		line_len;
 	int		endian;
+	int		count;
 }	t_img;
 
 typedef struct s_data{
@@ -66,6 +78,7 @@ typedef struct s_data{
 	t_img	reaper;
 	t_img	tree;
 	t_img	ground;
+	t_player	player;
 }	t_data;
 
 /* key_handler */
@@ -88,5 +101,12 @@ int		put_tree(t_data *data, t_vector *vect);
 char	**init_map(char *mpath, t_data *data);
 int		maplen(char *mpath);
 int		mapcheck(char **map, int len);
+void	locate_player(t_data *data);
+
+/* moves */
+void	move_up(t_data *data);
+void	move_right(t_data *data);
+void	move_down(t_data *data);
+void	move_left(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/04 23:58:08 by flcarval         ###   ########.fr        #
+#    Updated: 2022/04/05 02:33:19 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,13 +22,14 @@ NC = \033[0m
 TEST = $(addprefix ./, test.c)
 SRC = $(addprefix src/, so_long.c)
 KEY_HDL = $(addprefix src/key_handler/, keypress_handler.c keyrelease_handler.c)
+MOVES = $(addprefix src/moves/move_, down.c left.c right.c up.c)
 RENDER = $(addprefix src/render/, init_img.c put_c_portal.c put_col.c put_ground.c put_hero.c\
 put_tree.c put_o_portal.c put_reaper.c render_map.c)
-UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c)
+UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c)
 ##### NAMES #####
 NAME = so_long
 ##### OBJECTS #####
-OBJ = $(SRC:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o)
+OBJ = $(SRC:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o) $(MOVES:.c=.o)
 OBJ_T = $(TEST:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o)
 ##### COMMANDS #####
 CC = gcc

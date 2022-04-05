@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 21:48:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 00:12:38 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 03:36:26 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	error(int code);
 static int	render_line(char *line, t_data *data, t_vector *vector);
+static void	put_portal(t_data *data, t_vector *vect);
 
 int	render_map(t_data *data)
 {
@@ -52,7 +53,7 @@ static int	render_line(char *line, t_data *data, t_vector *vect)
 		else if (line[i] == COL)
 			put_col(data, vect);
 		else if (line[i] == EXIT)
-			put_c_portal(data, vect);
+			put_portal(data, vect);
 		else if (line[i] == START)
 			put_hero(data, vect);
 		else
@@ -61,6 +62,14 @@ static int	render_line(char *line, t_data *data, t_vector *vect)
 		(vect->x) += 96;
 	}
 	return (0);
+}
+
+static void	put_portal(t_data *data, t_vector *vect)
+{
+	if (!(data->col.count))
+		put_o_portal(data, vect);
+	else
+		put_c_portal(data, vect);
 }
 
 static int	error(int code)

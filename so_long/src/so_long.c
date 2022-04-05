@@ -6,13 +6,14 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 01:18:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/05 03:41:44 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
 static int	error(int code);
+static void	count_col(t_data *data);
 
 int	main(int ac, char **av)
 {
@@ -31,6 +32,9 @@ int	main(int ac, char **av)
 		free(data.mlx_ptr);
 		return (MLX_ERROR);
 	}
+	data.player.moves = 0;
+	count_col(&data);
+	locate_player(&data);
 	mlx_loop_hook(data.mlx_ptr, &render_map, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &keypress_handler, &data);
 	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &keyrelease_handler, &data);
@@ -38,6 +42,25 @@ int	main(int ac, char **av)
 	mlx_destroy_display(data.mlx_ptr);
 	free(data.mlx_ptr);
 	return (0);
+}
+
+static void	count_col(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < data->map_height)
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == COL)
+				data->col.count++;
+			j++;
+		}
+		i++;
+	}
 }
 
 static int	error(int code)
