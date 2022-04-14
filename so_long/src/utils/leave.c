@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   enemies.c                                          :+:      :+:    :+:   */
+/*   leave.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/05 04:20:10 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 04:28:32 by flcarval         ###   ########.fr       */
+/*   Created: 2022/04/14 22:26:20 by flcarval          #+#    #+#             */
+/*   Updated: 2022/04/15 00:35:37 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-void	enemies(t_data *data)
+int	leave(t_data *data)
 {
-	static int	i = 0;
-	int	j;
-
-	if (i < 10000)
-		return ;
-	j = 0;
-	while (j < )
+	free_all(data);
+	exit(EXIT_SUCCESS);
+	return (0);
 }

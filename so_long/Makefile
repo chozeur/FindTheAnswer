@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/05 04:39:08 by flcarval         ###   ########.fr        #
+#    Updated: 2022/04/15 00:35:37 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ KEY_HDL = $(addprefix src/key_handler/, keypress_handler.c keyrelease_handler.c)
 MOVES = $(addprefix src/moves/move_, down.c left.c right.c up.c)
 RENDER = $(addprefix src/render/, init_img.c put_c_portal.c put_col.c put_ground.c put_hero.c\
 put_tree.c put_o_portal.c put_reaper.c render_map.c)
-UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c)
+UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c leave.c free_all.c)
 ##### NAMES #####
 NAME = so_long
 ##### OBJECTS #####
@@ -46,6 +46,9 @@ test: $(OBJ_T)
 	@make re -C ./minilibx-linux
 	@$(CC) $(OBJ_T) $(FLAGS) -o test
 	@echo "\n\t\t$(GREEN)✅ test is ready ✅\n$(NC)"
+
+val: run
+	@valgrind --leak-check=full ./so_long maps/4.ber
 
 $(NAME): info_making $(OBJ)
 	@make re -C ./Lib42

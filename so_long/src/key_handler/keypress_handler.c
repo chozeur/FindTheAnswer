@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 03:04:58 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 03:55:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/14 22:05:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ int	keypress_handler(int keysym, t_data *data)
 		move_down(data);
 	if (keysym == XK_a || keysym == XK_A)
 		move_left(data);
-	ft_printf("%s%s Moves || %d  %s\n", BLACK, B_WHITE, data->player.moves, NC);
 	return (0);
 }

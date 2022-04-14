@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:10:56 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 03:45:35 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/14 22:05:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ static void	move(t_data *data)
 	data->map[data->player.vect.y - 1][data->player.vect.x] = START;
 	(data->player.vect.y)--;
 	(data->player.moves)++;
+	ft_printf("%s%s Moves || %d  %s\n", BLACK, B_WHITE, data->player.moves, NC);
 }
 
