@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 18:49:45 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:11:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static int	error(int code);
 static void	count_col(t_data *data);
 static void	count_reapers(t_data *data);
+static void	play(t_data *data);
 
 int	main(int ac, char **av)
 {
@@ -28,7 +29,7 @@ int	main(int ac, char **av)
 	if (!(data.map))
 		return (leave(&data));
 	init_img(&data);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, data.map_width * 96,\
+	data.win_ptr = mlx_new_window(data.mlx_ptr, data.map_width * 96, \
 		data.map_height * 96, "so_long");
 	if (!data.win_ptr)
 	{
@@ -39,11 +40,7 @@ int	main(int ac, char **av)
 	count_col(&data);
 	count_reapers(&data);
 	locate_player(&data);
-	mlx_loop_hook(data.mlx_ptr, &render_map, &data);
-	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &keypress_handler, &data);
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &keyrelease_handler, &data);
-	mlx_hook(data.win_ptr, 17, 0, leave, &data);
-	mlx_loop(data.mlx_ptr);
+	play(&data);
 	leave(&data);
 	return (0);
 }
@@ -86,6 +83,16 @@ static void	count_reapers(t_data *data)
 		}
 		i++;
 	}
+}
+
+static void	play(t_data *data)
+{
+	mlx_loop_hook(data->mlx_ptr, &render_map, data);
+	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &keypress_handler, data);
+	mlx_hook(data->win_ptr, KeyRelease, KeyReleaseMask, &keyrelease_handler, \
+		data);
+	mlx_hook(data->win_ptr, 17, 0, leave, data);
+	mlx_loop(data->mlx_ptr);
 }
 
 static int	error(int code)

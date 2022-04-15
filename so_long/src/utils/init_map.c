@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:06:19 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 04:26:29 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:16:40 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	**init_map(char *mpath, t_data *data)
 		return (error(0, mpath));
 	return (map);
 }
-
 
 static int	isber(char *mpath)
 {
@@ -101,7 +100,7 @@ static int	isclean(char **map, int len)
 static void	*error(int code, char *mpath)
 {
 	if (code == 1)
-		ft_printf("%sAn error occured while opening [%s]%s\n",RED, mpath, NC);
+		ft_printf("%sAn error occured while opening [%s]%s\n", RED, mpath, NC);
 	else if (code == 2)
 		ft_printf("%sAn error occured in a malloc assignment%s\n", RED, NC);
 	else if (code == 3)

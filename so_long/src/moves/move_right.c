@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:36:07 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/14 22:05:33 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:15:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,3 @@ static void	move(t_data *data)
 	(data->player.moves)++;
 	ft_printf("%s%s Moves || %d  %s\n", BLACK, B_WHITE, data->player.moves, NC);
 }
-

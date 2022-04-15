@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:59:21 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/05 00:08:19 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:16:12 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,6 @@ static int	check_elem(char elem, char **map, int len)
 		}
 		i++;
 	}
-	// ! //! // ! // ! // ! // ! // !
-	ft_printf("%scheck_elem(%c) returned %d%s\n", BLUE, elem, count, NC);
-	// ! //! // ! // ! // ! // ! // !
 	return (count);
 }
 
@@ -123,7 +120,7 @@ static int	error(int code)
 	else if (code == 500)
 		ft_printf("%sNo starting point has been found on the map%s\n", YLW, NC);
 	else
-		ft_printf("%sFound%s %d %sstarting points on the map, max is 1%s\n",\
+		ft_printf("%sFound%s %d %sstarting points on the map, max is 1%s\n", \
 			YLW, RED, code, YLW, NC);
 	return (0);
 }

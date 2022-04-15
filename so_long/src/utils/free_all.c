@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 23:42:49 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 19:00:49 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 21:16:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	free_all(t_data *data)
 {
-	int i;
+	int	i;
 
 	if (!data->map)
 	{
