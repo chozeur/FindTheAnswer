@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:29:48 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/04 03:48:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 19:11:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ int	maplen(char *mpath)
 	}
 	close(fd);
 	if (!res)
-	{
-		ft_printf("%smaplen(%d) returned 0%s", YLW, fd, NC);
 		return (0);
-	}
 	return (res);
 }

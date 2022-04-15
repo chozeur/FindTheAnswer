@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 23:42:49 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 00:35:37 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 19:00:49 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ int	free_all(t_data *data)
 {
 	int i;
 
+	if (!data->map)
+	{
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		return (0);
+	}
 	i = 0;
 	while (i < data->map_height)
 		free(data->map[i++]);
