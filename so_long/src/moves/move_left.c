@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 02:41:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/14 22:05:46 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 22:12:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_left(t_data *data)
 		if (data->col.count)
 			return ;
 		else
-			exit(EXIT_SUCCESS);
+			leave(data, 0);
 	}
 	else
 		move(data);

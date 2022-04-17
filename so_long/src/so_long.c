@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 21:11:54 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 22:37:44 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 		return (error(MLX_ERROR));
 	data.map = init_map(av[1], &data);
 	if (!(data.map))
-		return (leave(&data));
+		return (leave(&data, 1));
 	init_img(&data);
 	data.win_ptr = mlx_new_window(data.mlx_ptr, data.map_width * 96, \
 		data.map_height * 96, "so_long");
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 	count_reapers(&data);
 	locate_player(&data);
 	play(&data);
-	leave(&data);
+	leave(&data, 0);
 	return (0);
 }
 

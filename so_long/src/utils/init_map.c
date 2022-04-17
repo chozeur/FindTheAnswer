@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:06:19 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 21:16:40 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/17 19:37:14 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,16 @@ char	**init_map(char *mpath, t_data *data)
 		return (error(2, mpath));
 	i = 0;
 	while (i <= data->map_height)
-	{
-		map[i] = get_next_line(fd);
-		i++;
-	}
+		map[i++] = get_next_line(fd);
 	data->map_width = mapcheck(map, data->map_height);
-	if (!isclean(map, data->map_height))
-		return (error(0, mpath));
+	if (!data->map_width || !isclean(map, data->map_height))
+	{
+		i = 0;
+		while (map[i])
+			free(map[i++]);
+		free(map);
+		leave(data, 2);
+	}
 	return (map);
 }
 
@@ -89,7 +92,10 @@ static int	isclean(char **map, int len)
 			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E'\
 				&& map[i][j] != '1' && map[i][j] != '0' && map[i][j] != '\n'\
 				&& map[i][j] != 'X')
+			{
+				ft_printf("%sInvalid symbol(s) on the map%s\n", YLW, NC);
 				return (0);
+			}
 			j++;
 		}
 		i++;

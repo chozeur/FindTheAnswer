@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 00:35:37 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/15 22:37:30 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,19 @@ typedef struct s_img{
 }	t_img;
 
 typedef struct s_data{
-	void	*mlx_ptr;
-	void	*win_ptr;
-	char	**map;
-	int		map_height;
-	int		map_width;
-	int		img_size;
-	t_img	c_portal;
-	t_img	o_portal;
-	t_img	hero;
-	t_img	col;
-	t_img	reaper;
-	t_img	tree;
-	t_img	ground;
+	void		*mlx_ptr;
+	void		*win_ptr;
+	char		**map;
+	int			map_height;
+	int			map_width;
+	int			img_size;
+	t_img		c_portal;
+	t_img		o_portal;
+	t_img		hero;
+	t_img		col;
+	t_img		reaper;
+	t_img		tree;
+	t_img		ground;
 	t_player	player;
 }	t_data;
 
@@ -103,8 +103,7 @@ char	**init_map(char *mpath, t_data *data);
 int		maplen(char *mpath);
 int		mapcheck(char **map, int len);
 void	locate_player(t_data *data);
-int		leave(t_data *data);
-int		free_all(t_data *data);
+int		leave(t_data *data, int status);
 
 /* moves */
 void	move_up(t_data *data);
