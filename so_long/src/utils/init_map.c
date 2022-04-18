@@ -6,17 +6,14 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 00:06:19 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/17 19:37:14 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:06:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
 static void	*error(int code, char *mpath);
-static int	isber(char *mpath);
-static void	delwhite(char *mpath);
-static int	isclean(char **map, int len);
-
+static void	check_width_clean(char **map, t_data *data);
 //	In init_map(), the loop goes up to <= len so that res[len] = NULL
 
 char	**init_map(char *mpath, t_data *data)
@@ -40,6 +37,14 @@ char	**init_map(char *mpath, t_data *data)
 	while (i <= data->map_height)
 		map[i++] = get_next_line(fd);
 	data->map_width = mapcheck(map, data->map_height);
+	check_width_clean(map, data);
+	return (map);
+}
+
+static void	check_width_clean(char **map, t_data *data)
+{
+	int	i;
+
 	if (!data->map_width || !isclean(map, data->map_height))
 	{
 		i = 0;
@@ -48,59 +53,6 @@ char	**init_map(char *mpath, t_data *data)
 		free(map);
 		leave(data, 2);
 	}
-	return (map);
-}
-
-static int	isber(char *mpath)
-{
-	int	len;
-
-	delwhite(mpath);
-	if (!mpath || mpath[0] == '\0')
-		return (1);
-	len = ft_strlen(mpath);
-	if (mpath[len - 1] == 'r' && mpath[len - 2] == 'e' && mpath[len - 3] == 'b'\
-		&& mpath[len - 4] == '.')
-		return (1);
-	return (0);
-}
-
-static void	delwhite(char *mpath)
-{
-	int	i;
-
-	i = ft_strlen(mpath) - 1;
-	while (i > -1)
-	{
-		if (mpath[i] == ' ')
-			mpath[i] = '\0';
-		i--;
-	}
-}
-
-static int	isclean(char **map, int len)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < len)
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] != 'C' && map[i][j] != 'P' && map[i][j] != 'E'\
-				&& map[i][j] != '1' && map[i][j] != '0' && map[i][j] != '\n'\
-				&& map[i][j] != 'X')
-			{
-				ft_printf("%sInvalid symbol(s) on the map%s\n", YLW, NC);
-				return (0);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (1);
 }
 
 static void	*error(int code, char *mpath)

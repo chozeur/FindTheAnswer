@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 22:37:30 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:54:34 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ int		maplen(char *mpath);
 int		mapcheck(char **map, int len);
 void	locate_player(t_data *data);
 int		leave(t_data *data, int status);
+int		isber(char *mpath);
+int		isclean(char **map, int len);
 
 /* moves */
 void	move_up(t_data *data);

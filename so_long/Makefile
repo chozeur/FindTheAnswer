@@ -6,7 +6,7 @@
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/17 19:07:49 by flcarval         ###   ########.fr        #
+#    Updated: 2022/04/18 18:03:16 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ KEY_HDL = $(addprefix src/key_handler/, keypress_handler.c keyrelease_handler.c)
 MOVES = $(addprefix src/moves/move_, down.c left.c right.c up.c)
 RENDER = $(addprefix src/render/, init_img.c put_c_portal.c put_col.c put_ground.c put_hero.c\
 put_tree.c put_o_portal.c put_reaper.c render_map.c)
-UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c leave.c)
+UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c leave.c isber.c isclean.c)
 ##### NAMES #####
 NAME = so_long
 ##### OBJECTS #####
@@ -34,7 +34,7 @@ OBJ_T = $(TEST:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o)
 ##### COMMANDS #####
 CC = gcc
 RM = rm -f
-FLAGS = -g3 -Wall -Werror -Wextra -L./Lib42 -l42 -L./minilibx-linux -lmlx -lXext -lX11
+FLAGS = -Wall -Werror -Wextra -L./Lib42 -l42 -L./minilibx-linux -lmlx -lXext -lX11
 ################################################################################
 
 ####################################### RULES ##################################
