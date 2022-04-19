@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:20:28 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/18 17:54:34 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/19 14:12:28 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct s_player{
 typedef struct s_img{
 	void	*mlx_img;
 	char	*addr;
-	int		bpp; // ? bits per pixel
+	int		bpp;
 	int		line_len;
 	int		endian;
 	int		count;

@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 06:22:22 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 22:37:44 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/19 14:15:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	(void)ac;
+	if (ac != 2)
+		return (ft_printf("%sUse as <./so_long path/to/map.ber>%s\n", YLW, NC));
 	data.mlx_ptr = mlx_init();
 	if (!data.mlx_ptr)
 		return (error(MLX_ERROR));
