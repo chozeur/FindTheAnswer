@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 22:17:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/15 21:14:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:14:32 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,17 @@ static void	init_2(t_data *data);
 int	init_img(t_data *data)
 {
 	init_1(data);
+	if (!check(data))
+	{
+		ft_printf("%s[init_img] error in xpm initialyze%s\n", RED, NC);
+		leave(data, 0);
+		return (1);
+	}
 	init_2(data);
 	if (!check(data))
 	{
 		ft_printf("%s[init_img] error in xpm initialyze%s\n", RED, NC);
+		leave(data, 0);
 		return (1);
 	}
 	return (0);
