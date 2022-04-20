@@ -6,30 +6,31 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 22:17:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/04/19 17:14:32 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/04/20 16:03:50 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/so_long.h"
 
-static int	check(t_data *data);
 static void	init_1(t_data *data);
 static void	init_2(t_data *data);
+static int	check_2(t_data *data);
+static int	check_1(t_data *data);
 
 int	init_img(t_data *data)
 {
 	init_1(data);
-	if (!check(data))
+	if (!check_1(data))
 	{
 		ft_printf("%s[init_img] error in xpm initialyze%s\n", RED, NC);
-		leave(data, 0);
+		leave(data, 1);
 		return (1);
 	}
 	init_2(data);
-	if (!check(data))
+	if (!check_2(data))
 	{
 		ft_printf("%s[init_img] error in xpm initialyze%s\n", RED, NC);
-		leave(data, 0);
+		leave(data, 1);
 		return (1);
 	}
 	return (0);
@@ -74,12 +75,17 @@ static void	init_2(t_data *data)
 		&(data->tree.line_len), &(data->tree.endian));
 }
 
-static int	check(t_data *data)
+static int	check_1(t_data *data)
 {
 	if (!data->c_portal.mlx_img || !data->o_portal.mlx_img || \
 		!data->col.mlx_img || !data->ground.mlx_img || !data->hero.mlx_img \
 		|| !data->reaper.mlx_img || !data->tree.mlx_img)
 		return (0);
+	return (1);
+}
+
+static int	check_2(t_data *data)
+{
 	if (!data->c_portal.addr || !data->o_portal.addr || \
 		!data->col.addr || !data->ground.addr || !data->hero.addr \
 		|| !data->reaper.addr || !data->tree.addr)
