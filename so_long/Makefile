@@ -1,83 +1,129 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/13 16:33:34 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/18 18:03:16 by flcarval         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Generated with GenMake
+# Arthur-TRT - https://github.com/arthur-trt/genMake
+# genmake vv1.1.4
 
-####################################### VARS ###################################
-##### COLORS #####
-BLUE = \033[0;34m
-YELLOW = \033[0;33m
-PURPLE = \033[0;35m
-RED = \033[0;31m
-GREEN = \033[0;32m
-NC = \033[0m
-##### SOURCES #####
-TEST = $(addprefix ./, test.c)
-SRC = $(addprefix src/, so_long.c)
-KEY_HDL = $(addprefix src/key_handler/, keypress_handler.c keyrelease_handler.c)
-MOVES = $(addprefix src/moves/move_, down.c left.c right.c up.c)
-RENDER = $(addprefix src/render/, init_img.c put_c_portal.c put_col.c put_ground.c put_hero.c\
-put_tree.c put_o_portal.c put_reaper.c render_map.c)
-UTILS = $(addprefix src/utils/, init_map.c maplen.c mapcheck.c locate_player.c leave.c isber.c isclean.c)
-##### NAMES #####
-NAME = so_long
-##### OBJECTS #####
-OBJ = $(SRC:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o) $(MOVES:.c=.o)
-OBJ_T = $(TEST:.c=.o) $(KEY_HDL:.c=.o) $(RENDER:.c=.o) $(UTILS:.c=.o)
-##### COMMANDS #####
-CC = gcc
-RM = rm -f
-FLAGS = -Wall -Werror -Wextra -L./Lib42 -l42 -L./minilibx-linux -lmlx -lXext -lX11
-################################################################################
+#Compiler and Linker
+CC					:= clang
+CXX					:= c++
+ifeq ($(shell uname -s),Darwin)
+	CC				:= gcc
+	CXX				:= g++
+endif
 
-####################################### RULES ##################################
-##### CALL #####
-all: $(NAME)
+#The Target Binary Program
+TARGET				:= so_long
+TARGET_BONUS		:= so_long-bonus
 
-test: $(OBJ_T)
-	@make re -C ./Lib42
-	@make re -C ./minilibx-linux
-	@$(CC) $(OBJ_T) $(FLAGS) -o test
-	@echo "\n\t\t$(GREEN)✅ test is ready ✅\n$(NC)"
+BUILD				:= release
 
-val: run
-	@valgrind --leak-check=full ./so_long maps/4.ber
+include sources.mk
 
-$(NAME): info_making $(OBJ)
-	@make re -C ./Lib42
-	@make re -C ./minilibx-linux
-	@$(CC) $(OBJ) $(FLAGS) -o $(NAME)
-	@echo "\n\t\t$(GREEN)✅ $(NAME) is ready ✅\n$(NC)"
+#The Directories, Source, Includes, Objects, Binary and Resources
+SRCDIR				:= src
+INCDIR				:= include
+BUILDDIR			:= obj
+TARGETDIR			:= bin
+SRCEXT				:= c
+DEPEXT				:= d
+OBJEXT				:= o
 
-.c.o:
-	@$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
+OBJECTS				:= $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.$(OBJEXT)))
+OBJECTS_BONUS		:= $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES_BONUS:.$(SRCEXT)=.$(OBJEXT)))
 
-run: all clean
+#Flags, Libraries and Includes
+cflags.release		:= -Wall -Werror -Wextra
+cflags.valgrind		:= -Wall -Werror -Wextra -DDEBUG -ggdb
+cflags.debug		:= -Wall -Werror -Wextra -DDEBUG -ggdb -fsanitize=address -fno-omit-frame-pointer
+CFLAGS				:= $(cflags.$(BUILD))
+CPPFLAGS			:= $(cflags.$(BUILD)) -std=c++98
 
-clean:
-	@echo "\n$(RED)Deleting objects files\n$(NC)"
-	@$(RM) $(OBJ) $(OBJ_T)
-	@make clean -C ./Lib42
-	@make clean -C ./minilibx-linux
-	@echo "\n$(GREEN)-> Objects files deleted\n"
+lib.release			:=  -lX11 -lXext -Lminilibx-linux -lmlx -L./Lib42 -l42
+lib.valgrind		:= $(lib.release)
+lib.debug			:= $(lib.release) -fsanitize=address -fno-omit-frame-pointer
+LIB					:= $(lib.$(BUILD))
 
-fclean: clean
-	@echo "\n$(RED)Deleting runables$(NC)"
-	@$(RM) $(NAME) test
-	@echo "\n$(GREEN)-> Runables deleted\n"
+INC					:= -I$(INCDIR) -I/usr/local/include
+INCDEP				:= -I$(INCDIR)
 
+# Colors
+C_RESET				:= \033[0m
+C_PENDING			:= \033[0;36m
+C_SUCCESS			:= \033[0;32m
+
+# Multi platforms
+ECHO				:= echo
+
+# Escape sequences (ANSI/VT100)
+ES_ERASE			:= "\033[1A\033[2K\033[1A"
+ERASE				:= $(ECHO) $(ES_ERASE)
+
+GREP				:= grep --color=auto --exclude-dir=.git
+NORMINETTE			:= norminette `ls`
+
+# Default Make
+all: minilibx $(TARGETDIR)/$(TARGET)
+	@$(ERASE)
+	@$(ECHO) "$(TARGET)\t\t[$(C_SUCCESS)✅$(C_RESET)]"
+	@$(ECHO) "$(C_SUCCESS)All done, compilation successful! 👌 $(C_RESET)"
+
+# Bonus rule
+bonus: CFLAGS += -DBONUS
+bonus: minilibx $(TARGETDIR)/$(TARGET_BONUS)
+	@$(ERASE)
+	@$(ECHO) "$(TARGET)\t\t[$(C_SUCCESS)✅$(C_RESET)]"
+	@$(ECHO) "$(C_SUCCESS)All done, compilation successful with bonus! 👌 $(C_RESET)"
+
+# Remake
 re: fclean all
 
-##### INFOS #####
-info_making:
-	@echo "\n\t\t🔷 $(BLUE)Making $(NAME)$(NC) 🔷\n"
-################################################################################
+# Clean only Objects
+clean:
+	@$(RM) -f *.d *.o
+	@$(RM) -rf $(BUILDDIR)
+	@make $@ -C minilibx-linux
 
-.PHONY : so_long test all run clean fclean re info_making
+
+# Full Clean, Objects and Binaries
+fclean: clean
+	@$(RM) -rf $(TARGETDIR)
+
+
+# Pull in dependency info for *existing* .o files
+-include $(OBJECTS:.$(OBJEXT)=.$(DEPEXT))
+
+# Link
+$(TARGETDIR)/$(TARGET): $(OBJECTS)
+	@mkdir -p $(TARGETDIR)
+	$(CC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB)
+
+# Link Bonus
+$(TARGETDIR)/$(TARGET_BONUS): $(OBJECTS_BONUS)
+	@mkdir -p $(TARGETDIR)
+	$(CC) -o $(TARGETDIR)/$(TARGET) $^ $(LIB)
+
+$(BUILDIR):
+	@mkdir -p $@
+
+# Compile
+$(BUILDDIR)/%.$(OBJEXT): $(SRCDIR)/%.$(SRCEXT)
+	@mkdir -p $(dir $@)
+	@$(ECHO) "$(TARGET)\t\t[$(C_PENDING)⏳$(C_RESET)]"
+	$(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(INCDEP) -MM $(SRCDIR)/$*.$(SRCEXT) > $(BUILDDIR)/$*.$(DEPEXT)
+	@$(ERASE)
+	@$(ERASE)
+	@cp -f $(BUILDDIR)/$*.$(DEPEXT) $(BUILDDIR)/$*.$(DEPEXT).tmp
+	@sed -e 's|.*:|$(BUILDDIR)/$*.$(OBJEXT):|' < $(BUILDDIR)/$*.$(DEPEXT).tmp > $(BUILDDIR)/$*.$(DEPEXT)
+	@sed -e 's/.*://' -e 's/\\$$//' < $(BUILDDIR)/$*.$(DEPEXT).tmp | fmt -1 | sed -e 's/^ *//' -e 's/$$/:/' >> $(BUILDDIR)/$*.$(DEPEXT)
+	@rm -f $(BUILDDIR)/$*.$(DEPEXT).tmp
+
+
+minilibx:
+	@make -C minilibx-linux
+
+
+norm:
+	@$(NORMINETTE) | $(GREP) -v "Not a valid file" | $(GREP) "Error\|Warning" -B 1 || true
+
+# Non-File Targets
+.PHONY: all re clean fclean norm bonus minilibx
