@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    .MakefileBU                                        :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 00:58:00 by flcarval          #+#    #+#              #
-#    Updated: 2022/04/28 01:12:47 by flcarval         ###   ########.fr        #
+#    Updated: 2022/05/09 21:05:26 by flcarval         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,6 @@ fclean:
 	@make fclean -C Mclient
 	@make fclean -C Mserver
 
-re:
-	@make re -C Mclient
-	@make re -C Mserver
+re: fclean all
 
 $(NAME): all
