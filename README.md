@@ -8,7 +8,7 @@
 * ### [push_swap] : [![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2472108)](https://github.com/JaeSeoKim/badge42)
 * ### [Born2beroot](./born2beroot/) : [![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2447035)](https://github.com/JaeSeoKim/badge42)
 * ### [get_next_line] : [![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2445141)](https://github.com/JaeSeoKim/badge42)
-* ### [ft_printf] : [![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2415298)](https://github.com/JaeSeoKim/badge42)
+* ### [ft_printf] : [![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2438166)](https://github.com/JaeSeoKim/badge42)
 * ### [Libft] : ![flcarval's 42Project Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2415298)
 
 
