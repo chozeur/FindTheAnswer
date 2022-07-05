@@ -106,7 +106,7 @@ include <pthread.h>
 .
 int pthread_mutex_destroy(pthread_mutex_t *mutex);
 -*- pthread_mutex_lock
-determine le debut d une zone critique
+lock a mutex <=> determine le debut d une zone critique
 .
 include <pthread.h>
 .
@@ -124,6 +124,11 @@ include <pthread.h>
 .
 int pthread_mutex_unlock(pthread_mutex_t *mutex);
 .
+{pthread_mutex_t *mutex} : adresse du mutex a deverrouiller
+.
+retourne :	0 si tt s est bien passe
+			[EINVAL] si mutex non initialise
+			[EPERM] si le thread n a pas la main sur le mutex
 [THREADS]
 .
 lorsqu un thread est cree (pthread_create) il est lance immediatement et execute sa routine
@@ -141,5 +146,7 @@ creation d un mutex : déclarer une variable du type pthread_mutex_t et l initia
 -> {static pthread_mutex_t mutex_stock = PTHREAD_MUTEX_INITIALIZER;}
 .
 un mutex n a que deux etats possibles : verrouille /  deverouille
+.
+toujours deverouiller les mutex avant la fin d un thread => RISQUE DE "DEAD LOCK" faisant que tous les threads voulant l utiliser plus tard viendront a s arreter
 .
 

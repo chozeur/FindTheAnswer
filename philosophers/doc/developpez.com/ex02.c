@@ -23,12 +23,15 @@ typedef struct
 
 	pthread_t thread_store;
 	pthread_t thread_clients [NB_CLIENTS];
+
+	pthread_mutex_t mutex_stock;
 }
 store_t;
 
 static store_t store =
 {
 	.stock = INITIAL_STOCK,
+	.mutex_stock = PTHREAD_MUTEX_INITIALIZER,
 };
 
 
@@ -49,11 +52,17 @@ static void * fn_store (void * p_data)
 {
 	while (1)
 	{
+		/* Debut de la zone protegee. */
+		pthread_mutex_lock (& store.mutex_stock);
+
 		if (store.stock <= 0)
 		{
 			store.stock = INITIAL_STOCK;
 			printf ("Remplissage du stock de %d articles !\n", store.stock);
 		}
+
+		/* Fin de la zone protegee. */
+		pthread_mutex_unlock (& store.mutex_stock);
 	}
 
 	return NULL;
@@ -69,6 +78,10 @@ static void * fn_clients (void * p_data)
 	{
 		int val = get_random (6);
 
+
+		/* Debut de la zone protegee. */
+		pthread_mutex_lock (& store.mutex_stock);
+
 		psleep (get_random (3));
 
 		store.stock = store.stock - val;
@@ -76,6 +89,9 @@ static void * fn_clients (void * p_data)
 			"Client %d prend %d du stock, reste %d en stock !\n",
 			nb, val, store.stock
 		);
+
+		/* Fin de la zone protegee. */
+		pthread_mutex_unlock (& store.mutex_stock);
 	}
 
 	return NULL;
