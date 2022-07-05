@@ -73,7 +73,9 @@ int pthread_create(pthread_t *restrict thread, const pthread_attr_t *restrict at
 {pthread_t *restrict thread}		: pointeur sur identifiant du thread cree (= [EGAIN] si pas assez de ressources ou si [PTHREAD_THREADS_MAX] est atteint (1024 sous unix))
 {pthread_t *restrict thread}		: pointeur permettant de definir des attributs au thread cree (= NULL pour une creation par defaut)
 {void *(*start_routine)(void *)}	: pointeur sur la foncton a executer par le thread cree
-{void *restrict arg}				: pointeur sur un aargument a passer a la routine
+{void *restrict arg}				: pointeur sur un argument a passer a la routine
+.
+renvoie 0 si la creation a reussi
 -*- pthread_detach
 detach a thread
 .
@@ -81,11 +83,16 @@ include <pthread.h>
 .
 int pthread_detach(pthread_t thread)
 -*- pthread_join
-join with a terminated thread
+met en pause l exécution du thread appelant jusqu au retour de la fonction
 .
 include <pthread.h>
 .
 int pthread_join(pthread_t thread, void **retval)
+.
+retourne :	0 si tt s est bien passe
+			[ESRCH] si aucun thread ne correspond a celui passe en argument
+			[EINVAL] si le thread a ete detach ou si un autre thread attend deja la fin du meme thread
+			[EDEADLK] si le thread passe en argument correspond au thread appelant
 -*- pthread_mutex_init
 initialize a mutex
 .
@@ -99,11 +106,17 @@ include <pthread.h>
 .
 int pthread_mutex_destroy(pthread_mutex_t *mutex);
 -*- pthread_mutex_lock
-lock a mutex
+determine le debut d une zone critique
 .
 include <pthread.h>
 .
 int pthread_mutex_lock(pthread_mutex_t *mutex);
+.
+{pthread_mutex_t *mutex} : adresse du mutex a verrouiller
+.
+retourne :	0 si tt s est bien passe
+			[EINVAL] si mutex non initialise
+			[EDEADLK] si mutex deja verrouille par un thread different
 -*- pthread_mutex_unlock
 unlock a mutex
 .
@@ -113,6 +126,20 @@ int pthread_mutex_unlock(pthread_mutex_t *mutex);
 .
 [THREADS]
 .
-
+lorsqu un thread est cree (pthread_create) il est lance immediatement et execute sa routine
+.
+l execution d un thread se fait soit jusqu a la fin de sa routine soit jusqu a son annulation
+.
+une meme routine peut etre donnee a plusieurs threads
+.
+un thread terminé ne peut être relancé, il faut en créer un nouveau, car un thread qui touche à sa fin est implicitement détruit
 [MUTEX]
 .
+mutex = mutual exclusion = zone d exclusion mutuelle
+.
+creation d un mutex : déclarer une variable du type pthread_mutex_t et l initialiser avec la constante PTHREAD_MUTEX_INITIALIZER
+-> {static pthread_mutex_t mutex_stock = PTHREAD_MUTEX_INITIALIZER;}
+.
+un mutex n a que deux etats possibles : verrouille /  deverouille
+.
+
