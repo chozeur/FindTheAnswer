@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:42:59 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 18:10:21 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/05 18:34:05 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/06 18:03:28 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#ifndef PHILO_H
+# define PHILO_H
 
-int	main(int ac, char **av)
-{
-	t_data	data;
-	if (get_args(ac, av, &data))
-		exit(EXIT_FAILURE);
-	return (0);
-}
+# include "libs.h"
+
+// UTILS
+
+int		ft_atoi(const char *str);
+int		get_args(int ac, char **av, t_data *data);
+
+#endif

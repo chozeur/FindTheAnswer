@@ -18,7 +18,7 @@ rendre le projet dans un dossier /philo/
 -*- arguments du main
 [number_of_philosophers] = nombre de philosophes <=> nombre de fourchettes
 [time_to_die] (ms) = temps imparti avant la mort d un philosophe depuis le DEBUT de son dernier repas
-[time_to_eaat] (ms) = temps que met un philosophe pour manger <=> temps qu il garde ses fourchettes
+[time_to_eat] (ms) = temps que met un philosophe pour manger <=> temps qu il garde ses fourchettes
 [time_to_sleep] (ms) = temps qu un philosophe passe a dormir
 [number_of_times_each_philosopher_must_eat] = si TOUS les philosophes ont mange tant de fois, la simulation s arrete (si pas specifiee -> simulation s arrete a la mort d un philosophe)
 -*- positionnement

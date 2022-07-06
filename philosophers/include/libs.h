@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.h                                     :+:      :+:    :+:   */
+/*   libs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:34:05 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/05 18:40:09 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/06 16:28:00 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/06 18:07:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILOSOPHERS_H
-# define PHILOSOPHERS_H
+#ifndef LIBS_H
+# define LIBS_H
 
 # include <string.h>
 # include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include "colors.h"
+# include "struct.h"
 
 #endif

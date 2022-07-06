@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:42:59 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 18:10:21 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/06 16:33:00 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/philo.h"
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int	main(int ac, char **av)
-{
-	t_data	data;
-	if (get_args(ac, av, &data))
-		exit(EXIT_FAILURE);
-	return (0);
-}
+typedef struct	s_args{
+	int	pnum;
+	int	tt_die;
+	int	tt_eat;
+	int	tt_sleep;
+	int	lunches;
+}	t_args;
+
+typedef struct	s_data{
+	t_args	args;
+}	t_data;
+
+#endif
