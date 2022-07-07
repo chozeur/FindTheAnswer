@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   types.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 16:33:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:45:15 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-typedef struct	s_args{
+typedef long	t_msts;
+typedef int		t_state;
+
+typedef struct s_args{
 	int	pnum;
 	int	tt_die;
 	int	tt_eat;
@@ -21,7 +24,13 @@ typedef struct	s_args{
 	int	lunches;
 }	t_args;
 
-typedef struct	s_data{
+typedef struct s_philo{
+	t_msts	prev_lunch;
+	int		lunches;
+	t_state	state;
+}	t_philo;
+
+typedef struct s_data{
 	t_args	args;
 }	t_data;
 

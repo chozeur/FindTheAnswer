@@ -2,7 +2,7 @@
 .
 un philosophe [mange] OU [dors] OU [pense] (dans cet ordre)
 .
-si un philosophe ne [mange] pas pdt []
+si un philosophe ne [mange] pas pdt [time_to_die] il meurt
 .
 les philosophes ne peuvent pas communiquer entre eux -> ils ne peuvent pas savoir qd l un d eux va mourir
 .
