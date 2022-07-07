@@ -17,6 +17,7 @@ SOURCES		+=                        		\
 ## SRC/INIT ##
 
 SOURCES		+=                        		\
+		src/init/init_philo_tab.c        	\
 		src/init/get_args.c              	\
 
 

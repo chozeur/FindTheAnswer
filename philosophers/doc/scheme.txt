@@ -149,4 +149,10 @@ un mutex n a que deux etats possibles : verrouille /  deverouille
 .
 toujours deverouiller les mutex avant la fin d un thread => RISQUE DE "DEAD LOCK" faisant que tous les threads voulant l utiliser plus tard viendront a s arreter
 .
+[PLAN]
+.
+mettre chaque philosophe dans un thread
+.
+{philo_1} commence par manger, puis {philo_n+2} . . .
+.
 

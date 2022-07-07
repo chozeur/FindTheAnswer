@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:00 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 18:07:22 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:37:07 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include "colors.h"
-# include "struct.h"
+# include "types.h"
 
 #endif
