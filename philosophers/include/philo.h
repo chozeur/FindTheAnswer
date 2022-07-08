@@ -1,14 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                     :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:34:05 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 18:03:28 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 00:13:47 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef PHILO_H
 # define PHILO_H
@@ -21,10 +22,18 @@
 
 // STATES
 
-# define NONE 0
-# define SLEEP 111
-# define THINK 222
-# define EAT 333
+# define S_NONE 0
+# define S_SLEEP 111
+# define S_THINK 222
+# define S_EAT 333
+
+// LOGS
+
+# define L_FORK 100
+# define L_EAT 200
+# define L_SLEEP 300
+# define L_THINK 400
+# define L_DIE 500
 
 // UTILS
 
@@ -43,5 +52,13 @@ int				init_all(t_data *data);
 long			timedif(t_msts ts1, t_msts ts2);
 t_msts			get_timestamp_ms(void);
 
+// LOGS
+
+void			log_man(int action, int id);
+void			log_fork(void);
+void			log_eat(void);
+void			log_sleep(void);
+void			log_think(void);
+void			log_die(void);
 
 #endif

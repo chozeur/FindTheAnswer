@@ -13,6 +13,13 @@ SOURCES		+=                        		\
 		src/routine/routine.c            	\
 
 
+## SRC/LOGS ##
+
+SOURCES		+=                        		\
+		src/logs/log_man.c               	\
+		src/logs/log_ACTION.c            	\
+
+
 ## SRC/TIME ##
 
 SOURCES		+=                        		\

@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/08 18:49:28 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 00:01:31 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_args{
 }	t_args;
 
 typedef struct s_philo{
-	int				num;
+	int				id;
 	t_msts			prev_lunch;
 	int				lunches;
 	t_state			state;
