@@ -28,18 +28,20 @@
 
 // UTILS
 
-int		ft_atoi(const char *str);
-int		free_philo(t_data *data);
+int				ft_atoi(const char *str);
+int				free_philo(t_data *data);
 
 // INIT
 
-int		get_args(int ac, char **av, t_data *data);
-t_philo	*init_philo_tab(int pnum);
+int				get_args(int ac, char **av, t_data *data);
+t_philo			*init_philo_tab(int pnum, t_data *data);
+pthread_mutex_t	*init_forks(int pnum);
+int				init_all(t_data *data);
 
 // TIME
 
-long	timedif(t_msts ts1, t_msts ts2);
-t_msts	get_timestamp_ms(void);
+long			timedif(t_msts ts1, t_msts ts2);
+t_msts			get_timestamp_ms(void);
 
 
 #endif

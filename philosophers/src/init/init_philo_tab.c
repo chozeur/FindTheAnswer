@@ -6,13 +6,15 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:35:50 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/08 17:21:58 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:29:25 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-t_philo	*init_philo_tab(int pnum)
+static int	init(t_philo *tab, t_data *data, int n);
+
+t_philo	*init_philo_tab(int pnum, t_data *data)
 {
 	t_philo	*tab;
 	int		i;
@@ -24,15 +26,22 @@ t_philo	*init_philo_tab(int pnum)
 	i = 0;
 	n = 1;
 	while (i < pnum)
-	{
-		tab[i].prev_lunch = 0;
-		tab[i].lunches = 0;
-		tab[i].state = NONE;
-		tab[i].num = n++;
-		tab[i].fork = malloc(sizeof(pthread_mutex_t));
-		pthread_mutex_init(tab[i].fork, NULL);
-		tab[i].th = malloc(sizeof(pthread_t));
-		i++;
-	}
+		if (init(&tab[i++], data, n++))
+			return (NULL);
 	return (tab);
+}
+
+static int	init(t_philo *tab, t_data *data, int n)
+{
+	tab->prev_lunch = 0;
+	tab->lunches = 0;
+	tab->state = NONE;
+	tab->num = n;
+	tab->left_fork = n - 1;
+	tab->right_fork = n % data->args.pnum;
+	tab->th = malloc(sizeof(pthread_t));
+	if (!tab->th)
+		return (1);
+	tab->data = data;
+	return (0);
 }

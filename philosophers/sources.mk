@@ -3,8 +3,14 @@
 ## SRC ##
 
 SOURCES		+=                        		\
-		src/tests.c                      	\
 		src/main.c                       	\
+		src/tests.c                      	\
+
+
+## SRC/ROUTINE ##
+
+SOURCES		+=                        		\
+		src/routine/routine.c            	\
 
 
 ## SRC/TIME ##
@@ -14,17 +20,19 @@ SOURCES		+=                        		\
 		src/time/get_timestamp_ms.c      	\
 
 
-## SRC/UTILS ##
-
-SOURCES		+=                        		\
-		src/utils/free_philo.c           	\
-		src/utils/ft_atoi.c              	\
-
-
 ## SRC/INIT ##
 
 SOURCES		+=                        		\
 		src/init/init_philo_tab.c        	\
 		src/init/get_args.c              	\
+		src/init/init_forks.c            	\
+		src/init/init_all.c              	\
+
+
+## SRC/UTILS ##
+
+SOURCES		+=                        		\
+		src/utils/ft_atoi.c              	\
+		src/utils/free_philo.c           	\
 
 

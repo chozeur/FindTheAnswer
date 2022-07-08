@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_philo.c                                       :+:      :+:    :+:   */
+/*   init_forks.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 03:40:15 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/08 19:31:47 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/08 18:51:27 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/08 19:01:57 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-int	free_philo(t_data *data)
+pthread_mutex_t	*init_forks(int pnum)
 {
-	int	i;
+	pthread_mutex_t	*forks;
+	int				i;
 
+	forks = malloc(sizeof(pthread_mutex_t) * pnum);
+	if (!forks)
+		return (NULL);
 	i = 0;
-	while (i < data->args.pnum)
-		free(data->table[i++].th);
-	i = 0;
-	// while (i < data->args.pnum)
-	// 	free(data->forks[i++]);
-	free(data->table);
-	return (0);
+	while (i < pnum)
+		pthread_mutex_init(&forks[i++], NULL);
+	return (forks);
 }
