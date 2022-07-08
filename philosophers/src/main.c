@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:42:59 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 00:22:18 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 01:14:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int test(t_data *data)
 	int i = 100;
 	while (i < L_DIE)
 	{
-		log_man(i += 100, data->table[1].id);
+		log_man(i += 100, data->table[1].id, data);
 		usleep(1 * SEC);
 	}
 	return (0);

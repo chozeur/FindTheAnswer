@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 00:13:47 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 01:14:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_msts			get_timestamp_ms(void);
 
 // LOGS
 
-void			log_man(int action, int id);
+void			log_man(int action, int id, t_data *data);
 void			log_fork(void);
 void			log_eat(void);
 void			log_sleep(void);

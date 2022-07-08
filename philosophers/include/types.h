@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 00:01:31 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 01:00:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data{
 	t_args			args;
 	t_philo			*table;
 	pthread_mutex_t	*forks;
+	t_msts			ts_begin;
 }	t_data;
 
 #endif
