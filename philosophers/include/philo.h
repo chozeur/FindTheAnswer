@@ -29,10 +29,12 @@
 // UTILS
 
 int		ft_atoi(const char *str);
+int		free_philo(t_data *data);
 
 // INIT
 
 int		get_args(int ac, char **av, t_data *data);
+t_philo	*init_philo_tab(int pnum);
 
 // TIME
 
