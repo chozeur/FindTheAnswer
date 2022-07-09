@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 17:28:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:12:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@
 # define L_THINK 400
 # define L_DIE 500
 
+/////////////////////////////////////////
+// DEBUG
+# define DEBUG printf("%sdebug%s\n", BLU, NC);
+/////////////////////////////////////////
 // UTILS
 
 int				ft_atoi(const char *str);
