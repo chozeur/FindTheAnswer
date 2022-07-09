@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_forks.c                                       :+:      :+:    :+:   */
+/*   stop_it.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 18:51:27 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 04:19:06 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/09 03:19:00 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 03:35:43 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-pthread_mutex_t	*init_forks(int pnum)
+void	stop_it(long tms)
 {
-	pthread_mutex_t	*forks;
-	int				i;
+	t_msts	ts;
+	t_msts	i;
 
-	forks = malloc(sizeof(pthread_mutex_t) * pnum);
-	if (!forks)
-		return (NULL);
-	i = 0;
-	while (i < pnum)
+	ts = get_timestamp_ms();
+	i = get_timestamp_ms();
+	while (i - ts < tms)
 	{
-		pthread_mutex_init(&forks[i], NULL);
-		i++;
+		i = get_timestamp_ms();
+		// printf("tms = %ld\tts = %ld\ti = %ld\n", tms, ts, i);
+		continue ;
 	}
-	return (forks);
 }

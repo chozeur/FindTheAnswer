@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:35:50 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 01:55:25 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 04:09:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ t_philo	*init_philo_tab(int pnum, t_data *data)
 	i = 0;
 	n = 1;
 	while (i < pnum)
+	{
 		if (init(&tab[i++], data, n++))
 			return (NULL);
+	}
 	return (tab);
 }
 

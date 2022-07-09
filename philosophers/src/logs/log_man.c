@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:54:00 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 01:13:40 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 04:16:13 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	log_man(int action, int id, t_data *data)
 	t_msts	ts;
 
 	ts = get_timestamp_ms() - data->ts_begin;
+	pthread_mutex_lock(&data->write);
 	printf("%s%ld%s %s%d%s ",YEL, ts, NC, BLU, id, NC);
 	if (action == L_FORK)
 		log_fork();
@@ -28,4 +29,5 @@ void	log_man(int action, int id, t_data *data)
 		log_think();
 	else if (action == L_DIE)
 		log_die();
+	pthread_mutex_unlock(&data->write);
 }

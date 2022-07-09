@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 01:43:09 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:10:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 03:45:18 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	eat(t_philo *philo)
 	log_man(L_FORK, philo->id, philo->data);
 	((t_philo *)philo)->state = S_EAT;
 	log_man(L_EAT, philo->id, philo->data);
-	usleep(philo->data->args.tt_eat);
+	stop_it(philo->data->args.tt_eat);
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
 }

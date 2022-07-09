@@ -45,5 +45,6 @@ SOURCES		+=                        		\
 SOURCES		+=                        		\
 		src/utils/ft_atoi.c              	\
 		src/utils/free_philo.c           	\
+		src/utils/stop_it.c              	\
 
 

@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 02:17:35 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:27:19 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 02:40:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	launch_it(t_data *data)
 	while (i < data->args.pnum)
 	{
 		pthread_create(data->table[i].th, NULL, &routine, &data->table[i]);
-		pthread_join(*data->table[i].th, NULL);
+		// pthread_join(*data->table[i].th, NULL);
 		i++;
 	}
 }

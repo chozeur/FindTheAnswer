@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:31:00 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 03:23:54 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 int				ft_atoi(const char *str);
 int				free_philo(t_data *data);
+void			stop_it(long tms);
 
 // INIT
 
