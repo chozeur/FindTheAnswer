@@ -6,12 +6,12 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 06:10:51 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 19:07:52 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#ifndef TYPES_H
+# define TYPES_H
 
 typedef long	t_msts;
 typedef int		t_state;
