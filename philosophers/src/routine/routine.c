@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 18:44:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:50:51 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	*routine(void *philo)
 		{
 			eat((t_philo *)philo);
 		}
-		if (is_dead(((t_philo *)philo)->data))
+		if (is_dead(((t_philo *)philo)->data) || ((((t_philo *)philo)->lunches >= ((t_philo *)philo)->data->args.lunches) \
+		&& ((t_philo *)philo)->data->args.lunches))
 		{
 			pthread_join(life, NULL);
 			return (NULL);
