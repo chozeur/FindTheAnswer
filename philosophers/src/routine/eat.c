@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 01:43:09 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 18:22:52 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:27:09 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void	eat(t_philo *philo)
 	stop_it(philo->data->args.tt_eat, philo, 2);
 	pthread_mutex_unlock(philo->right_fork);
 	pthread_mutex_unlock(philo->left_fork);
+	philo->lunches++;
 }

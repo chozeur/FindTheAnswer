@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 18:13:34 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:44:56 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	*routine(void *philo)
 	pthread_t	life;
 
 	pthread_create(&life, NULL, &die, ((t_philo *)philo));
-	while (!is_dead(((t_philo *)philo)->data))
+	while (!is_dead(((t_philo *)philo)->data) \
+		&& ((((t_philo *)philo)->lunches < ((t_philo *)philo)->data->args.lunches) \
+		|| !((t_philo *)philo)->data->args.lunches))
 	{
 		if (((t_philo *)philo)->state == S_THINK)
 		{

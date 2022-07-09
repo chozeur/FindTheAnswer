@@ -6,13 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:09:42 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 01:31:17 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 18:44:04 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-static int	check_args(t_args args);
+static int	check_args(t_args *args);
 static int	args_error(void);
 static int	invalid_args(void);
 
@@ -28,16 +28,16 @@ int	get_args(int ac, char **av, t_data *data)
 		data->args.lunches = ft_atoi(av[5]);
 	else
 		data->args.lunches = -1;
-	return (check_args(data->args));
+	return (check_args(&data->args));
 }
 
-static int	check_args(t_args args)
+static int	check_args(t_args *args)
 {
-	if ((args.lunches == 0 || args.pnum <= 0 || args.tt_die <= 0 \
-		|| args.tt_eat <= 0 || args.tt_sleep <= 0))
+	if ((args->lunches == 0 || args->pnum <= 0 || args->tt_die <= 0 \
+		|| args->tt_eat <= 0 || args->tt_sleep <= 0))
 		return (invalid_args());
-	if (args.lunches == -1)
-		args.lunches = 0;
+	if (args->lunches == -1)
+		args->lunches = 0;
 	return (0);
 }
 
