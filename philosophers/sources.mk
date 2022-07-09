@@ -4,7 +4,6 @@
 
 SOURCES		+=                        		\
 		src/main.c                       	\
-		src/tests.c                      	\
 
 
 ## SRC/ROUTINE ##

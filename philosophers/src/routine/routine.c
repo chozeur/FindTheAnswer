@@ -6,11 +6,13 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 19:12:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 19:17:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
+
+static void	*wait_for_life(pthread_t *life);
 
 void	*routine(void *philo)
 {
@@ -27,20 +29,19 @@ void	*routine(void *philo)
 		if (is_dead(((t_philo *)philo)->data) || ((((t_philo *)philo)->lunches \
 		>= ((t_philo *)philo)->data->args.lunches) \
 		&& ((t_philo *)philo)->data->args.lunches))
-		{
-			pthread_join(life, NULL);
-			return (NULL);
-		}
+			return (wait_for_life(&life));
 		if (((t_philo *)philo)->state == S_EAT)
 			asleep((t_philo *)philo);
 		if (is_dead(((t_philo *)philo)->data))
-		{
-			pthread_join(life, NULL);
-			return (NULL);
-		}
+			return (wait_for_life(&life));
 		if (((t_philo *)philo)->state == S_SLEEP)
 			think((t_philo *)philo);
 	}
-	pthread_join(life, NULL);
+	return (wait_for_life(&life));
+}
+
+static void	*wait_for_life(pthread_t *life)
+{
+	pthread_join(*life, NULL);
 	return (NULL);
 }
