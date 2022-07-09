@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:42:59 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 04:16:48 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 05:27:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	main(int ac, char **av)
 	launch_it(&data);
 	i = 0;
 	while (i < data.args.pnum)
-		pthread_join(*data.table[i++].th, NULL);
+		pthread_detach(*data.table[i++].th/*, NULL*/);
+	while (!data.dead)
+		continue ;
 	return (free_philo(&data));
 }
 

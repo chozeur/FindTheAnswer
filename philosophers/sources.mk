@@ -11,6 +11,7 @@ SOURCES		+=                        		\
 
 SOURCES		+=                        		\
 		src/routine/routine.c            	\
+		src/routine/die.c                	\
 		src/routine/eat.c                	\
 		src/routine/sleep.c              	\
 		src/routine/think.c              	\
@@ -43,6 +44,7 @@ SOURCES		+=                        		\
 ## SRC/UTILS ##
 
 SOURCES		+=                        		\
+		src/utils/is_dead.c              	\
 		src/utils/ft_atoi.c              	\
 		src/utils/free_philo.c           	\
 		src/utils/stop_it.c              	\

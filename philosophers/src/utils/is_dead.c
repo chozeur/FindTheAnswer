@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stop_it.c                                          :+:      :+:    :+:   */
+/*   is_dead.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 03:19:00 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 06:03:40 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/09 05:44:41 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 06:04:48 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	stop_it(long tms, t_data *data)
+int	is_dead(t_data *data)
 {
-	t_msts	ts;
+	int	dead;
 
-	ts = get_timestamp_ms();
-	while (get_timestamp_ms() - ts < tms)
-	{
-		if (is_dead(data))
-			return ;
-		continue ;
-	}
+	pthread_mutex_lock(&data->life);
+		dead = data->dead;
+	pthread_mutex_unlock(&data->life);
+	return (dead);
 }
