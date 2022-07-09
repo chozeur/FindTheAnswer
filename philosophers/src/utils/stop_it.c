@@ -6,18 +6,18 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 03:19:00 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 17:13:18 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:29:01 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	stop_it(t_philo *philo, int forks)
+int	stop_it(t_msts wait, t_philo *philo, int forks)
 {
 	t_msts	ts;
 
 	ts = get_timestamp_ms();
-	while (get_timestamp_ms() - ts < philo->prev_lunch)
+	while (get_timestamp_ms() - ts < wait)
 	{
 		if (is_dead(philo->data))
 		{
@@ -25,8 +25,9 @@ void	stop_it(t_philo *philo, int forks)
 				pthread_mutex_unlock(philo->left_fork);
 			else if (forks == 2)
 				pthread_mutex_unlock(philo->right_fork);
-			return ;
+			return (1);
 		}
 		continue ;
 	}
+	return (0);
 }

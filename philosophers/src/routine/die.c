@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:31 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 05:43:39 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:32:21 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ void	*die(void *philo)
 		continue ;
 	}
 	pthread_mutex_lock(&((t_philo *)philo)->data->life);
+	if (!((t_philo *)philo)->data->dead)
+		log_man(L_DIE, ((t_philo *)philo)->id, ((t_philo *)philo)->data);
 	((t_philo *)philo)->data->dead = 1;
 	pthread_mutex_unlock(&((t_philo *)philo)->data->life);
-	log_man(L_DIE, ((t_philo *)philo)->id, ((t_philo *)philo)->data);
 	return (NULL);
 }

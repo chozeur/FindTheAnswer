@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 17:11:56 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:28:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 int				ft_atoi(const char *str);
 int				free_philo(t_data *data);
-void			stop_it(t_philo *philo, int forks);
+int				stop_it(t_msts wait, t_philo *philo, int forks);
 int				is_dead(t_data *data);
 
 // INIT
