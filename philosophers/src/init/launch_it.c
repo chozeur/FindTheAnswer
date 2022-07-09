@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   routine.c                                          :+:      :+:    :+:   */
+/*   launch_it.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:26:26 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/09 02:17:35 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 02:27:19 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	*routine(void *philo)
+void	launch_it(t_data *data)
 {
-	while (1)
+	int	i;
+
+	i = 0;
+	while (i < data->args.pnum)
 	{
-		if (((t_philo *)philo)->state == S_THINK)
-		{
-			eat((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_EAT)
-		{
-			asleep((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_SLEEP)
-		{
-			think((t_philo *)philo);
-		}
+		pthread_create(data->table[i].th, NULL, &routine, &data->table[i]);
+		pthread_join(*data->table[i].th, NULL);
+		i++;
 	}
 }

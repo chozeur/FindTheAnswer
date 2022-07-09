@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   routine.c                                          :+:      :+:    :+:   */
+/*   think.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:26:26 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/09 02:13:14 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 02:13:59 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	*routine(void *philo)
+void	think(t_philo *philo)
 {
-	while (1)
-	{
-		if (((t_philo *)philo)->state == S_THINK)
-		{
-			eat((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_EAT)
-		{
-			asleep((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_SLEEP)
-		{
-			think((t_philo *)philo);
-		}
-	}
+	philo->state = S_THINK;
 }

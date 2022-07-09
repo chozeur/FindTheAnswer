@@ -11,6 +11,9 @@ SOURCES		+=                        		\
 
 SOURCES		+=                        		\
 		src/routine/routine.c            	\
+		src/routine/eat.c                	\
+		src/routine/sleep.c              	\
+		src/routine/think.c              	\
 
 
 ## SRC/LOGS ##
@@ -33,6 +36,7 @@ SOURCES		+=                        		\
 		src/init/init_philo_tab.c        	\
 		src/init/get_args.c              	\
 		src/init/init_forks.c            	\
+		src/init/launch_it.c             	\
 		src/init/init_all.c              	\
 
 

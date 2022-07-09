@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 01:14:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 02:26:22 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 
 // STATES
 
-# define S_NONE 0
 # define S_SLEEP 111
 # define S_THINK 222
 # define S_EAT 333
@@ -46,6 +45,7 @@ int				get_args(int ac, char **av, t_data *data);
 t_philo			*init_philo_tab(int pnum, t_data *data);
 pthread_mutex_t	*init_forks(int pnum);
 int				init_all(t_data *data);
+void			launch_it(t_data *data);
 
 // TIME
 
@@ -60,5 +60,12 @@ void			log_eat(void);
 void			log_sleep(void);
 void			log_think(void);
 void			log_die(void);
+
+// ROUTINE
+
+void			*routine(void *philo);
+void			eat(t_philo *philo);
+void			asleep(t_philo *philo);
+void			think(t_philo *philo);
 
 #endif

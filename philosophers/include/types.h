@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 01:00:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 01:46:18 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ typedef struct s_philo{
 	t_msts			prev_lunch;
 	int				lunches;
 	t_state			state;
-	int				left_fork;
-	int				right_fork;
+	pthread_mutex_t	*left_fork;
+	pthread_mutex_t	*right_fork;
 	pthread_t		*th;
 	struct s_data	*data;
 }	t_philo;

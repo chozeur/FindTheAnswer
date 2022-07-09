@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   routine.c                                          :+:      :+:    :+:   */
+/*   eat.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 17:36:46 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 02:26:26 by flcarval         ###   ########.fr       */
+/*   Created: 2022/07/09 01:43:09 by flcarval          #+#    #+#             */
+/*   Updated: 2022/07/09 02:10:36 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
-void	*routine(void *philo)
+void	eat(t_philo *philo)
 {
-	while (1)
-	{
-		if (((t_philo *)philo)->state == S_THINK)
-		{
-			eat((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_EAT)
-		{
-			asleep((t_philo *)philo);
-		}
-		else if (((t_philo *)philo)->state == S_SLEEP)
-		{
-			think((t_philo *)philo);
-		}
-	}
+	pthread_mutex_lock(philo->left_fork);
+	log_man(L_FORK, philo->id, philo->data);
+	pthread_mutex_lock(philo->right_fork);
+	log_man(L_FORK, philo->id, philo->data);
+	((t_philo *)philo)->state = S_EAT;
+	log_man(L_EAT, philo->id, philo->data);
+	usleep(philo->data->args.tt_eat);
+	pthread_mutex_unlock(philo->right_fork);
+	pthread_mutex_unlock(philo->left_fork);
 }

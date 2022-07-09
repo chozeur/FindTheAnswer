@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:09:42 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/06 18:27:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/09 01:31:17 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ static int	check_args(t_args args)
 	if ((args.lunches == 0 || args.pnum <= 0 || args.tt_die <= 0 \
 		|| args.tt_eat <= 0 || args.tt_sleep <= 0))
 		return (invalid_args());
-	else
-		return (0);
+	if (args.lunches == -1)
+		args.lunches = 0;
+	return (0);
 }
 
 static int	args_error(void)
