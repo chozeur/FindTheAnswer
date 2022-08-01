@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:31 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/14 13:46:33 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/14 18:34:42 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ void	*die(void *philo)
 	pthread_mutex_lock(&((t_philo *)philo)->data->m_data);
 	if (((t_philo *)philo)->lunches >= ((t_philo *)philo)->data->args.lunches \
 		&& ((t_philo *)philo)->data->args.lunches)
+	{
+		pthread_mutex_unlock(&((t_philo *)philo)->m_philo);
+		pthread_mutex_unlock(&((t_philo *)philo)->data->m_data);
 		return (NULL);
+	}
 	pthread_mutex_unlock(&((t_philo *)philo)->m_philo);
 	pthread_mutex_unlock(&((t_philo *)philo)->data->m_data);
 	pthread_mutex_lock(&((t_philo *)philo)->data->m_life);
