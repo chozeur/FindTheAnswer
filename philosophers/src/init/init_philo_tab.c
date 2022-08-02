@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:35:50 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 04:09:21 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/07/14 13:29:06 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static int	init(t_philo *tab, t_data *data, int n)
 {
 	tab->prev_lunch = 0;
 	tab->lunches = 0;
+	pthread_mutex_init(&tab->m_prev_lunch, NULL);
+	pthread_mutex_init(&tab->m_philo, NULL);
 	tab->state = S_THINK;
 	tab->id = n;
 	tab->left_fork = &data->forks[n - 1];
