@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:31 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/14 18:34:42 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/02 15:37:11 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,17 @@
 void	*die(void *philo)
 {
 	t_msts	ts;
+	t_msts	dif;
 
 	ts = get_timestamp_ms();
-	while (get_timestamp_ms() - ts < ((t_philo *)philo)->data->args.tt_die)
+	dif = get_timestamp_ms() - ts;
+	while (dif < ((t_philo *)philo)->data->args.tt_die)
 	{
 		pthread_mutex_lock(&((t_philo *)philo)->m_prev_lunch);
 		if (((t_philo *)philo)->prev_lunch)
 			ts = ((t_philo *)philo)->prev_lunch;
 		pthread_mutex_unlock(&((t_philo *)philo)->m_prev_lunch);
-		continue ;
+		dif = get_timestamp_ms() - ts;
 	}
 	pthread_mutex_lock(&((t_philo *)philo)->m_philo);
 	pthread_mutex_lock(&((t_philo *)philo)->data->m_data);
@@ -38,7 +40,10 @@ void	*die(void *philo)
 	pthread_mutex_unlock(&((t_philo *)philo)->data->m_data);
 	pthread_mutex_lock(&((t_philo *)philo)->data->m_life);
 	if (!((t_philo *)philo)->data->dead)
+	{
+		pthread_mutex_unlock(&((t_philo *)philo)->data->m_life);
 		log_man(L_DIE, ((t_philo *)philo)->id, ((t_philo *)philo)->data);
+	}
 	((t_philo *)philo)->data->dead = 1;
 	pthread_mutex_unlock(&((t_philo *)philo)->data->m_life);
 	return (NULL);
