@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:31 by flcarval          #+#    #+#             */
-/*   Updated: 2022/08/02 15:37:11 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:47:35 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	*die(void *philo)
 	}
 	pthread_mutex_unlock(&((t_philo *)philo)->m_philo);
 	pthread_mutex_unlock(&((t_philo *)philo)->data->m_data);
-	pthread_mutex_lock(&((t_philo *)philo)->data->m_life);
+	pthread_mutex_lock(&((t_philo *)philo)->data->m_dead);
 	if (!((t_philo *)philo)->data->dead)
 	{
-		pthread_mutex_unlock(&((t_philo *)philo)->data->m_life);
+		pthread_mutex_unlock(&((t_philo *)philo)->data->m_dead);
 		log_man(L_DIE, ((t_philo *)philo)->id, ((t_philo *)philo)->data);
 	}
-	((t_philo *)philo)->data->dead = 1;
-	pthread_mutex_unlock(&((t_philo *)philo)->data->m_life);
+	else
+		pthread_mutex_unlock(&((t_philo *)philo)->data->m_dead);
 	return (NULL);
 }

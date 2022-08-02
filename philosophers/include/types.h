@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:28:03 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/14 13:28:48 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/02 16:27:27 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_data{
 	pthread_mutex_t	*forks;
 	t_msts			ts_begin;
 	pthread_mutex_t	m_write;
-	pthread_mutex_t	m_life;
+	pthread_mutex_t	m_dead;
 	int				dead;
 	pthread_t		check;
 }	t_data;
