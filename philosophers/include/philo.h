@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 23:36:45 by flcarval          #+#    #+#             */
-/*   Updated: 2022/07/09 19:08:36 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/03 14:49:58 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 # define L_SLEEP 300
 # define L_THINK 400
 # define L_DIE 500
+
+//	DEBUG
+
+# define DEBUG printf("debug\n");
 
 // UTILS
 
