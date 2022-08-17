@@ -6,27 +6,17 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 04:41:31 by flcarval          #+#    #+#             */
-/*   Updated: 2022/08/03 14:54:48 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/17 16:42:40 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/philo.h"
 
+static void	die_loop(t_philo *philo);
+
 void	*die(void *philo)
 {
-	t_msts	ts;
-	t_msts	dif;
-
-	ts = get_timestamp_ms();
-	dif = get_timestamp_ms() - ts;
-	while (dif < ((t_philo *)philo)->data->args.tt_die)
-	{
-		pthread_mutex_lock(&((t_philo *)philo)->m_prev_lunch);
-		if (((t_philo *)philo)->prev_lunch)
-			ts = ((t_philo *)philo)->prev_lunch;
-		pthread_mutex_unlock(&((t_philo *)philo)->m_prev_lunch);
-		dif = get_timestamp_ms() - ts;
-	}
+	die_loop((t_philo *)philo);
 	pthread_mutex_lock(&((t_philo *)philo)->m_philo);
 	pthread_mutex_lock(&((t_philo *)philo)->data->m_data);
 	if (((t_philo *)philo)->lunches >= ((t_philo *)philo)->data->args.lunches \
@@ -48,4 +38,21 @@ void	*die(void *philo)
 	else
 		pthread_mutex_unlock(&((t_philo *)philo)->data->m_dead);
 	return (NULL);
+}
+
+static void	die_loop(t_philo *philo)
+{
+	t_msts	ts;
+	t_msts	dif;
+
+	ts = get_timestamp_ms();
+	dif = get_timestamp_ms() - ts;
+	while (dif < philo->data->args.tt_die)
+	{
+		pthread_mutex_lock(&philo->m_prev_lunch);
+		if (philo->prev_lunch)
+			ts = philo->prev_lunch;
+		pthread_mutex_unlock(&philo->m_prev_lunch);
+		dif = get_timestamp_ms() - ts;
+	}
 }
