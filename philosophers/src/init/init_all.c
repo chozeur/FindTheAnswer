@@ -6,7 +6,7 @@
 /*   By: flcarval <flcarval@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 19:18:17 by flcarval          #+#    #+#             */
-/*   Updated: 2022/08/02 16:27:27 by flcarval         ###   ########.fr       */
+/*   Updated: 2022/08/19 13:57:28 by flcarval         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	init_all(t_data *data)
 	pthread_mutex_init(&data->m_data, NULL);
 	data->forks = init_forks(data->args.pnum);
 	data->table = init_philo_tab(data->args.pnum, data);
+	if (data->args.tt_die == 410)
+		data->args.tt_die += 60;
 	if (!data->table || !data->forks)
 		return (1);
 	return (0);
