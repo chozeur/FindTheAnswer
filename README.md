@@ -3,6 +3,8 @@
 </p>
 
 # Projects
+* ### netpractice : [![flcarval's 42 NetPractice Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2816645)](https://github.com/JaeSeoKim/badge42)
+* ### [cub3d] : [![flcarval's 42 cub3d Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2748071)](https://github.com/JaeSeoKim/badge42)
 * ### [philosophers] : [![flcarval's 42 Philosophers Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2652684)](https://github.com/JaeSeoKim/badge42)
 * ### [minishell] : [![flcarval's 42 minishell Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2595455)](https://github.com/JaeSeoKim/badge42)
 * ### [so_long] : [![flcarval's 42 so_long Score](https://badge42.vercel.app/api/v2/cl1lmiew3000609l599o75f45/project/2543232)](https://github.com/JaeSeoKim/badge42)
@@ -37,3 +39,4 @@
 [so_long]:https://github.com/chozeur/so_long
 [minishell]:https://github.com/chozeur/minishell
 [philosophers]:./philosophers
+[cub3d]:https://github.com/chozeur/cub3d
